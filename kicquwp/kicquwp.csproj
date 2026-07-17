@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{C3612499-56DB-4161-82A2-FB501E87C85E}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kicquwp</RootNamespace>
+    <AssemblyName>kicquwp</AssemblyName>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>kicquwp_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AccountInfoPage.xaml.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Backgroundtask.cs" />
+    <Compile Include="BoolToVisibilityConverter.cs" />
+    <Compile Include="ByteToOpacityConverter.cs" />
+    <Compile Include="ChatPage.xaml.cs" />
+    <Compile Include="Contact.cs" />
+    <Compile Include="Contactgroup.cs" />
+    <Compile Include="ContactInfo.cs" />
+    <Compile Include="ContactStorage.cs" />
+    <Compile Include="Controlchannelservice.cs" />
+    <Compile Include="EmojiManager.cs" />
+    <Compile Include="FeatureItem.xaml.cs">
+      <DependentUpon>FeatureItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InfoPage.xaml.cs" />
+    <Compile Include="LoginPage.xaml.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Message.cs" />
+    <Compile Include="Notificationservice.cs" />
+    <Compile Include="OscarProtocol.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reconnectservice.cs" />
+    <Compile Include="SearchPage.xaml.cs" />
+    <Compile Include="SettingsManager.cs" />
+    <Compile Include="Settingspage.xaml.cs" />
+    <Compile Include="SoundService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="app.manifest" />
+    <None Include="Assets\Logo.scale-240.png~" />
+    <None Include="Assets\SmallLogo.scale-240.png~" />
+    <None Include="Assets\Square71x71Logo.scale-240.png~" />
+    <None Include="Assets\statuses\Readme" />
+    <None Include="Assets\StoreLogo.scale-240.png~" />
+    <None Include="Assets\WideLogo.scale-240.png~" />
+    <None Include="kicquwp_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\away.png" />
+    <Content Include="Assets\busy.png" />
+    <Content Include="Assets\depressed.png" />
+    <Content Include="Assets\desc.txt" />
+    <Content Include="Assets\dnd.png" />
+    <Content Include="Assets\eating.png" />
+    <Content Include="Assets\emoji\aa.gif" />
+    <Content Include="Assets\emoji\ab.gif" />
+    <Content Include="Assets\emoji\ac.gif" />
+    <Content Include="Assets\emoji\ad.gif" />
+    <Content Include="Assets\emoji\ae.gif" />
+    <Content Include="Assets\emoji\af.gif" />
+    <Content Include="Assets\emoji\ag.gif" />
+    <Content Include="Assets\emoji\ah.gif" />
+    <Content Include="Assets\emoji\ai.gif" />
+    <Content Include="Assets\emoji\aj.gif" />
+    <Content Include="Assets\emoji\ak.gif" />
+    <Content Include="Assets\emoji\al.gif" />
+    <Content Include="Assets\emoji\am.gif" />
+    <Content Include="Assets\emoji\an.gif" />
+    <Content Include="Assets\emoji\ao.gif" />
+    <Content Include="Assets\emoji\ap.gif" />
+    <Content Include="Assets\emoji\aq.gif" />
+    <Content Include="Assets\emoji\ar.gif" />
+    <Content Include="Assets\emoji\as.gif" />
+    <Content Include="Assets\emoji\at.gif" />
+    <Content Include="Assets\emoji\au.gif" />
+    <Content Include="Assets\emoji\av.gif" />
+    <Content Include="Assets\emoji\aw.gif" />
+    <Content Include="Assets\emoji\ax.gif" />
+    <Content Include="Assets\emoji\ay.gif" />
+    <Content Include="Assets\emoji\az.gif" />
+    <Content Include="Assets\emoji\ba.gif" />
+    <Content Include="Assets\emoji\bb.gif" />
+    <Content Include="Assets\emoji\bc.gif" />
+    <Content Include="Assets\emoji\bd.gif" />
+    <Content Include="Assets\emoji\be.gif" />
+    <Content Include="Assets\emoji\bf.gif" />
+    <Content Include="Assets\emoji\bg.gif" />
+    <Content Include="Assets\emoji\bh.gif" />
+    <Content Include="Assets\emoji\bi.gif" />
+    <Content Include="Assets\emoji\bj.gif" />
+    <Content Include="Assets\emoji\bk.gif" />
+    <Content Include="Assets\emoji\bl.gif" />
+    <Content Include="Assets\emoji\bm.gif" />
+    <Content Include="Assets\emoji\bn.gif" />
+    <Content Include="Assets\emoji\bo.gif" />
+    <Content Include="Assets\emoji\bp.gif" />
+    <Content Include="Assets\emoji\bq.gif" />
+    <Content Include="Assets\emoji\br.gif" />
+    <Content Include="Assets\emoji\bs.gif" />
+    <Content Include="Assets\emoji\bt.gif" />
+    <Content Include="Assets\emoji\bu.gif" />
+    <Content Include="Assets\emoji\bv.gif" />
+    <Content Include="Assets\emoji\bw.gif" />
+    <Content Include="Assets\evil.png" />
+    <Content Include="Assets\f4c.png" />
+    <Content Include="Assets\home.png" />
+    <Content Include="Assets\icons\added.png" />
+    <Content Include="Assets\icons\newmsg.png" />
+    <Content Include="Assets\ifa.png" />
+    <Content Include="Assets\inv.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Logo.scale-140.png" />
+    <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\Logo_ICQ.png" />
+    <Content Include="Assets\MedLogo--.png" />
+    <Content Include="Assets\MedLogo-.png" />
+    <Content Include="Assets\MedLogo.png" />
+    <Content Include="Assets\na.png" />
+    <Content Include="Assets\nicl.png" />
+    <Content Include="Assets\offline.png" />
+    <Content Include="Assets\online.png" />
+    <Content Include="Assets\SmallLogo.scale-240.png" />
+    <Content Include="Assets\Sounds\auth.wav" />
+    <Content Include="Assets\Sounds\error.wav" />
+    <Content Include="Assets\Sounds\message.wav" />
+    <Content Include="Assets\Sounds\notification.wav" />
+    <Content Include="Assets\Sounds\online.wav" />
+    <Content Include="Assets\Sounds\sndMsgSent.wav" />
+    <Content Include="Assets\Sounds\sndRemSelf.wav" />
+    <Content Include="Assets\Sounds\sndSystem.wav" />
+    <Content Include="Assets\SplashScreen.scale-240.png" />
+    <Content Include="Assets\Square71x71Logo.scale-100.png" />
+    <Content Include="Assets\Square71x71Logo.scale-240.png" />
+    <Content Include="Assets\statuses\away.png" />
+    <Content Include="Assets\statuses\busy.png" />
+    <Content Include="Assets\statuses\depressed.png" />
+    <Content Include="Assets\statuses\dnd.png" />
+    <Content Include="Assets\statuses\eating.png" />
+    <Content Include="Assets\statuses\evil.png" />
+    <Content Include="Assets\statuses\f4c.png" />
+    <Content Include="Assets\statuses\home.png" />
+    <Content Include="Assets\statuses\ifa.png" />
+    <Content Include="Assets\statuses\inv.png" />
+    <Content Include="Assets\statuses\na.png" />
+    <Content Include="Assets\statuses\nicl.png" />
+    <Content Include="Assets\statuses\offline.png" />
+    <Content Include="Assets\statuses\online.png" />
+    <Content Include="Assets\statuses\unknown.png" />
+    <Content Include="Assets\statuses\work.png" />
+    <Content Include="Assets\StoreLogo.scale-240.png" />
+    <Content Include="Assets\WideLogo-.png" />
+    <Content Include="Assets\WideLogo.scale-100.png" />
+    <Content Include="Assets\WideLogo.scale-240.png" />
+    <Content Include="Assets\xtraz\angry.png" />
+    <Content Include="Assets\xtraz\bath.png" />
+    <Content Include="Assets\xtraz\beer.png" />
+    <Content Include="Assets\xtraz\business.png" />
+    <Content Include="Assets\xtraz\camera.png" />
+    <Content Include="Assets\xtraz\coffee.png" />
+    <Content Include="Assets\xtraz\cpc.png" />
+    <Content Include="Assets\xtraz\eating.png" />
+    <Content Include="Assets\xtraz\friends.png" />
+    <Content Include="Assets\xtraz\funny.png" />
+    <Content Include="Assets\xtraz\game.png" />
+    <Content Include="Assets\xtraz\heart.png" />
+    <Content Include="Assets\xtraz\internet.png" />
+    <Content Include="Assets\xtraz\mobph.png" />
+    <Content Include="Assets\xtraz\music.png" />
+    <Content Include="Assets\xtraz\paper.png" />
+    <Content Include="Assets\xtraz\party.png" />
+    <Content Include="Assets\xtraz\phone.png" />
+    <Content Include="Assets\xtraz\qm.png" />
+    <Content Include="Assets\xtraz\redthing.png" />
+    <Content Include="Assets\xtraz\search.png" />
+    <Content Include="Assets\xtraz\shashlik.png" />
+    <Content Include="Assets\xtraz\shopping.png" />
+    <Content Include="Assets\xtraz\sleep.png" />
+    <Content Include="Assets\xtraz\sleepy.png" />
+    <Content Include="Assets\xtraz\study.png" />
+    <Content Include="Assets\xtraz\surf.png" />
+    <Content Include="Assets\xtraz\temp.png" />
+    <Content Include="Assets\xtraz\think.png" />
+    <Content Include="Assets\xtraz\tired.png" />
+    <Content Include="Assets\xtraz\tv.png" />
+    <Content Include="Assets\xtraz\type.png" />
+    <Content Include="Assets\xtraz\work.png" />
+    <Content Include="Assets\xtraz\write.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AccountInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChatPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FeatureItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settingspage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.8</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
