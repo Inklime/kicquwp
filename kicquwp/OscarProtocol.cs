@@ -1,4 +1,4 @@
-// Note: this implementation is only compatible with kicq server (kicq.ru or 195.66.114.37) use the file AT YOUR OWN RISK!
+﻿// Note: this implementation is only compatible with kicq server (kicq.ru or 195.66.114.37) use the file AT YOUR OWN RISK!
 
 using System;
 using System.Collections.Generic;
@@ -837,10 +837,6 @@ namespace kicquwp
         {
             try
             {
-                // Защита от race condition: если reader уже заменён (переход
-                // auth→BOS), старый callback не должен отравлять новое соединение.
-                if (reader != _reader) return;
-
                 if (status != AsyncStatus.Completed)
                 {
                     FailReader(asyncInfo.ErrorCode ?? new Exception("Header read failed, status=" + status));
@@ -885,10 +881,6 @@ namespace kicquwp
         {
             try
             {
-                // Защита от race condition: если reader уже заменён (переход
-                // auth→BOS), старый callback не должен отравлять новое соединение.
-                if (reader != _reader) return;
-
                 if (status != AsyncStatus.Completed)
                 {
                     FailReader(asyncInfo.ErrorCode ?? new Exception("Data read failed, status=" + status));
