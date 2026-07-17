@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
   <Identity Name="e7727368-8c12-4939-a4c7-bc016f1df00b" Publisher="CN=123" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="e7727368-8c12-4939-a4c7-bc016f1df00b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
@@ -21,7 +21,7 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" Executable="$targetnametoken$.exe" EntryPoint="kicquwp.App">
+        <Extension Category="windows.backgroundTasks" Executable="$targetnametoken$.exe" EntryPoint="kicquwp.BackgroundTask">
           <BackgroundTasks>
             <Task Type="controlChannel" />
             <Task Type="pushNotification" />
