@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
@@ -66,16 +66,16 @@ namespace kicquwp
             }
         }
 
-        // In-process активация фоновой задачи (in-proc модель).
-        // ControlChannelService регистрирует триггер БЕЗ TaskEntryPoint,
-        // поэтому Windows вызывает вот этот override, а не отдельный
-        // IBackgroundTask-класс. App всегда COM-активируем как точка входа
-        // приложения — поэтому REGDB_E_CLASSNOTREG больше не возникает.
+        // In-process активация фоновой задачи.
+        // ControlChannelService регистрирует триггер с TaskEntryPoint =
+        // "kicquwp.BackgroundTask" (IBackgroundTask-класс). Когда система
+        // будит приложение по CCT, BackgroundTask.Run вызывает
+        // NotifyDataReceived → FlushTransport и ждёт 3 секунды, давая
+        // сырому движку приёма дочитать буферизированные данные.
         //
-        // Сами сообщения приходят по висящему read в
-        // OscarProtocol.StartRawReceiveLoop; здесь только подтверждаем
-        // приём и держим deferral, чтобы процесс не уснул раньше,
-        // чем цикл приёма дочитает буфер.
+        // Сообщения приходят по висящему read в
+        // OscarProtocol.StartRawReceiveLoop; здесь ничего дополнительно
+        // делать не нужно.
         protected override void OnBackgroundActivated(BackgroundActivatedEventArgs args)
         {
             base.OnBackgroundActivated(args);
