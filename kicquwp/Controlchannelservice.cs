@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
@@ -15,10 +15,10 @@ namespace kicquwp
         private BackgroundTaskRegistration _taskReg;
         private const string TaskName = "kicqPushTask";
         private const string TriggerId = "kicqChannel";
-        // Точка входа фоновой задачи — класс, реализующий IBackgroundTask.
-        // НЕ App (Application не реализует IBackgroundTask, и COM-активация
-        // падает с 0x80040154 на Windows 10 Mobile).
-        private const string TaskEntry = "kicquwp.BackgroundTask";
+        // In-proc модель: активируется сам класс App (OnBackgroundActivated),
+        // а не отдельный IBackgroundTask-класс. App всегда COM-активируем как
+        // точка входа приложения — поэтому 0x80040154 больше не возникает.
+        private const string TaskEntry = "kicquwp.App";
 
         // Singleton
         private static ControlChannelService _instance;
