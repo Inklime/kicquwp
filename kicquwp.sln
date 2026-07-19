@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.37506.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kicquwp", "kicquwp\kicquwp.csproj", "{C3612499-56DB-4161-82A2-FB501E87C85E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kicquwp.Background", "Background.BackgroundTask\kicquwp.Background.csproj", "{79A2D551-CD35-49F4-898A-9F4077D2026E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,26 @@ Global
 		{C3612499-56DB-4161-82A2-FB501E87C85E}.Release|x86.ActiveCfg = Release|x86
 		{C3612499-56DB-4161-82A2-FB501E87C85E}.Release|x86.Build.0 = Release|x86
 		{C3612499-56DB-4161-82A2-FB501E87C85E}.Release|x86.Deploy.0 = Release|x86
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|ARM.ActiveCfg = Debug|ARM
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|ARM.Build.0 = Debug|ARM
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|ARM64.Build.0 = Debug|ARM64
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|x64.ActiveCfg = Debug|x64
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|x64.Build.0 = Debug|x64
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|x86.ActiveCfg = Debug|x86
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Debug|x86.Build.0 = Debug|x86
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|ARM.ActiveCfg = Release|ARM
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|ARM.Build.0 = Release|ARM
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|ARM64.ActiveCfg = Release|ARM64
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|ARM64.Build.0 = Release|ARM64
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|x64.ActiveCfg = Release|x64
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|x64.Build.0 = Release|x64
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|x86.ActiveCfg = Release|x86
+		{79A2D551-CD35-49F4-898A-9F4077D2026E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

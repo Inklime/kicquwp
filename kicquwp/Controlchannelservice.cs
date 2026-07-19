@@ -18,7 +18,7 @@ namespace kicquwp
         // Точка входа фоновой задачи — класс, реализующий IBackgroundTask.
         // НЕ App (Application не реализует IBackgroundTask, и COM-активация
         // падает с 0x80040154 на Windows 10 Mobile).
-        private const string TaskEntry = "kicquwp.BackgroundTask";
+        private const string TaskEntry = "Background.BackgroundTask.BackgroundTask";
 
         // Singleton
         private static ControlChannelService _instance;
@@ -68,8 +68,7 @@ namespace kicquwp
 
             try
             {
-                _trigger = new ControlChannelTrigger(
-                    TriggerId, 30, ControlChannelTriggerResourceType.RequestSoftwareSlot);
+                _trigger = new ControlChannelTrigger(TriggerId, 15, ControlChannelTriggerResourceType.RequestHardwareSlot);
                 Debug.WriteLine("[CCT] Step 3 OK (ControlChannelTrigger created)");
             }
             catch (Exception ex)
@@ -90,7 +89,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[CCT] STEP 4 (builder.Register, EntryPoint=" + TaskEntry + ") FAILED: " + ex.GetType().Name + " — " + ex.Message);
+                Debug.WriteLine("[CCT] STEP 4 (builder.Register) FAILED: " + ex.GetType().Name + " — " + ex.Message);
                 return null;
             }
         }

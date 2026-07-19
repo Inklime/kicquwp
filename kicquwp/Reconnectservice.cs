@@ -22,11 +22,18 @@ namespace kicquwp
         public event Action OnReconnecting;
         private volatile bool _kicked = false;
         public event Action<string> KickedOut;
+        private static ReconnectService _instance;
         private Windows.Networking.Connectivity.NetworkStatusChangedEventHandler _networkHandler;
 
         // Событие — подписываемся в App чтобы обновить UI после реконнекта
         public event Action<OscarProtocol> Reconnected;
         public event Action Disconnected;
+
+        public static ReconnectService Instance
+        {
+            get { return _instance; }
+            set { _instance = value; }
+        }
 
         public ReconnectService(string uin, string password, uint statusCode, CoreDispatcher dispatcher)
         {
@@ -42,13 +49,26 @@ namespace kicquwp
             _running = true;
             _cts = new CancellationTokenSource();
 
-            // Подписываемся на изменения сети
-            _networkHandler = new Windows.Networking.Connectivity.NetworkStatusChangedEventHandler(
-                OnNetworkStatusChanged);
-            Windows.Networking.Connectivity.NetworkInformation.NetworkStatusChanged += _networkHandler;
+            // Подписываемся на событие обрыва
+            _oscar.ConnectionLost += OnConnectionLostEvent;
+
+            // Сетевые изменения
+            _networkHandler = new Windows.Networking.Connectivity
+                .NetworkStatusChangedEventHandler(OnNetworkStatusChanged);
+            Windows.Networking.Connectivity.NetworkInformation
+                .NetworkStatusChanged += _networkHandler;
 
             Task.Run(() => MonitorLoopAsync(_cts.Token));
         }
+
+        private void OnConnectionLostEvent()
+        {
+            Debug.WriteLine("[Reconnect] ConnectionLost event received");
+            // MonitorLoopAsync сам обнаружит обрыв через исключение в ReceiveServerSnacsAsync
+            // Ничего не делаем — цикл уже разбужен через отмену токена
+        }
+
+
 
         public void Stop()
         {
@@ -65,39 +85,49 @@ namespace kicquwp
             }
         }
 
+        // Добавьте поле в класс ReconnectService
+        private bool _isReconnectingNow = false;
+
         private async void OnNetworkStatusChanged(object sender)
         {
-            var profile = Windows.Networking.Connectivity.NetworkInformation
-                .GetInternetConnectionProfile();
-
-            if (profile == null)
-            {
-                Debug.WriteLine("[Reconnect] Network lost");
-                return;
-            }
+            var profile = Windows.Networking.Connectivity.NetworkInformation.GetInternetConnectionProfile();
+            if (profile == null) return;
 
             var level = profile.GetNetworkConnectivityLevel();
             if (level == Windows.Networking.Connectivity.NetworkConnectivityLevel.InternetAccess)
             {
                 Debug.WriteLine("[Reconnect] Network restored — forcing reconnect");
 
-                // Отменяем текущий цикл и запускаем реконнект
-                if (_cts != null)
+                // ЗАЩИТА ОТ ДВОЙНОГО ЗАПУСКА
+                if (_isReconnectingNow)
                 {
-                    _cts.Cancel();
-                    _cts = new CancellationTokenSource();
+                    Debug.WriteLine("[Reconnect] Reconnect already in progress, skipping...");
+                    return;
                 }
+                _isReconnectingNow = true;
 
-                if (_oscar != null)
+                try
                 {
-                    try { await _oscar.DisconnectAsync(); } catch { }
+                    if (_cts != null)
+                    {
+                        _cts.Cancel();
+                        _cts = new CancellationTokenSource();
+                    }
+
+                    if (_oscar != null)
+                    {
+                        try { await _oscar.DisconnectAsync(); } catch { }
+                    }
+
+                    // Даем время на корректное завершение всех старых тасок и CCT
+                    await Task.Delay(3000);
+
+                    Task.Run(() => MonitorLoopAsync(_cts.Token));
                 }
-
-                // Небольшая пауза чтобы сеть стабилизировалась
-                await Task.Delay(2000);
-
-                // Запускаем переподключение
-                Task.Run(() => MonitorLoopAsync(_cts.Token));
+                finally
+                {
+                    _isReconnectingNow = false;
+                }
             }
         }
 
@@ -181,33 +211,28 @@ namespace kicquwp
         {
             try
             {
-                Debug.WriteLine("[Reconnect] Connecting...");
-                var newOscar = new OscarProtocol(_uin, _password, _dispatcher);
-
-                bool auth = await newOscar.AuthenticateAsync(_statusCode);
-                if (!auth)
+                // На всякий случай убеждаемся, что старые сокеты точно закрыты
+                if (_oscar != null)
                 {
-                    Debug.WriteLine("[Reconnect] Auth failed");
-                    return false;
+                    try { await _oscar.DisconnectAsync(); } catch { }
                 }
 
-                await newOscar.InitializeOscarSessionAsync(_statusCode);
+                // Переиспользуем СУЩЕСТВУЮЩИЙ экземпляр _oscar вместо new OscarProtocol(...)
+                bool auth = await _oscar.AuthenticateAsync(_statusCode);
+                if (!auth) return false;
 
-                // Отписываем старые события
-                if (_oscar != null)
-                    _oscar.IncomingMessage -= OnIncomingMessage;
+                await _oscar.InitializeOscarSessionAsync(_statusCode);
 
-                _oscar = newOscar;
-                _oscar.IncomingMessage += OnIncomingMessage;
 
+                // Уведомляем UI о том, что связь восстановлена
                 if (_dispatcher != null)
+                {
                     await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        ((App)Windows.UI.Xaml.Application.Current).Oscar = _oscar;
-                        if (Reconnected != null) Reconnected(_oscar);
+                        Reconnected?.Invoke(_oscar);
                     });
+                }
 
-                Debug.WriteLine("[Reconnect] Success!");
                 return true;
             }
             catch (Exception ex)
@@ -215,6 +240,12 @@ namespace kicquwp
                 Debug.WriteLine("[Reconnect] Failed: " + ex.Message);
                 return false;
             }
+        }
+
+        private void OnOscarConnectionLost()
+        {
+            Debug.WriteLine("[Reconnect] Oscar reported connection lost");
+            // MonitorLoopAsync сам запустит реконнект через исключение в ReceiveServerSnacsAsync
         }
 
         public void ForceReconnect()

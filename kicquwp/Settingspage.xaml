@@ -310,6 +310,27 @@
                         </StackPanel>
                     </Button>
                 </Border>
+                <!-- Секция: Опасные действия -->
+                <Border Background="{ThemeResource SystemControlHighlightAccentBrush}" Padding="16,10,16,10" Margin="0,16,0,1">
+                    <TextBlock Text="ОПАСНЫЕ ДЕЙСТВИЯ" FontSize="13" FontFamily="Segoe WP"
+               FontWeight="SemiBold" Foreground="White" CharacterSpacing="150"/>
+                </Border>
+
+                <Border Background="#FF161B22" Padding="0,0,0,0" Margin="0,0,0,1">
+                    <Button x:Name="DeleteAccountButton" Click="DeleteAccount_Click" Background="Transparent"
+            BorderThickness="0" HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Left" Padding="16,16,16,16">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="&#xE107;" FontFamily="Segoe UI Symbol"
+                                       FontSize="22" Foreground="#FFFF4444"
+                                       VerticalAlignment="Center" Margin="0,0,14,0"/>
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="Удалить аккаунт" FontSize="17" FontFamily="Segoe WP" Foreground="#FFFF4444"/>
+                                <TextBlock Text="Безвозвратное удаление UIN" FontSize="13" FontFamily="Segoe WP" Foreground="#66FFFFFF"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Button>
+                </Border>
             </StackPanel>
         </ScrollViewer>
     </Grid>

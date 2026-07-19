@@ -3,10 +3,10 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.ApplicationModel.Background;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Background.BackgroundTask;
 
 namespace kicquwp
 {
@@ -117,17 +117,20 @@ namespace kicquwp
 
         private async void OnResuming(object sender, object e)
         {
-            Debug.WriteLine("[App] Resuming");
-            await Task.Delay(2000);
-            var reconnect = ReconnectService;
+            System.Diagnostics.Debug.WriteLine("[App] Вернулись из фона. Проверяем сокет...");
             var oscar = Oscar;
-            if (oscar != null && oscar.IsConnected)
+            // Проверяем флаг подключения на твоем объекте (имя свойства IsConnected может отличаться)
+            if (oscar == null || !oscar.IsConnected)
             {
-                Debug.WriteLine("[App] Already connected after resume");
-                return;
+                System.Diagnostics.Debug.WriteLine("[App] Соединение потеряно. Перезапуск...");
+
+                // 1. Полностью сносим старый поломанный триггер и задачу
+                ControlChannelService.Instance.Cleanup();
+
+                // 2. Вызываем твой стандартный метод подключения через твою переменную
+                await ReconnectService.ForceReconnectAsync();
             }
-            if (reconnect != null)
-                reconnect.ForceReconnect();
         }
+
     }
 }

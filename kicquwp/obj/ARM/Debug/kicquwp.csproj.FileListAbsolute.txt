@@ -128,7 +128,10 @@ C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\System.Xml.ReaderWriter.
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\System.Xml.XDocument.dll
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\System.Xml.XmlDocument.dll
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\System.Xml.XmlSerializer.dll
+C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\Background.BackgroundTask.winmd
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\Microsoft.UI.Xaml.Markup.winmd
+C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\Background.BackgroundTask.pdb
+C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\Background.BackgroundTask.pri
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\kicquwp.csprojAssemblyReference.cache
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\App.g.i.cs
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\App.g.cs
@@ -253,4 +256,6 @@ C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\MultipleQualifiersPerDim
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\resources.en-us.resfiles
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\resources.en-us.resfiles.intermediate
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Background.BackgroundTask.winmd_639198989203008117.json
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_638773395680000000.json
+C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Background.BackgroundTask.winmd_639198995279719863.json

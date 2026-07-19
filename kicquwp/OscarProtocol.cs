@@ -18,7 +18,6 @@ using Windows.Storage.Streams;
 using Windows.UI.Popups;
 using System.Collections.ObjectModel;
 using Windows.UI.Core;
-using kicquwp;
 
 namespace kicquwp
 {
@@ -32,7 +31,8 @@ namespace kicquwp
         private readonly string _password;
         private ushort _flapSequenceNumber = 0;
         // _readLock убран — синхронизация теперь через _flapQueueLock
-        // в новом сыром движке чтения (см. StartRawReceiveLoop и далее).
+        // в сыром движке чтения (см. StartRawReceiveLoop и далее),
+        // обязательном для совместной работы с ControlChannelTrigger.
         // SNAC service handlers
         private CancellationTokenSource _receiveCts;
         private ObservableCollection<Contact> contacts;
@@ -44,6 +44,8 @@ namespace kicquwp
         public event Action<Contact> TemporaryContactAdded;
         public event Action<string, ushort> TypingNotificationReceived; // uin, type
         public event Action<UserBasicInfo> OwnInfoReceived;
+        private static OscarProtocol _instance;
+        public event Action ConnectionLost;
         public string LastAuthError { get; private set; }
         public Action<string> StatusUpdater { get; set; }
         public event Action<string, string> IncomingMessage;
@@ -75,23 +77,25 @@ namespace kicquwp
             return _snacRequestId++;
         }
 
-        public string UIN { get; private set; }
+        private void OnConnectionLost(string reason)
+        {
+            Debug.WriteLine("[OscarProtocol] Connection lost: " + reason);
+            try { _receiveCts?.Cancel(); } catch { }
+            if (ConnectionLost != null) ConnectionLost();
+        }
 
-        // Используется ReconnectService/App.OnResuming, чтобы понять, нужно
-        // ли форсировать переподключение после выхода из фона. "Подключено"
-        // означает: сокет создан и сырой движок чтения (см. StartRawReceiveLoop
-        // выше) ещё не поймал фатальную ошибку (обрыв, disconnect и т.д.).
         public bool IsConnected
         {
-            get
-            {
-                if (_socket == null || _reader == null) return false;
-                lock (_flapQueueLock)
-                {
-                    return _readerFatalError == null;
-                }
-            }
+            get { return _socket != null && _reader != null && _writer != null; }
         }
+
+        public static OscarProtocol Instance
+        {
+            get { return _instance; }
+            set { _instance = value; }
+        }
+
+        public string UIN { get; private set; }
         public CoreDispatcher _dispatcher { get; private set; }
 
         public OscarProtocol(string uin, string password, CoreDispatcher dispatcher)
@@ -122,26 +126,36 @@ namespace kicquwp
 
         internal string GetContactStatus(string uin)
         {
-            if (contacts == null) return "offline";
-            var contact = contacts.FirstOrDefault(c => c.Uin == uin);
-            if (contact == null) return "offline";
-            return contact.StatusIcon ?? "offline";
+            throw new NotImplementedException();
         }
-
 
         private async Task ConnectAsync()
         {
             _socket = new StreamSocket();
             var hostName = new HostName("195.66.114.37");
 
-            // ВНИМАНИЕ: авторизационное соединение — ОДНОРАЗОВОЕ (только handshake
-            // и получение BOS cookie). ControlChannelTrigger к нему НЕ привязываем.
-            // Триггер жёстко привязан к одному транспорту; привязка к сокету,
-            // который через секунду Dispose()'нется при переходе на BOS, оставляет
-            // dangling-триггер — на Windows 10 Mobile это сносит процесс
-            // (exit code 1). CCT настраивается ОДИН раз на BOS-сокете —
-            // см. ConnectToBosSocketAsync.
+            // Инициализируем CCT ДО подключения
+            var trigger = await ControlChannelService.Instance.InitializeAsync();
+            if (trigger != null)
+            {
+                bool assigned = ControlChannelService.Instance.AssignSocket(_socket);
+                Debug.WriteLine("[ConnectAsync] CCT assigned: " + assigned);
+            }
+
             await _socket.ConnectAsync(hostName, "5190");
+
+            if (trigger != null)
+            {
+                try
+                {
+                    bool pushEnabled = ControlChannelService.Instance.WaitForPushEnabled();
+                    Debug.WriteLine("[ConnectAsync] Push enabled: " + pushEnabled);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("[ConnectAsync] WaitForPushEnabled error: " + ex.Message);
+                }
+            }
 
             _writer = new DataWriter(_socket.OutputStream);
             _reader = new DataReader(_socket.InputStream)
@@ -173,8 +187,7 @@ namespace kicquwp
 
         internal Task<DateTime> GetLastOnlineTimeAsync(string uin)
         {
-            // Возвращаем текущее время как заглушку
-            return Task.FromResult(DateTime.Now);
+            throw new NotImplementedException();
         }
 
         private byte[] BuildTlv(ushort type, byte[] value)
@@ -264,8 +277,9 @@ namespace kicquwp
                 {
                     LastAuthError = "Не удалось подключиться к серверу. Сервер может быть недоступен.";
                 }
-                else if (ex.Message.Contains("0x80072EFD") ||
-                         ex.Message.Contains("internet"))
+                else if (ex.Message.Contains("0x80072AF9") ||
+                         ex.Message.Contains("internet") ||
+                         ex.Message.Contains("0x80072751"))
                 {
                     LastAuthError = "Нет подключения к интернету.";
                 }
@@ -332,10 +346,7 @@ namespace kicquwp
 
                     byte[] flapData = ms.ToArray();
                     Debug.WriteLine($"[DirectAuth] Sending login FLAP on channel 0x01...");
-                    var ignored = _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                    {
-                        StatusUpdater?.Invoke("Отправляю login request...");
-                    });
+                    StatusUpdater?.Invoke("Отправляю login request...");
                     await SendFlapAsync(0x01, flapData);
                 }
 
@@ -375,6 +386,218 @@ namespace kicquwp
             }
         }
 
+        public async Task<string> RegisterNewAccountAsync(string password)
+        {
+            Debug.WriteLine("[Register] Starting registration...");
+
+            // Генерируем случайный cookie
+            var rng = new Random();
+            uint cookie = (uint)rng.Next();
+
+            StreamSocket regSocket = null;
+            DataWriter regWriter = null;
+            DataReader regReader = null;
+
+            try
+            {
+                // Подключаемся к серверу авторизации
+                regSocket = new StreamSocket();
+                await regSocket.ConnectAsync(
+                    new Windows.Networking.HostName("195.66.114.37"), "5190");
+
+                regWriter = new DataWriter(regSocket.OutputStream);
+                regReader = new DataReader(regSocket.InputStream)
+                {
+                    InputStreamOptions = InputStreamOptions.Partial
+                };
+
+                // Читаем приветственный FLAP channel 0x01
+                uint hLen = await regReader.LoadAsync(6);
+                if (hLen < 6) throw new Exception("Нет ответа от сервера");
+                byte[] hello = new byte[6];
+                regReader.ReadBytes(hello);
+                ushort hDataLen = (ushort)((hello[4] << 8) | hello[5]);
+                if (hDataLen > 0)
+                {
+                    await regReader.LoadAsync(hDataLen);
+                    byte[] hData = new byte[hDataLen];
+                    regReader.ReadBytes(hData);
+                }
+
+                // Отправляем FLAP channel 0x01 (hello)
+                byte[] helloFlap = new byte[] { 0x2A, 0x01, 0x00, 0x01, 0x00, 0x04,
+                                         0x00, 0x00, 0x00, 0x01 };
+                regWriter.WriteBytes(helloFlap);
+                await regWriter.StoreAsync();
+
+                // Строим SNAC(17,04) — запрос регистрации
+                byte[] passBytes = System.Text.Encoding.UTF8.GetBytes(password + "\0");
+                ushort passLen = (ushort)passBytes.Length;
+                ushort unknown = (ushort)rng.Next(0xFFFF);
+
+                using (var ms = new System.IO.MemoryStream())
+                {
+                    // TLV(0x0001) header
+                    WriteU16BE(ms, 0x0001);
+
+                    // Считаем длину тела TLV
+                    int bodyLen = 4 + 2 + 2 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 +
+                                  2 + passBytes.Length + 4 + 4 + 2;
+                    WriteU16BE(ms, (ushort)bodyLen);
+
+                    // Тело TLV
+                    WriteU32LE(ms, 0x00000000);          // zeros
+                    WriteU16LE(ms, 0x0028);              // subcmd
+                    WriteU16LE(ms, 0x0003);              // sequence
+                    WriteU32LE(ms, 0x00000000);          // zeros
+                    WriteU32LE(ms, 0x00000000);          // zeros
+                    WriteU32LE(ms, cookie);              // registration cookie
+                    WriteU32LE(ms, cookie);              // registration cookie (same)
+                    WriteU32LE(ms, 0x00000000);          // zeros
+                    WriteU32LE(ms, 0x00000000);          // zeros
+                    WriteU32LE(ms, 0x00000000);          // zeros
+                    WriteU32LE(ms, 0x00000000);          // zeros
+                    WriteU16LE(ms, passLen);             // password len (LE)
+                    ms.Write(passBytes, 0, passBytes.Length); // password asciiz
+                    WriteU32LE(ms, cookie);              // registration cookie (same)
+                    WriteU32LE(ms, 0x00000000);          // zeros
+                    WriteU16LE(ms, unknown);             // unknown random
+
+                    byte[] snacBody = ms.ToArray();
+
+                    // Строим SNAC(17,04)
+                    using (var snacMs = new System.IO.MemoryStream())
+                    {
+                        WriteU16BE(snacMs, 0x0017); // family
+                        WriteU16BE(snacMs, 0x0004); // subtype
+                        WriteU16BE(snacMs, 0x0000); // flags
+                        WriteU32BE(snacMs, 0x00000000); // request id
+                        snacMs.Write(snacBody, 0, snacBody.Length);
+
+                        byte[] snacData = snacMs.ToArray();
+
+                        // FLAP header
+                        byte[] flap = new byte[6 + snacData.Length];
+                        flap[0] = 0x2A;
+                        flap[1] = 0x02;
+                        flap[2] = 0x00;
+                        flap[3] = 0x02; // seq
+                        flap[4] = (byte)(snacData.Length >> 8);
+                        flap[5] = (byte)(snacData.Length & 0xFF);
+                        Array.Copy(snacData, 0, flap, 6, snacData.Length);
+
+                        regWriter.WriteBytes(flap);
+                        await regWriter.StoreAsync();
+                        Debug.WriteLine("[Register] Sent SNAC(17,04)");
+                    }
+                }
+
+                // Читаем ответ — SNAC(17,05) или SNAC(17,01)
+                var deadline = DateTime.UtcNow + TimeSpan.FromSeconds(10);
+                while (DateTime.UtcNow < deadline)
+                {
+                    uint rHLen = await regReader.LoadAsync(6);
+                    if (rHLen < 6) break;
+
+                    byte[] rHeader = new byte[6];
+                    regReader.ReadBytes(rHeader);
+
+                    ushort rDataLen = (ushort)((rHeader[4] << 8) | rHeader[5]);
+                    if (rDataLen == 0) continue;
+
+                    uint rDLen = await regReader.LoadAsync(rDataLen);
+                    if (rDLen < rDataLen) break;
+
+                    byte[] rData = new byte[rDataLen];
+                    regReader.ReadBytes(rData);
+
+                    if (rData.Length < 4) continue;
+
+                    ushort family = (ushort)((rData[0] << 8) | rData[1]);
+                    ushort subtype = (ushort)((rData[2] << 8) | rData[3]);
+
+                    Debug.WriteLine("[Register] Got SNAC(" + family.ToString("X2") +
+                                    "," + subtype.ToString("X2") + ")");
+
+                    if (family == 0x0017 && subtype == 0x0005)
+                    {
+                        // SNAC(17,05) — успех, парсим новый UIN
+                        // Структура: 10 байт SNAC header + TLV(0x0001)
+                        // Внутри TLV: 2(len-2) + 4(zeros) + 2(subcmd) + 2(seq) +
+                        //             4(port) + 4(ip) + 4(unknown) + 4(cookie) +
+                        //             16(zeros) + 4(new_uin LE) + ...
+                        int offset = 10; // пропускаем SNAC header (4 family+sub + 2 flags + 4 reqid)
+
+                        // TLV(0x0001)
+                        if (offset + 4 > rData.Length) break;
+                        offset += 4; // пропускаем TLV type и length
+
+                        // Внутри TLV — LE структура
+                        offset += 2; // len-2
+                        offset += 4; // zeros
+                        offset += 2; // subcmd 0x2D
+                        offset += 2; // sequence
+                        offset += 4; // client tcp port
+                        offset += 4; // client ip
+                        offset += 4; // unknown 0x00000004
+                        offset += 4; // registration cookie
+                        offset += 16; // zeros (4 dwords)
+
+                        if (offset + 4 > rData.Length) break;
+
+                        // New UIN в LE
+                        uint newUin = (uint)(rData[offset] |
+                                            (rData[offset + 1] << 8) |
+                                            (rData[offset + 2] << 16) |
+                                            (rData[offset + 3] << 24));
+
+                        Debug.WriteLine("[Register] New UIN: " + newUin);
+                        return newUin.ToString();
+                    }
+                    else if (family == 0x0017 && subtype == 0x0001)
+                    {
+                        // SNAC(17,01) — ошибка
+                        if (rData.Length >= 12)
+                        {
+                            int eoff = 10;
+                            ushort errCode = (ushort)((rData[eoff] << 8) | rData[eoff + 1]);
+                            string errMsg = GetAuthErrorText(errCode);
+                            Debug.WriteLine("[Register] Error: " + errMsg);
+                            throw new Exception(errMsg);
+                        }
+                        throw new Exception("Ошибка регистрации");
+                    }
+                }
+
+                throw new Exception("Сервер не ответил на запрос регистрации");
+            }
+            finally
+            {
+                try { regWriter?.DetachStream(); regWriter?.Dispose(); } catch { }
+                try { regReader?.DetachStream(); regReader?.Dispose(); } catch { }
+                try { regSocket?.Dispose(); } catch { }
+            }
+        }
+
+
+        private string GetAuthErrorText(ushort code)
+        {
+            switch (code)
+            {
+                case 0x0001: return "Неверный логин или пароль";
+                case 0x0002: return "Сервис временно недоступен";
+                case 0x0003: return "Ошибка сервера";
+                case 0x0010: return "Сервис временно отключён";
+                case 0x0011: return "Аккаунт приостановлен";
+                case 0x0016: return "Превышено количество подключений с этого IP";
+                case 0x0018: return "Превышен лимит запросов. Попробуйте позже";
+                case 0x001D: return "Превышен лимит. Попробуйте позже";
+                case 0x001E: return "Не удаётся подключиться. Попробуйте позже";
+                default: return "Ошибка 0x" + code.ToString("X4");
+            }
+        }
+
+
         private string ParseAuthError(byte[] data)
         {
             try
@@ -413,9 +636,9 @@ namespace kicquwp
                     case 0x0002: return "Сервис временно недоступен. Попробуйте позже.";
                     case 0x0003: return "Произошла ошибка. Попробуйте позже.";
                     case 0x0004: return "Неверный логин или пароль. Попробуйте снова.";
-                    case 0x0005: return "Несовпадение логина или пароля. Попробуйте снова.";
+                    case 0x0005: return "Неверный логин или пароль. Попробуйте снова.";
                     case 0x0006: return "Ошибка клиента при авторизации.";
-                    case 0x0007: return "Неверный аккаунт.";
+                    case 0x0007: return "Аккаунт не существует.";
                     case 0x0008: return "Аккаунт удалён.";
                     case 0x0009: return "Срок действия аккаунта истёк.";
                     case 0x000A: return "Нет доступа к базе данных.";
@@ -568,30 +791,30 @@ namespace kicquwp
         {
             try
             {
+                if (_writer == null) throw new Exception("Writer is null");
                 if (data == null) data = new byte[0];
                 _flapSequenceNumber++;
 
-                byte[] flapHeader = new byte[6];
-                flapHeader[0] = 0x2A; // FLAP marker
-                flapHeader[1] = channel;
-                flapHeader[2] = (byte)(_flapSequenceNumber >> 8); // high byte
-                flapHeader[3] = (byte)(_flapSequenceNumber & 0xFF); // low byte
-                flapHeader[4] = (byte)(data.Length >> 8);
-                flapHeader[5] = (byte)(data.Length & 0xFF);
+                byte[] packet = new byte[6 + data.Length];
+                packet[0] = 0x2A;
+                packet[1] = channel;
+                packet[2] = (byte)(_flapSequenceNumber >> 8);
+                packet[3] = (byte)(_flapSequenceNumber & 0xFF);
+                packet[4] = (byte)(data.Length >> 8);
+                packet[5] = (byte)(data.Length & 0xFF);
+                Array.Copy(data, 0, packet, 6, data.Length);
 
-                byte[] fullPacket = new byte[flapHeader.Length + data.Length];
-                System.Buffer.BlockCopy(flapHeader, 0, fullPacket, 0, flapHeader.Length);
-                System.Buffer.BlockCopy(data, 0, fullPacket, flapHeader.Length, data.Length);
-
-                Debug.WriteLine($"[SendFlap] Channel: 0x{channel:X2}, Seq: {_flapSequenceNumber}, Length: {data.Length}");
-                Debug.WriteLine($"[SendFlap] FULL PACKET: {BitConverter.ToString(fullPacket)}");
-
-                _writer.WriteBytes(fullPacket);
+                _writer.WriteBytes(packet);
                 await _writer.StoreAsync();
+
+                Debug.WriteLine("[SendFlap] Channel: 0x" + channel.ToString("X2") +
+                                ", Seq: " + _flapSequenceNumber +
+                                ", Length: " + data.Length);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[SendFlap ERROR] {ex.Message}");
+                Debug.WriteLine("[SendFlap ERROR] " + ex.Message);
+                FailReader(ex); // единая точка обнаружения обрыва
                 throw;
             }
         }
@@ -790,14 +1013,14 @@ namespace kicquwp
         // posted at all times... the app has to post another read before it
         // returns control from the completion callback."
         //
-        // Раньше здесь был await _reader.LoadAsync(...) — именно это и
-        // роняло рантайм нативно сразу после логина. Теперь низкоуровневое
-        // чтение идёт через IAsyncOperation.Completed (без await), а весь
-        // остальной код (ReceiveFlapAsync и всё, что на нём построено —
-        // ReceiveSnacWithTimeout, InitServicesAsync и т.д.) продолжает
-        // работать через await, но уже не на самой сокет-операции напрямую,
-        // а на TaskCompletionSource, который наполняется этим движком —
-        // поэтому остальной код менять не пришлось.
+        // await _reader.LoadAsync(...) НАПРЯМУЮ на сокете, привязанном к CCT,
+        // ломает всё — от нативных крашей процесса до тихих зависаний ровно
+        // там, где вы это наблюдаете (после настройки сервисов). Здесь
+        // низкоуровневое чтение идёт через IAsyncOperation.Completed (без
+        // await), а весь остальной код (ReceiveFlapAsync и всё, что на нём
+        // построено — ReceiveSnacWithTimeout, InitServicesAsync и т.д.)
+        // продолжает работать через await на TaskCompletionSource, который
+        // наполняется этим движком — поэтому остальной код не менялся.
         private readonly object _flapQueueLock = new object();
         private readonly Queue<FlapFrame> _flapQueue = new Queue<FlapFrame>();
         private TaskCompletionSource<bool> _flapArrivedTcs;
@@ -837,10 +1060,6 @@ namespace kicquwp
         {
             try
             {
-                // Защита от race condition: если reader уже заменён (переход
-                // auth→BOS), старый callback не должен отравлять новое соединение.
-                if (reader != _reader) return;
-
                 if (status != AsyncStatus.Completed)
                 {
                     FailReader(asyncInfo.ErrorCode ?? new Exception("Header read failed, status=" + status));
@@ -885,10 +1104,6 @@ namespace kicquwp
         {
             try
             {
-                // Защита от race condition: если reader уже заменён (переход
-                // auth→BOS), старый callback не должен отравлять новое соединение.
-                if (reader != _reader) return;
-
                 if (status != AsyncStatus.Completed)
                 {
                     FailReader(asyncInfo.ErrorCode ?? new Exception("Data read failed, status=" + status));
@@ -950,12 +1165,16 @@ namespace kicquwp
             }
             toSignal?.TrySetException(ex);
             Debug.WriteLine("[RawReceive] Fatal: " + ex.Message);
+
+            // Уведомляем о потере соединения
+            if (ConnectionLost != null) ConnectionLost();
+            try { _receiveCts?.Cancel(); } catch { }
         }
 
-        // Публичный (для остального кода файла) метод чтения — теперь просто
+        // Публичный (для остального кода файла) метод чтения — просто
         // читает из очереди, наполняемой сырым движком выше. Сигнатура и
         // поведение снаружи не изменились, поэтому ReceiveFlapWithTimeout,
-        // ReceiveSnacWithTimeout, InitServicesAsync и т.д. остались нетронутыми.
+        // ReceiveSnacWithTimeout, InitServicesAsync и т.д. не меняются.
         private async Task<FlapFrame> ReceiveFlapAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             while (true)
@@ -969,7 +1188,7 @@ namespace kicquwp
                     if (_readerFatalError != null)
                         throw _readerFatalError;
 
-                    waitTcs = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+                    waitTcs = new TaskCompletionSource<bool>();
                     _flapArrivedTcs = waitTcs;
                 }
 
@@ -980,7 +1199,10 @@ namespace kicquwp
             }
         }
 
-
+        public System.Collections.ObjectModel.ObservableCollection<Contact> GetCachedContacts()
+        {
+            return contacts;
+        }
 
 
         private async Task<FlapFrame> ReceiveFlapWithTimeout(TimeSpan timeout)
@@ -1164,7 +1386,7 @@ namespace kicquwp
             Debug.WriteLine("[InitServices] Все запросы отправлены, ждём ответы...");
 
             // Теперь ждём ответы — пропускаем всё лишнее пока не получим 13,06
-            var contacts = new ObservableCollection<Contact>();
+            var parsedContacts = new ObservableCollection<Contact>();
             var deadline = DateTime.UtcNow + TimeSpan.FromSeconds(15);
 
             while (DateTime.UtcNow < deadline)
@@ -1179,24 +1401,36 @@ namespace kicquwp
 
                 if (snac.Family == 0x13 && snac.Subtype == 0x06)
                 {
-                    ParseContactListPacket(snac.Data, contacts);
-                    this.contacts = contacts;
-                    Debug.WriteLine($"[InitServices] Получили контакты: {contacts.Count}");
+                    ParseContactListPacket(snac.Data, parsedContacts);
 
                     if (!SnacFlags.HasMoreData(snac.Flags))
                         break;
                 }
                 else if (snac.Family == 0x04 && snac.Subtype == 0x05)
                 {
-                    // Реальные ICBM-параметры сервера — раньше просто отбрасывались,
-                    // из-за чего _icbmMaxSize никогда не устанавливался и клиент слал
-                    // сообщения "вслепую" по жёстко забитому порогу.
                     ParseIcbmParams(snac.Data);
                 }
-                // остальные пакеты (01,0F / 13,03 / 02,03 / 03,03 / 09,03) просто пропускаем
             }
 
-            await ContactStorage.SaveContactsToFileAsync(_uin, contacts);
+            // БЕЗОПАСНОЕ ОБНОВЛЕНИЕ КОЛЛЕКЦИИ (ЧТОБЫ НЕ СЛЕТЕЛИ БИНДИНГИ XAML)
+            if (this.contacts == null)
+            {
+                this.contacts = parsedContacts;
+            }
+            else
+            {
+                await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    this.contacts.Clear();
+                    foreach (var c in parsedContacts)
+                    {
+                        this.contacts.Add(c);
+                    }
+                });
+            }
+
+            Debug.WriteLine($"[InitServices] Получили контакты: {this.contacts.Count}");
+            await ContactStorage.SaveContactsToFileAsync(_uin, this.contacts);
             Debug.WriteLine("[InitServices] Готово.");
         }
 
@@ -1903,9 +2137,12 @@ namespace kicquwp
 
                 // Закрываем предыдущее соединение
                 _socket?.Dispose();
+                _socket = null;
+
+                // [ФИКС]: Обязательно освобождаем аппаратный слот фонового триггера перед созданием нового
+                try { ControlChannelService.Instance.Cleanup(); } catch { }
 
                 // Создаем новое соединение
-                _socket?.Dispose();
                 await ConnectToBosSocketAsync(host, port);
 
                 // 1. Ждем приветствие от сервера (FLAP 0x01)
@@ -2133,6 +2370,7 @@ namespace kicquwp
 
         public async Task SendIcbmAsync(string toUin, string text)
         {
+            if (!IsConnected) throw new Exception("Нет подключения к серверу");
             if (string.IsNullOrEmpty(text)) return;
 
             int budget = GetEffectiveIcbmByteBudget();
@@ -2301,9 +2539,34 @@ namespace kicquwp
 
         private async Task ShowMessageDialog(string message)
         {
-            Debug.WriteLine($"Showing message dialog: {message}");
-            var dialog = new MessageDialog(message);
-            await dialog.ShowAsync();
+            Debug.WriteLine($"[Dialog] Подготовка к показу: {message}");
+
+            // Получаем глобальный диспетчер главного окна
+            var dispatcher = Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher;
+
+            await dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+            {
+                try
+                {
+                    Debug.WriteLine("[Dialog] Поток UI успешно захвачен. Создаем ContentDialog...");
+
+                    var dialog = new Windows.UI.Xaml.Controls.ContentDialog
+                    {
+                        Title = "Ошибка",
+                        Content = message,
+                        CloseButtonText = "ОК"
+                    };
+
+                    await dialog.ShowAsync();
+
+                    Debug.WriteLine("[Dialog] Окно успешно отображено.");
+                }
+                catch (Exception ex)
+                {
+                    // ЕСЛИ ОКНО НЕ ПОЯВИТСЯ, ЭТА ОШИБКА БУДЕТ В ЛОГАХ
+                    Debug.WriteLine($"[Dialog CRITICAL ERROR] Ошибка при показе окна: {ex}");
+                }
+            });
         }
 
 
@@ -2797,6 +3060,10 @@ namespace kicquwp
 
         // Поле для обработчика результата сохранения
         private Action<bool> _metaSaveResultHandler;
+        private TaskCompletionSource<bool> _deleteAccountTcs;
+        private readonly object _deleteLock = new object();
+        private volatile bool _isDeleting = false;
+        public bool IsDeleting => _isDeleting;
 
         // ── Обновить HandleMetaResponse ─────────────────────────────────────
         // В существующем HandleMetaResponse добавь обработку новых subtypes:
@@ -2855,6 +3122,20 @@ namespace kicquwp
                         if (r != null) results.Add(r);
                     }
                     break;
+
+                case 0x00B4: // META_UNREGISTER_ACK — SNAC(15,03)/07DA/00B4
+                    {
+                        isLast = true;
+                        bool ok = false;
+                        if (offset < end)
+                        {
+                            byte successByte = data[offset];
+                            ok = successByte == 0x0A;
+                            Debug.WriteLine("[META] UNREGISTER_ACK successByte=0x" + successByte.ToString("X2") + " ok=" + ok);
+                        }
+                        CompleteDeleteAccount(ok);
+                        break;
+                    }
 
             }
         }
@@ -3057,6 +3338,7 @@ namespace kicquwp
 
         public async Task SendTypingNotificationAsync(string toUin, ushort notificationType)
         {
+            if (!IsConnected) return;
             // notificationType: 0x0002 = начал, 0x0001 = набрал, 0x0000 = остановился
             try
             {
@@ -3734,6 +4016,103 @@ namespace kicquwp
             }
         }
 
+        /// <summary>
+        /// Удаление аккаунта — SNAC(15,02)/07D0/04C4 CLI_UNREGISTER_USER
+        /// V2 — без CTS.Register (крашит UWP) + с RunContinuationsAsynchronously
+        /// Возвращает true если сервер прислал META_UNREGISTER_ACK с 0x0A
+        /// </summary>
+        public async Task<bool> DeleteAccountAsync(string password)
+        {
+            if (string.IsNullOrEmpty(password))
+                throw new ArgumentException("Password empty", nameof(password));
+
+            uint uinNum;
+            if (!uint.TryParse(_uin, out uinNum))
+                throw new Exception("Invalid UIN format: " + _uin);
+
+            byte[] passBytes = Encoding.UTF8.GetBytes(password + "\0");
+            ushort passLen = (ushort)passBytes.Length;
+
+            byte[] body;
+            using (var bodyMs = new MemoryStream())
+            {
+                WriteU32LE(bodyMs, uinNum);
+                WriteU16LE(bodyMs, passLen);
+                bodyMs.Write(passBytes, 0, passBytes.Length);
+                body = bodyMs.ToArray();
+            }
+
+            ushort metaSeq = GetNextRequestID();
+            byte[] payload = BuildMetaRequest(0x04C4, metaSeq, body);
+
+            var tcs = new TaskCompletionSource<bool>(TaskCreationOptions.RunContinuationsAsynchronously);
+            lock (_deleteLock)
+            {
+                _deleteAccountTcs = tcs;
+                _isDeleting = true;
+            }
+
+            try
+            {
+                Debug.WriteLine("[DeleteAccount V2] Sending 04C4, metaSeq=" + metaSeq);
+                await SendSnacAsync(0x15, 0x02, 0x0000, GetNextRequestID(), payload);
+
+                var timeoutTask = Task.Delay(TimeSpan.FromSeconds(15));
+                var winner = await Task.WhenAny(tcs.Task, timeoutTask);
+
+                if (winner == timeoutTask)
+                    throw new TimeoutException("Сервер не ответил на META_UNREGISTER_ACK (15,03/00B4)");
+
+                bool ok = await tcs.Task;
+                Debug.WriteLine("[DeleteAccount V2] Result: " + (ok ? "SUCCESS 0x0A" : "FAIL"));
+                return ok;
+            }
+            finally
+            {
+                lock (_deleteLock)
+                {
+                    _deleteAccountTcs = null;
+                }
+            }
+        }
+
+        public Task<bool> DeleteAccountAsync()
+        {
+            return DeleteAccountAsync(_password);
+        }
+
+        private void CompleteDeleteAccount(bool success)
+        {
+            TaskCompletionSource<bool> tcs = null;
+            lock (_deleteLock) { tcs = _deleteAccountTcs; }
+            tcs?.TrySetResult(success);
+        }
+
+        public async Task DisconnectAfterDeleteAsync()
+        {
+            try
+            {
+                _isDeleting = true;
+                try { _receiveCts?.Cancel(); } catch { }
+                _receiveCts = null;
+                await Task.Delay(400);
+
+                try { _writer?.DetachStream(); } catch { }
+                try { _writer?.Dispose(); } catch { }
+                _writer = null;
+                try { _reader?.DetachStream(); } catch { }
+                try { _reader?.Dispose(); } catch { }
+                _reader = null;
+                try { _socket?.Dispose(); } catch { }
+                _socket = null;
+                try { ControlChannelService.Instance.Cleanup(); } catch { }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[DisconnectAfterDelete ERROR] " + ex.Message);
+            }
+        }
+
         // ── LE читалки ───────────────────────────────────────────────────────
         private ushort ReadU16LE(byte[] data, ref int offset)
         {
@@ -3930,11 +4309,6 @@ namespace kicquwp
                 // Ждём немного чтобы receive loop успел выйти
                 await Task.Delay(300);
 
-                // Помечаем сырой ридер как завершённый — любое висящее
-                // PostNextHeaderRead-чтение по завершении просто упадёт в
-                // FailReader, т.к. _reader станет null ниже.
-                FailReader(new OperationCanceledException("Disconnected"));
-
                 // Отправляем disconnect FLAP
                 try
                 {
@@ -3955,8 +4329,13 @@ namespace kicquwp
                 try { _reader?.Dispose(); } catch { }
                 _reader = null;
 
-                try { _socket?.Dispose(); } catch { }
-                _socket = null;
+                try {
+                    if (_socket != null)
+                    {
+                        _socket.Dispose(); // Это безопасно прервет поток чтения
+                        _socket = null;
+                    }
+                } catch { }
 
                 ControlChannelService.Instance.Cleanup();
 
@@ -4137,6 +4516,8 @@ namespace kicquwp
             }
         }
 
+
+
         private uint ReadU32(byte[] data, ref int offset)
         {
             uint val = (uint)((data[offset] << 24) | (data[offset + 1] << 16) |
@@ -4251,36 +4632,37 @@ namespace kicquwp
             {
                 while (!token.IsCancellationRequested)
                 {
-                    await Task.Delay(60000, token);
+                    // 30 секунд вместо 60 — быстрее обнаруживаем обрыв
+                    await Task.Delay(30000, token);
                     if (token.IsCancellationRequested) break;
 
                     try
                     {
-                        // Отправляем keep alive с таймаутом
+                        // Таймаут 10 секунд на отправку keep-alive
                         var sendTask = SendFlapAsync(0x05, new byte[0]);
-                        if (await Task.WhenAny(sendTask, Task.Delay(30000, token)) != sendTask)
+                        var timeout = Task.Delay(10000, token);
+                        var completed = await Task.WhenAny(sendTask, timeout);
+
+                        if (completed == timeout)
                         {
                             Debug.WriteLine("[KeepAlive] Timeout — connection dead");
-                            _receiveCts?.Cancel();
+                            OnConnectionLost("KeepAlive timeout");
                             break;
                         }
+
                         await sendTask; // проверяем исключение
                         Debug.WriteLine("[KeepAlive] Sent");
                     }
+                    catch (OperationCanceledException) { break; }
                     catch (Exception ex)
                     {
                         Debug.WriteLine("[KeepAlive] Failed: " + ex.Message);
-                        _receiveCts?.Cancel();
+                        // SendFlapAsync уже вызвал OnConnectionLost
                         break;
                     }
                 }
             }
             catch (OperationCanceledException) { }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("[KeepAlive ERROR] " + ex.Message);
-                _receiveCts?.Cancel();
-            }
         }
 
         private byte[] GetPseudoAsciiBytes(string input)

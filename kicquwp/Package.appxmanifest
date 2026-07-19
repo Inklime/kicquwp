@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
   <Identity Name="e7727368-8c12-4939-a4c7-bc016f1df00b" Publisher="CN=123" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="e7727368-8c12-4939-a4c7-bc016f1df00b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
@@ -16,12 +16,12 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="kicquwp.App">
       <uap:VisualElements DisplayName="kicqUWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="kicquwp" BackgroundColor="transparent">
-        <uap:DefaultTile Square71x71Logo="Assets\Square71x71Logo.png">
+        <uap:DefaultTile Square71x71Logo="Assets\Square71x71Logo.png" Wide310x150Logo="Assets\WideTile.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
       <Extensions>
-        <Extension Category="windows.backgroundTasks" Executable="$targetnametoken$.exe" EntryPoint="kicquwp.BackgroundTask">
+        <Extension Category="windows.backgroundTasks" Executable="$targetnametoken$.exe" EntryPoint="Background.BackgroundTask.BackgroundTask">
           <BackgroundTasks>
             <Task Type="controlChannel" />
             <Task Type="pushNotification" />

@@ -143,6 +143,84 @@ namespace kicquwp
             }
         }
 
+        private async void RegButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Сбрасываем старые значения в полях окна регистрации
+            RegPasswordBox.Password = "";
+            RegPasswordConfirmBox.Password = "";
+            RegErrorTextBlock.Visibility = Visibility.Collapsed;
+
+            // Показываем модальное окно пользователю
+            await RegisterDialog.ShowAsync();
+        }
+
+        /// <summary>
+        /// Логика срабатывает, когда пользователь нажимает "Создать" в окне регистрации
+        /// </summary>
+        private async void RegisterDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        {
+            // 1. МГНОВЕННО забираем строки из полей, пока они активны в памяти
+            string password = RegPasswordBox.Password;
+            string confirm = RegPasswordConfirmBox.Password;
+
+            // 2. Делаем все проверки локально
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                args.Cancel = true;
+                RegErrorTextBlock.Text = "Пароль не может быть пустым";
+                RegErrorTextBlock.Visibility = Visibility.Visible;
+                return;
+            }
+
+            if (password != confirm)
+            {
+                args.Cancel = true;
+                RegErrorTextBlock.Text = "Пароли не совпадают!";
+                RegErrorTextBlock.Visibility = Visibility.Visible;
+                return;
+            }
+
+            RegErrorTextBlock.Visibility = Visibility.Collapsed;
+
+            // 3. Запрашиваем деферрал, чтобы диалог не закрывался во время сетевой работы
+            var deferral = args.GetDeferral();
+
+            try
+            {
+                // Включаем оверлей загрузки
+                LoadingOverlay.Visibility = Visibility.Visible;
+                await ShowErrorDialog("Регистрация...");
+
+                // Передаем уже сохраненную локальную переменную 'password', она точно не null
+                var oscar = new OscarProtocol("0", "default", this.Dispatcher); // Передаем хоть что-то
+                string newUin = await oscar.RegisterNewAccountAsync(password);
+
+                // Заполняем поля основного экрана
+                LoginTextBox.Text = newUin.ToString();
+                PasswordBox.Password = password;
+
+                // Сохраняем в настройки
+                var settings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                settings.Values["SavedUin"] = newUin.ToString();
+                settings.Values["SavedPassword"] = password;
+
+                await ShowErrorDialog("UIN создан! Ваш UIN: " + newUin);
+                Debug.WriteLine($"[UI] Рожден новый UIN: {newUin}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[UI] Ошибка регистрации: " + ex.Message);
+                StatusTextBlock.Text = "Ошибка: " + ex.Message;
+            }
+            finally
+            {
+                await System.Threading.Tasks.Task.Delay(2000);
+                LoadingOverlay.Visibility = Visibility.Collapsed;
+
+                // Завершаем деферрал, окно закроется только сейчас
+                deferral.Complete();
+            }
+        }
 
         private async Task ShowErrorDialog(string message)
         {
@@ -166,10 +244,6 @@ namespace kicquwp
             Application.Current.Exit();
         }
 
-        private async void RegButton_Click(object sender, RoutedEventArgs e)
-        {
-            await ShowErrorDialog("К сожалению зарегистрироваться в kicq через приложение пока что невозможно, инструкция регистрации есть на сайте: abrbus.ru/kicq.htm");
-        }
 
         private void CommandBar_Opened(object sender, object e)
         {
@@ -179,11 +253,36 @@ namespace kicquwp
 
         private async Task ShowMessageDialog(string message)
         {
-            Debug.WriteLine($"Showing message dialog: {message}");
-            var dialog = new MessageDialog(message);
-            await dialog.ShowAsync();
+            Debug.WriteLine($"[Dialog] Подготовка к показу: {message}");
+
+            // Получаем глобальный диспетчер главного окна
+            var dispatcher = Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher;
+
+            await dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
+            {
+                try
+                {
+                    Debug.WriteLine("[Dialog] Поток UI успешно захвачен. Создаем ContentDialog...");
+
+                    var dialog = new Windows.UI.Xaml.Controls.ContentDialog
+                    {
+                        Title = "Ошибка",
+                        Content = message,
+                        CloseButtonText = "ОК"
+                    };
+
+                    await dialog.ShowAsync();
+
+                    Debug.WriteLine("[Dialog] Окно успешно отображено.");
+                }
+                catch (Exception ex)
+                {
+                    // ЕСЛИ ОКНО НЕ ПОЯВИТСЯ, ЭТА ОШИБКА БУДЕТ В ЛОГАХ
+                    Debug.WriteLine($"[Dialog CRITICAL ERROR] Ошибка при показе окна: {ex}");
+                }
+            });
         }
 
-       
+
     }
 }

@@ -119,6 +119,12 @@ namespace kicquwp
             _typingTimer.Tick += OnTypingTimerTick;
 
             _oscar.TypingNotificationReceived += OnTypingNotification;
+            var reconnect = ((App)Application.Current).ReconnectService;
+            if (reconnect != null)
+            {
+                reconnect.Reconnected += OnReconnectedInChat;
+                reconnect.OnDisconnected += OnChatConnectionLost;
+            }
 
             var settings = ApplicationData.Current.LocalSettings;
             object typingEnabled = settings.Values["TypingNotifications"];
@@ -182,6 +188,14 @@ namespace kicquwp
             }
         }
 
+        private async void OnChatConnectionLost()
+        {
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                ContactUinTextBlock.Text = "Соединение...";
+            });
+        }
+
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
@@ -193,6 +207,14 @@ namespace kicquwp
                 _oscar.TypingNotificationReceived -= OnTypingNotification;
                 _oscar.IncomingMessage -= OnIncomingMessage;
                 _ = _oscar.SendTypingNotificationAsync(_contact.Uin, 0x0000);
+                var reconnect = ((App)Application.Current).ReconnectService;
+                if (reconnect != null)
+                {
+                    reconnect.Reconnected -= OnReconnectedInChat;
+                    reconnect.OnDisconnected -= OnChatConnectionLost;
+                }
+                if (_oscar != null)
+                    _oscar.ConnectionLost -= OnChatConnectionLost;
             }
 
             _typingTimer?.Stop();
@@ -274,7 +296,6 @@ namespace kicquwp
             var dp = new Windows.ApplicationModel.DataTransfer.DataPackage();
             dp.SetText(_contact.Uin);
             Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dp);
-            ShowDialogAsync("UIN скопирован.");
         }
 
         private async void ContactInfo_Click(object sender, RoutedEventArgs e)
@@ -665,7 +686,6 @@ namespace kicquwp
             var dp = new Windows.ApplicationModel.DataTransfer.DataPackage();
             dp.SetText(msg.Text);
             Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dp);
-            ShowDialogAsync("Текст скопирован.");
         }
 
         private async Task ForwardMessageAsync(ChatMessage msg)
@@ -771,16 +791,22 @@ namespace kicquwp
 
         private void OnReconnectedInChat(OscarProtocol newOscar)
         {
+            // Отписываемся от старого
             if (_oscar != null)
-                _oscar.IncomingMessage -= OnIncomingMessage;
+                _oscar.ConnectionLost -= OnChatConnectionLost;
 
+            // Подписываемся на новый
             _oscar = newOscar;
             _oscar.IncomingMessage += OnIncomingMessage;
+            _oscar.TypingNotificationReceived += OnTypingNotification;
+            _oscar.ConnectionLost += OnChatConnectionLost;
 
-            _ = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                ContactUinTextBlock.Text = _contact.Uin);
+            var ignored = Dispatcher.RunAsync(
+                Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    ContactUinTextBlock.Text = _contact.Uin;
+                });
         }
-
         // ─────────────────────────────────────────────────────────────────
         // ПРОКРУТКА
         // ─────────────────────────────────────────────────────────────────

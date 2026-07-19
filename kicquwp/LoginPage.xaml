@@ -132,5 +132,43 @@
                            Margin="0,14,0,0"/>
             </StackPanel>
         </Border>
+        <!-- Диалоговое окно регистрации -->
+        <ContentDialog x:Name="RegisterDialog"
+                       Title="РЕГИСТРАЦИЯ НОВОГО UIN"
+                       PrimaryButtonText="Создать"
+                       SecondaryButtonText="Отмена"
+                       PrimaryButtonClick="RegisterDialog_PrimaryButtonClick"
+                       Background="#FF1A1A2E"
+                       Foreground="White">
+            <StackPanel Margin="0,10,0,0" Width="300">
+                <TextBlock Text="Желаемый пароль" 
+                           FontSize="14" 
+                           Foreground="#AAFFFFFF" 
+                           Margin="0,0,0,4"/>
+                <PasswordBox x:Name="RegPasswordBox" 
+                             PlaceholderText="Введите пароль"
+                             Background="White" 
+                             Foreground="Black"
+                             Margin="0,0,0,16"/>
+
+                <TextBlock Text="Повторите пароль" 
+                           FontSize="14" 
+                           Foreground="#AAFFFFFF" 
+                           Margin="0,0,0,4"/>
+                <PasswordBox x:Name="RegPasswordConfirmBox" 
+                             PlaceholderText="Повторите пароль"
+                             Background="White" 
+                             Foreground="Black"
+                             Margin="0,0,0,10"/>
+
+                <!-- Текст ошибки совпадения паролей -->
+                <TextBlock x:Name="RegErrorTextBlock" 
+                           Text="Пароли не совпадают!" 
+                           Foreground="#FFFF4545" 
+                           FontSize="14" 
+                           Visibility="Collapsed" 
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+        </ContentDialog>
     </Grid>
 </Page>

@@ -7,11 +7,17 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
     <UseEmulator>true</UseEmulator>
-    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
-    <DebugEngines>{3B476D35-A401-11D2-AAD4-00C04F990171}</DebugEngines>
-    <BackgroundTaskDebugEngines>{3B476D35-A401-11D2-AAD4-00C04F990171}</BackgroundTaskDebugEngines>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DebugEngines>
+    </DebugEngines>
+    <BackgroundTaskDebugEngines>
+    </BackgroundTaskDebugEngines>
   </PropertyGroup>
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
+    <SmallTileSource>C:\Users\123\source\repos\kicquwp\kicquwp\Assets\Square71x71Logo.scale-100.png</SmallTileSource>
+    <MediumTileSource>C:\Users\123\source\repos\kicquwp\kicquwp\Assets\Logo.scale-100.png</MediumTileSource>
+    <WideTileSource>C:\Users\123\source\repos\kicquwp\kicquwp\Assets\WideLogo.scale-100.png</WideTileSource>
+    <PackageLogoSource>C:\Users\123\source\repos\kicquwp\kicquwp\Assets\StoreLogodef.png</PackageLogoSource>
   </PropertyGroup>
 </Project>

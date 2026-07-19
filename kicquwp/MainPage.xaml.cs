@@ -151,7 +151,8 @@ namespace kicquwp
                 _oscarProtocol.ContactRemoved += OnContactRemoved;
                 _oscarProtocol.TemporaryContactAdded += OnTemporaryContactAdded;
                 _oscarProtocol.DisconnectedByServer += OnKickedOut;
-                
+                _oscarProtocol.ConnectionLost += OnConnectionLostHandler;
+
             }
 
             NotificationService.Instance.UnreadChanged += OnUnreadChanged;
@@ -173,10 +174,13 @@ namespace kicquwp
                 try { _oscarProtocol.ContactRenamed -= OnContactRenamed; } catch { }
                 try { _oscarProtocol.ContactRemoved -= OnContactRemoved; } catch { }
                 try { _oscarProtocol.TemporaryContactAdded -= OnTemporaryContactAdded; } catch { }
+                try { _oscarProtocol.ConnectionLost -= OnConnectionLostHandler; } catch { }
             }
 
             try { NotificationService.Instance.UnreadChanged -= OnUnreadChanged; } catch { }
         }
+
+
 
         // ─────────────────────────────────────────────────────────────────────
         // КОНТЕКСТНОЕ МЕНЮ (удержание)
@@ -193,6 +197,19 @@ namespace kicquwp
             if (_holdContact == null) return;
 
             await ShowContactContextMenuAsync(_holdContact);
+        }
+
+        private async void OnConnectionLostHandler()
+        {
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                UinTextBlock.Text = "Соединение...";
+                foreach (var contact in Contacts)
+                {
+                    contact.StatusIcon = "/Assets/statuses/offline.png";
+                    contact.IsNewOnline = false;
+                }
+            });
         }
 
         private async Task ShowContactContextMenuAsync(Contact contact)
@@ -498,25 +515,35 @@ namespace kicquwp
             });
         }
 
-        private async void OnReconnected(OscarProtocol newOscar)
+        private void OnReconnected(OscarProtocol newOscar)
         {
+            // Отписываемся от старого
             if (_oscarProtocol != null)
+            {
                 _oscarProtocol.ContactStatusChanged -= OnContactStatusChanged;
+                _oscarProtocol.ConnectionLost -= OnConnectionLostHandler;
+                _oscarProtocol.TemporaryContactAdded -= OnTemporaryContactAdded;
+            }
 
             _oscarProtocol = newOscar;
+
+            // Подписываемся на новый
             _oscarProtocol.ContactStatusChanged += OnContactStatusChanged;
+            _oscarProtocol.ConnectionLost += OnConnectionLostHandler;
+            _oscarProtocol.TemporaryContactAdded += OnTemporaryContactAdded;
 
-            var fresh = await _oscarProtocol.GetContactsAsync(0);
+            UinTextBlock.Text = _oscarProtocol.UIN;
+            UpdateOwnStatusIcon(_currentStatus);
 
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            // Обновляем контакты из нового протокола
+            var newContacts = _oscarProtocol.GetCachedContacts();
+            if (newContacts != null)
             {
-                UinTextBlock.Text = _oscarProtocol.UIN;
                 Contacts.Clear();
-                foreach (var c in fresh)
+                foreach (var c in newContacts)
                     Contacts.Add(c);
                 SortContacts();
-                RefreshView();
-            });
+            }
         }
 
         private async void OnKickedOut(string reason)
@@ -810,7 +837,7 @@ namespace kicquwp
         // ─────────────────────────────────────────────────────────────────────
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SettingsPage));
+            Frame.Navigate(typeof(SettingsPage), _oscarProtocol);
         }
 
         private void AcInfButton_Click(object sender, RoutedEventArgs e)

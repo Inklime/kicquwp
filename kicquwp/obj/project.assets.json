@@ -2226,6 +2226,19 @@
             "rid": "aot"
           }
         }
+      },
+      "kicquwp.Background/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
+        },
+        "compile": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-arm": {
@@ -4526,6 +4539,19 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "kicquwp.Background/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
+        },
+        "compile": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kicquwp.Background.dll": {}
         }
       }
     },
@@ -6864,6 +6890,19 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "kicquwp.Background/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
+        },
+        "compile": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-arm64-aot": {
@@ -8799,6 +8838,19 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "kicquwp.Background/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
+        },
+        "compile": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kicquwp.Background.dll": {}
         }
       }
     },
@@ -11109,6 +11161,19 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "kicquwp.Background/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
+        },
+        "compile": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kicquwp.Background.dll": {}
         }
       }
     },
@@ -13456,6 +13521,19 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "kicquwp.Background/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
+        },
+        "compile": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        }
       }
     },
     "UAP,Version=v10.0.15063/win10-x86": {
@@ -15765,6 +15843,19 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "kicquwp.Background/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
+        },
+        "compile": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kicquwp.Background.dll": {}
         }
       }
     },
@@ -18111,6 +18202,19 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "kicquwp.Background/1.0.0": {
+        "type": "project",
+        "framework": "UAP,Version=v10.0.15063",
+        "dependencies": {
+          "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
+        },
+        "compile": {
+          "bin/placeholder/kicquwp.Background.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/kicquwp.Background.dll": {}
         }
       }
     }
@@ -27962,11 +28066,17 @@
         "system.xml.xmlserializer.4.0.11.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "kicquwp.Background/1.0.0": {
+      "type": "project",
+      "path": "../Background.BackgroundTask/kicquwp.Background.csproj",
+      "msbuildProject": "../Background.BackgroundTask/kicquwp.Background.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.15063": [
-      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.8"
+      "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.8",
+      "kicquwp.Background >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -27976,11 +28086,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\123\\source\\repos\\kicquwp\\kicquwp\\kicquwp.csproj",
+      "projectUniqueName": "C:\\Users\\123\\source\\repos\\kicquwp\\kicquwp\\kicquwp.csproj",
       "projectName": "kicquwp",
-      "projectPath": "c:\\users\\123\\source\\repos\\kicquwp\\kicquwp\\kicquwp.csproj",
+      "projectPath": "C:\\Users\\123\\source\\repos\\kicquwp\\kicquwp\\kicquwp.csproj",
       "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\123\\source\\repos\\kicquwp\\kicquwp\\obj\\",
+      "outputPath": "C:\\Users\\123\\source\\repos\\kicquwp\\kicquwp\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -27998,7 +28108,11 @@
       },
       "frameworks": {
         "uap10.0.15063": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\123\\source\\repos\\kicquwp\\Background.BackgroundTask\\kicquwp.Background.csproj": {
+              "projectPath": "C:\\Users\\123\\source\\repos\\kicquwp\\Background.BackgroundTask\\kicquwp.Background.csproj"
+            }
+          }
         }
       }
     },
