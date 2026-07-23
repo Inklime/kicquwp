@@ -1,0 +1,10 @@
+﻿[ResourceMetadata]
+"ResourceId"			"split.scale-400"
+"ResourceDimensions"		"scale-400"
+
+[Files]
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\x64\Release\split.scale-400.pri"			"resources.pri"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\x64\Release\PackageLayout\Assets\WideTile.scale-400.png"			"Assets\WideTile.scale-400.png"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\x64\Release\PackageLayout\Assets\StoreLogo.scale-400.png"			"Assets\StoreLogo.scale-400.png"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\x64\Release\PackageLayout\Assets\Square71x71Logo.scale-400.png"			"Assets\Square71x71Logo.scale-400.png"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\x64\Release\PackageLayout\Assets\Square150x150Logo.scale-400.png"			"Assets\Square150x150Logo.scale-400.png"

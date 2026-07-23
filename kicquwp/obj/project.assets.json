@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "UAP,Version=v10.0.15063": {
+    "UAP,Version=v10.0.10586": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -2229,7 +2229,7 @@
       },
       "kicquwp.Background/1.0.0": {
         "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
+        "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
         },
@@ -2241,7 +2241,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.15063/win10-arm": {
+    "UAP,Version=v10.0.10586/win10-arm": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -4543,7 +4543,7 @@
       },
       "kicquwp.Background/1.0.0": {
         "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
+        "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
         },
@@ -4555,7 +4555,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.15063/win10-arm-aot": {
+    "UAP,Version=v10.0.10586/win10-arm-aot": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -6893,7 +6893,7 @@
       },
       "kicquwp.Background/1.0.0": {
         "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
+        "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
         },
@@ -6905,7 +6905,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.15063/win10-arm64-aot": {
+    "UAP,Version=v10.0.10586/win10-arm64-aot": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -8842,7 +8842,7 @@
       },
       "kicquwp.Background/1.0.0": {
         "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
+        "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
         },
@@ -8854,7 +8854,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.15063/win10-x64": {
+    "UAP,Version=v10.0.10586/win10-x64": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -11165,7 +11165,7 @@
       },
       "kicquwp.Background/1.0.0": {
         "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
+        "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
         },
@@ -11177,7 +11177,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.15063/win10-x64-aot": {
+    "UAP,Version=v10.0.10586/win10-x64-aot": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -13524,7 +13524,7 @@
       },
       "kicquwp.Background/1.0.0": {
         "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
+        "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
         },
@@ -13536,7 +13536,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.15063/win10-x86": {
+    "UAP,Version=v10.0.10586/win10-x86": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -15847,7 +15847,7 @@
       },
       "kicquwp.Background/1.0.0": {
         "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
+        "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
         },
@@ -15859,7 +15859,7 @@
         }
       }
     },
-    "UAP,Version=v10.0.15063/win10-x86-aot": {
+    "UAP,Version=v10.0.10586/win10-x86-aot": {
       "Microsoft.CSharp/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -18206,7 +18206,7 @@
       },
       "kicquwp.Background/1.0.0": {
         "type": "project",
-        "framework": "UAP,Version=v10.0.15063",
+        "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8"
         },
@@ -28074,7 +28074,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "UAP,Version=v10.0.15063": [
+    "UAP,Version=v10.0.10586": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.2.8",
       "kicquwp.Background >= 1.0.0"
     ]
@@ -28101,13 +28101,13 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "uap10.0.15063"
+        "uap10.0.10586"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
       },
       "frameworks": {
-        "uap10.0.15063": {
+        "uap10.0.10586": {
           "projectReferences": {
             "C:\\Users\\123\\source\\repos\\kicquwp\\Background.BackgroundTask\\kicquwp.Background.csproj": {
               "projectPath": "C:\\Users\\123\\source\\repos\\kicquwp\\Background.BackgroundTask\\kicquwp.Background.csproj"
@@ -28117,7 +28117,7 @@
       }
     },
     "frameworks": {
-      "uap10.0.15063": {
+      "uap10.0.10586": {
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",

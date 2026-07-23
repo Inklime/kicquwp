@@ -1,11 +1,9 @@
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\bin\ARM\Debug\Background.BackgroundTask.winmd
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\bin\ARM\Debug\Background.BackgroundTask.pdb
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\bin\ARM\Debug\Background.BackgroundTask.pri
-C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\bin\ARM\Debug\Microsoft.UI.Xaml.Markup.winmd
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\kicquwp.Background.csproj.CoreCompileInputs.cache
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\Background.BackgroundTask.winmd
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\Background.BackgroundTask.pdb
-C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\kicquwp.Background.csproj.CopyComplete
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\Background.BackgroundTask.winmdobj
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\Background.BackgroundTask.compile.pdb
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\priconfig.xml
@@ -23,3 +21,4 @@ C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\pri.re
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\qualifiers.txt
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\qualifiers.txt.intermediate
 C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\obj\ARM\Debug\kicquwp.Background.csprojAssemblyReference.cache

@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PriInfo>
+	<ResourceMap name="e7727368-8c12-4939-a4c7-bc016f1df00b" version="1.0" primary="true">
+		<Qualifiers>
+			<AlternateForm>UNPLATED</AlternateForm>
+			<Scale>200</Scale>
+			<TargetSize>24</TargetSize>
+		</Qualifiers>
+		<ResourceMapSubtree name="Files">
+			<NamedResource name="AccountInfoPage.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/AccountInfoPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="App.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/App.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="ChatPage.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/ChatPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="FeatureItem.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/FeatureItem.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="InfoPage.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/InfoPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="kicquwp.xr.xml" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/kicquwp.xr.xml">
+				<Candidate type="Path">
+					<Value>kicquwp.xr.xml</Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="LoginPage.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/LoginPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="MainPage.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/MainPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="SearchPage.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/SearchPage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<NamedResource name="Settingspage.xbf" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Settingspage.xbf">
+				<Candidate type="EmbeddedData">
+					<Base64Value>[Embedded Binary Data]</Base64Value>
+				</Candidate>
+			</NamedResource>
+			<ResourceMapSubtree name="Assets">
+				<NamedResource name="desc.txt" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/desc.txt">
+					<Candidate type="Path">
+						<Value>Assets\desc.txt</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="LockScreenLogo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/LockScreenLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\LockScreenLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Logo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Logo.png"/>
+				<NamedResource name="Logo_ICQ.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Logo_ICQ.png">
+					<Candidate type="Path">
+						<Value>Assets\Logo_ICQ.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="MedLogo--.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/MedLogo--.png">
+					<Candidate type="Path">
+						<Value>Assets\MedLogo--.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="MedLogo-.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/MedLogo-.png">
+					<Candidate type="Path">
+						<Value>Assets\MedLogo-.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="MedLogo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/MedLogo.png">
+					<Candidate type="Path">
+						<Value>Assets\MedLogo.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="SmallLogo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/SmallLogo.png"/>
+				<NamedResource name="SplashScreen.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/SplashScreen.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\SplashScreen.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square150x150Logo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Square150x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square150x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square44x44Logo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Square44x44Logo.png">
+					<Candidate qualifiers="TargetSize-24, AlternateForm-UNPLATED" type="Path">
+						<Value>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</Value>
+					</Candidate>
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square44x44Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Square71x71Logo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Square71x71Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Square71x71Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="StoreLogo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/StoreLogo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\StoreLogo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="Wide310x150Logo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Wide310x150Logo.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\Wide310x150Logo.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="WideLogo-.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/WideLogo-.png">
+					<Candidate type="Path">
+						<Value>Assets\WideLogo-.png</Value>
+					</Candidate>
+				</NamedResource>
+				<NamedResource name="WideLogo.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/WideLogo.png"/>
+				<NamedResource name="WideTile.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/WideTile.png">
+					<Candidate qualifiers="Scale-200" isDefault="true" type="Path">
+						<Value>Assets\WideTile.scale-200.png</Value>
+					</Candidate>
+				</NamedResource>
+				<ResourceMapSubtree name="emoji">
+					<NamedResource name="aa.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/aa.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\aa.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ab.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ab.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ab.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ac.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ac.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ac.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ad.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ad.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ad.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ae.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ae.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ae.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="af.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/af.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\af.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ag.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ag.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ag.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ah.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ah.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ah.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ai.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ai.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ai.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="aj.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/aj.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\aj.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ak.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ak.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ak.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="al.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/al.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\al.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="am.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/am.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\am.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="an.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/an.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\an.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ao.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ao.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ao.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ap.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ap.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ap.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="aq.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/aq.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\aq.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ar.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ar.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ar.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="as.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/as.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\as.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="at.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/at.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\at.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="au.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/au.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\au.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="av.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/av.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\av.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="aw.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/aw.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\aw.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ax.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ax.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ax.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ay.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ay.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ay.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="az.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/az.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\az.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ba.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/ba.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\ba.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bb.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bb.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bb.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bc.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bc.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bc.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bd.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bd.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bd.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="be.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/be.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\be.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bf.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bf.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bf.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bg.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bg.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bg.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bh.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bh.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bh.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bi.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bi.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bi.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bj.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bj.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bj.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bk.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bk.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bk.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bl.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bl.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bl.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bm.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bm.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bm.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bn.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bn.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bn.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bo.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bo.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bo.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bp.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bp.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bp.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bq.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bq.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bq.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="br.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/br.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\br.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bs.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bs.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bs.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bt.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bt.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bt.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bu.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bu.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bu.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bv.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bv.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bv.gif</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bw.gif" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/emoji/bw.gif">
+						<Candidate type="Path">
+							<Value>Assets\emoji\bw.gif</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="icons">
+					<NamedResource name="added.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/icons/added.png">
+						<Candidate type="Path">
+							<Value>Assets\icons\added.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="newmsg.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/icons/newmsg.png">
+						<Candidate type="Path">
+							<Value>Assets\icons\newmsg.png</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="Sounds">
+					<NamedResource name="auth.wav" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Sounds/auth.wav">
+						<Candidate type="Path">
+							<Value>Assets\Sounds\auth.wav</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="error.wav" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Sounds/error.wav">
+						<Candidate type="Path">
+							<Value>Assets\Sounds\error.wav</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="message.wav" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Sounds/message.wav">
+						<Candidate type="Path">
+							<Value>Assets\Sounds\message.wav</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="notification.wav" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Sounds/notification.wav">
+						<Candidate type="Path">
+							<Value>Assets\Sounds\notification.wav</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="online.wav" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Sounds/online.wav">
+						<Candidate type="Path">
+							<Value>Assets\Sounds\online.wav</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="sndMsgSent.wav" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Sounds/sndMsgSent.wav">
+						<Candidate type="Path">
+							<Value>Assets\Sounds\sndMsgSent.wav</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="sndRemSelf.wav" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Sounds/sndRemSelf.wav">
+						<Candidate type="Path">
+							<Value>Assets\Sounds\sndRemSelf.wav</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="sndSystem.wav" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/Sounds/sndSystem.wav">
+						<Candidate type="Path">
+							<Value>Assets\Sounds\sndSystem.wav</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="statuses">
+					<NamedResource name="away.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/away.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\away.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="busy.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/busy.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\busy.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="depressed.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/depressed.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\depressed.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="dnd.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/dnd.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\dnd.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="eating.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/eating.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\eating.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="evil.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/evil.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\evil.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="f4c.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/f4c.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\f4c.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="home.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/home.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\home.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="ifa.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/ifa.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\ifa.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="inv.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/inv.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\inv.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="na.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/na.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\na.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="nicl.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/nicl.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\nicl.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="offline.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/offline.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\offline.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="online.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/online.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\online.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="unknown.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/unknown.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\unknown.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="work.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/statuses/work.png">
+						<Candidate type="Path">
+							<Value>Assets\statuses\work.png</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+				<ResourceMapSubtree name="xtraz">
+					<NamedResource name="angry.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/angry.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\angry.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="bath.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/bath.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\bath.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="beer.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/beer.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\beer.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="business.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/business.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\business.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="camera.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/camera.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\camera.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="coffee.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/coffee.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\coffee.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="cpc.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/cpc.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\cpc.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="eating.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/eating.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\eating.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="friends.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/friends.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\friends.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="funny.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/funny.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\funny.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="game.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/game.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\game.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="heart.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/heart.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\heart.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="internet.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/internet.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\internet.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="mobph.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/mobph.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\mobph.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="music.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/music.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\music.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="paper.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/paper.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\paper.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="party.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/party.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\party.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="phone.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/phone.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\phone.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="qm.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/qm.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\qm.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="redthing.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/redthing.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\redthing.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="search.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/search.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\search.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="shashlik.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/shashlik.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\shashlik.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="shopping.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/shopping.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\shopping.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="sleep.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/sleep.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\sleep.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="sleepy.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/sleepy.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\sleepy.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="study.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/study.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\study.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="surf.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/surf.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\surf.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="temp.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/temp.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\temp.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="think.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/think.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\think.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="tired.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/tired.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\tired.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="tv.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/tv.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\tv.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="type.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/type.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\type.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="work.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/work.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\work.png</Value>
+						</Candidate>
+					</NamedResource>
+					<NamedResource name="write.png" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Assets/xtraz/write.png">
+						<Candidate type="Path">
+							<Value>Assets\xtraz\write.png</Value>
+						</Candidate>
+					</NamedResource>
+				</ResourceMapSubtree>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="Properties">
+				<NamedResource name="Default.rd.xml" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/Properties/Default.rd.xml">
+					<Candidate type="Path">
+						<Value>Properties\Default.rd.xml</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+			<ResourceMapSubtree name="WinMetadata">
+				<NamedResource name="Windows.winmd" uri="ms-resource://e7727368-8c12-4939-a4c7-bc016f1df00b/Files/WinMetadata/Windows.winmd">
+					<Candidate type="Path">
+						<Value>WinMetadata\Windows.winmd</Value>
+					</Candidate>
+				</NamedResource>
+			</ResourceMapSubtree>
+		</ResourceMapSubtree>
+	</ResourceMap>
+</PriInfo>

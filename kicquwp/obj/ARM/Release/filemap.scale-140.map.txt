@@ -1,0 +1,7 @@
+﻿[ResourceMetadata]
+"ResourceId"			"filemap.scale-140"
+"ResourceDimensions"		"scale-140"
+
+[Files]
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\filemap.scale-140.pri"			"resources.pri"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\PackageLayout\Assets\Logo.scale-140.png"			"Assets\Logo.scale-140.png"

@@ -16,7 +16,6 @@ using Windows.UI.Xaml.Navigation;
 
 namespace kicquwp
 {
-    // ─── Вынесен из ChatMessage — UWP XAML не видит вложенные классы ───────
 
 
     public class ChatMessage : INotifyPropertyChanged
@@ -24,6 +23,7 @@ namespace kicquwp
         private string _text;
         private bool _isIncoming;
         private bool _isOutgoing;
+        
 
         public string Text
         {
@@ -66,6 +66,8 @@ namespace kicquwp
         private bool _typingNotificationsEnabled = true;
         private ChatMessage _replyTo;
         private HashSet<string> _loadedMessageKeys = new HashSet<string>();
+        private static Windows.UI.Xaml.Media.ImageBrush _cachedChatBackground = null;
+        private static string _lastChatBackgroundPath = null;
 
         // ─────────────────────────────────────────────────────────────────
         // КОНСТРУКТОР
@@ -133,6 +135,9 @@ namespace kicquwp
             ContactNameTextBlock.Text = _contact.Name;
             ContactUinTextBlock.Text = _contact.Uin;
 
+            ((App)Application.Current).ConnectionStateChanged += OnGlobalConnectionStateChanged;
+            ApplyConnectionState();
+
             UpdateAppBar();
 
             _reconnect = ((App)Application.Current).ReconnectService;
@@ -186,6 +191,7 @@ namespace kicquwp
                 MessageTextBox.SelectionStart = forwardText.Length;
                 MessageTextBox.Focus(FocusState.Programmatic);
             }
+            Window.Current.CoreWindow.VisibilityChanged += OnWindowVisibilityChanged;
         }
 
         private async void OnChatConnectionLost()
@@ -200,6 +206,8 @@ namespace kicquwp
         {
             base.OnNavigatedFrom(e);
 
+            Window.Current.CoreWindow.VisibilityChanged -= OnWindowVisibilityChanged;
+            ((App)Application.Current).ConnectionStateChanged -= OnGlobalConnectionStateChanged;
             NotificationService.Instance.ActiveChatUin = null;
 
             if (_oscar != null)
@@ -224,6 +232,21 @@ namespace kicquwp
                 _reconnect.OnDisconnected -= OnConnectionLost;
                 _reconnect.Reconnected -= OnReconnectedInChat;
             }
+        }
+
+        private void OnGlobalConnectionStateChanged()
+        {
+            var ignored = Dispatcher.RunAsync(
+                Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                ApplyConnectionState());
+        }
+
+        private void ApplyConnectionState()
+        {
+            bool connected = ((App)Application.Current).IsConnected;
+            ContactUinTextBlock.Text = connected
+                ? (_contact?.Uin ?? "")
+                : "Соединение...";
         }
 
         // ─────────────────────────────────────────────────────────────────
@@ -824,8 +847,24 @@ namespace kicquwp
         {
             var settings = ApplicationData.Current.LocalSettings;
             string path = settings.Values["ChatBackgroundPath"] as string;
-            if (string.IsNullOrEmpty(path)) return;
 
+            // Если фон удалили
+            if (string.IsNullOrEmpty(path))
+            {
+                MessagesList.Background = null;
+                _cachedChatBackground = null;
+                _lastChatBackgroundPath = null;
+                return;
+            }
+
+            // МОМЕНТАЛЬНО применяем кэш, если картинка та же самая
+            if (path == _lastChatBackgroundPath && _cachedChatBackground != null)
+            {
+                MessagesList.Background = _cachedChatBackground;
+                return;
+            }
+
+            // Загружаем с диска только при первом входе или смене картинки
             try
             {
                 var file = await StorageFile.GetFileFromPathAsync(path);
@@ -833,12 +872,16 @@ namespace kicquwp
                 {
                     var bitmap = new Windows.UI.Xaml.Media.Imaging.BitmapImage();
                     await bitmap.SetSourceAsync(stream);
-                    MessagesList.Background = new Windows.UI.Xaml.Media.ImageBrush
+
+                    _cachedChatBackground = new Windows.UI.Xaml.Media.ImageBrush
                     {
                         ImageSource = bitmap,
                         Stretch = Windows.UI.Xaml.Media.Stretch.UniformToFill,
                         Opacity = 0.3
                     };
+
+                    _lastChatBackgroundPath = path;
+                    MessagesList.Background = _cachedChatBackground;
                 }
             }
             catch (Exception ex)
@@ -1032,5 +1075,23 @@ namespace kicquwp
             new EmojiItem { Code = "*DANCE*",       ImagePath = "ms-appx:///Assets/emoji/bo.gif" },
             new EmojiItem { Code = "*YAHOO*",       ImagePath = "ms-appx:///Assets/emoji/bp.gif" },
         };
+        private void OnWindowVisibilityChanged(CoreWindow sender, VisibilityChangedEventArgs args)
+        {
+            if (!args.Visible)
+            {
+                // Приложение свернули или ушли из него (пользователь не видит чат) — 
+                // сбрасываем ActiveChatUin, чтобы входящие сообщения присылали тосты
+                NotificationService.Instance.ActiveChatUin = null;
+            }
+            else
+            {
+                // Пользователь вернулся в приложение и оно на экране — 
+                // если мы всё еще в этом чате, снова блокируем тосты для него
+                if (_contact != null)
+                {
+                    NotificationService.Instance.ActiveChatUin = _contact.Uin;
+                }
+            }
+        }
     }
 }

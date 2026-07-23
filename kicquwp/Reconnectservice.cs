@@ -24,6 +24,7 @@ namespace kicquwp
         public event Action<string> KickedOut;
         private static ReconnectService _instance;
         private Windows.Networking.Connectivity.NetworkStatusChangedEventHandler _networkHandler;
+        public event Action OnRetryWaiting;
 
         // Событие — подписываемся в App чтобы обновить UI после реконнекта
         public event Action<OscarProtocol> Reconnected;
@@ -172,8 +173,13 @@ namespace kicquwp
                 if (_dispatcher != null)
                     await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
+                        ((App)Windows.UI.Xaml.Application.Current).NotifyConnectionLost();
+                        ((App)Windows.UI.Xaml.Application.Current).StartConnectingAnimation();
                         if (OnDisconnected != null) OnDisconnected();
                     });
+
+                Windows.Storage.ApplicationData.Current.LocalSettings
+            .Values["ConnectionLost"] = true;
 
                 int attempt = 0;
                 while (_running && !token.IsCancellationRequested)
@@ -181,12 +187,29 @@ namespace kicquwp
                     attempt++;
                     int delay = Math.Min(30000, attempt * 5000);
                     Debug.WriteLine("[Reconnect] Retry in " + delay + "ms");
+                    await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    {
+                        // Показываем offline пока ждём
+                        ((App)Windows.UI.Xaml.Application.Current).StopConnectingAnimation();
+                    });
+
 
                     await Task.Delay(delay, token);
+
+                    await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                    {
+                        ((App)Windows.UI.Xaml.Application.Current).StartConnectingAnimation();
+                    });
+
                     if (token.IsCancellationRequested) break;
 
                     bool ok = await TryReconnectAsync(token);
-                    if (ok) break;
+                    if (ok)
+                    {
+                        Windows.Storage.ApplicationData.Current.LocalSettings
+                    .Values["ConnectionLost"] = false;
+                    }
+                    break;
                 }
             }
             Debug.WriteLine("[Reconnect] Monitor stopped");
@@ -229,6 +252,9 @@ namespace kicquwp
                 {
                     await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
+                        ((App)Windows.UI.Xaml.Application.Current).StopConnectingAnimation();
+                        ((App)Windows.UI.Xaml.Application.Current).NotifyConnected();
+                        ((App)Windows.UI.Xaml.Application.Current).Oscar = _oscar;
                         Reconnected?.Invoke(_oscar);
                     });
                 }

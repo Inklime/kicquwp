@@ -51,6 +51,7 @@
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalContentAlignment" />
+      <RootProperty Name="Visibility" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
@@ -160,6 +161,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -176,6 +178,7 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="LineHeight" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="MaxHeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
@@ -325,17 +328,17 @@
     </RootType>
     <RootType FullName="kicquwp.MainPage" />
     <RootType FullName="kicquwp.SearchPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Toggled" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="Minimum" />
       <RootProperty Name="Maximum" />
       <RootProperty Name="Value" />
       <RootProperty Name="Foreground" />
       <RootEvent Name="ValueChanged" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="kicquwp.SettingsPage" />
   </Roots.RootTypes>

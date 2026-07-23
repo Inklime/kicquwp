@@ -1336,6 +1336,12 @@ namespace kicquwp
                 await SendClientReadyAsync();
                 await Task.Delay(200);
 
+                await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
+                    ((App)Windows.UI.Xaml.Application.Current).NotifyConnected();
+                });
+
+
                 // SNAC(13,07) — активация SSI (после ClientReady как в QIP)
                 await SendSnacAsync(0x13, 0x07, 0x0000, GetNextRequestID(), null);
 
@@ -4293,6 +4299,41 @@ namespace kicquwp
             }
         }
 
+        // Вызывать на СТАРОМ (умирающем) экземпляре ПЕРЕД тем, как
+        // ReconnectService создаст новый OscarProtocol для переподключения.
+        //
+        // ПРИЧИНА: ControlChannelService.Instance — синглтон на весь процесс.
+        // Если новый OscarProtocol вызовет InitializeAsync() до того, как
+        // старый экземпляр полностью очистил свой _trigger/сокет — новый
+        // _trigger молча затирает старый, а старая TCP-сессия может остаться
+        // не до конца закрытой на сервере. Именно это давало: (а) несколько
+        // подряд "Connection closed during data read" пока всё не устаканится,
+        // и (б) "New client with same UIN connected" — сервер видел одновременно
+        // старую недобитую сессию и новую, кикал одну из них по кругу.
+        //
+        // Безопасно вызывать даже если соединение уже мертво (SendFlapAsync
+        // внутри тихо падает и игнорируется, как и раньше в DisconnectAsync).
+        public async Task TeardownForReconnectAsync()
+        {
+            try
+            {
+                Debug.WriteLine("[OscarProtocol] TeardownForReconnect: начало");
+                await DisconnectAsync();
+
+                // Даём серверу и ОС время реально обработать закрытие сокета
+                // (FIN/RST), прежде чем новый экземпляр откроет новое
+                // соединение с тем же UIN — иначе сервер иногда ещё видит
+                // старую сессию живой в момент нового логина.
+                await Task.Delay(500);
+
+                Debug.WriteLine("[OscarProtocol] TeardownForReconnect: завершено");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[OscarProtocol] TeardownForReconnect error: " + ex.Message);
+            }
+        }
+
         public async Task DisconnectAsync()
         {
             try
@@ -4329,13 +4370,15 @@ namespace kicquwp
                 try { _reader?.Dispose(); } catch { }
                 _reader = null;
 
-                try {
+                try
+                {
                     if (_socket != null)
                     {
                         _socket.Dispose(); // Это безопасно прервет поток чтения
                         _socket = null;
                     }
-                } catch { }
+                }
+                catch { }
 
                 ControlChannelService.Instance.Cleanup();
 

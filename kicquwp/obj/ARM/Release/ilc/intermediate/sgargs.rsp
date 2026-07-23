@@ -1,0 +1,12 @@
+/out:"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\intermediate\SgGenerated\\"
+/int:"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\intermediate\\"
+/ref:"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\intermediate\PreMergeILTransformed"
+/ref:"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\intermediate\TransformedSRWR"
+/ref:"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\in"
+/ref:"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\in\\"
+/ref:"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\ARM\ilc\lib\Private\\"
+/ref:"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\in\WinMetadata"
+/ca:System.Private.CoreLib
+/cscpath:"C:\Program Files (x86)\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\tools\ARM\ilc\csc"
+"@C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\ilc\intermediate\PreMergeILTransformed\ComputedSerializationInput.txt"

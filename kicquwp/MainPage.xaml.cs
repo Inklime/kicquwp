@@ -21,6 +21,12 @@ namespace kicquwp
         private uint _currentStatus = 0x10010000;
         private bool _initialized = false;
         private bool _statusPanelVisible = false;
+        private static Windows.UI.Xaml.Media.ImageBrush _cachedMainBackground = null;
+        private static string _lastMainBackgroundPath = null;
+        private static double _lastMainOpacity = -1;
+        // Словарь для хранения уже загруженных кадров анимации
+        private Dictionary<string, Windows.UI.Xaml.Media.Imaging.BitmapImage> _connectingFramesCache
+            = new Dictionary<string, Windows.UI.Xaml.Media.Imaging.BitmapImage>();
 
         public ObservableCollection<Contact> Contacts { get; set; }
 
@@ -113,8 +119,23 @@ namespace kicquwp
             // Подписки на события (каждый раз при входе на страницу)
             SubscribeToEvents();
 
-            // Восстанавливаем сохранённый статус
             var settings = ApplicationData.Current.LocalSettings;
+
+            // Проверка перехода из тост-уведомления
+            if (settings.Values["PendingToastUin"] is string pendingUin)
+            {
+                // Очищаем, чтобы чат не открывался при каждом возврате на главную
+                settings.Values.Remove("PendingToastUin");
+
+                var targetContact = Contacts.FirstOrDefault(c => c.Uin == pendingUin)
+                                    ?? new Contact { Uin = pendingUin, Name = pendingUin, IsTemporary = true };
+
+                // Перебрасываем в нужный чат
+                Frame.Navigate(typeof(ChatPage), new Tuple<Contact, OscarProtocol>(targetContact, _oscarProtocol));
+            }
+
+            // --- ЭТИ СТРОКИ ТЕПЕРЬ СНАРУЖИ IF ---
+            // Восстанавливаем сохранённый статус
             object savedStatus = settings.Values["LastStatus"];
             if (savedStatus != null)
                 _currentStatus = (uint)(long)savedStatus;
@@ -123,6 +144,8 @@ namespace kicquwp
 
             // Действия при возврате (например, из чата)
             ApplySettings();
+
+            // ПРИНУДИТЕЛЬНО проверяем счетчики каждый раз, когда возвращаемся на страницу
             OnUnreadChanged();
         }
 
@@ -144,6 +167,8 @@ namespace kicquwp
                 reconnect.KickedOut += OnKickedOut;
             }
 
+
+
             if (_oscarProtocol != null)
             {
                 _oscarProtocol.ContactStatusChanged += OnContactStatusChanged;
@@ -155,8 +180,16 @@ namespace kicquwp
 
             }
 
+    // Подписываемся на глобальное состояние
+        ((App)Application.Current).ConnectionStateChanged += OnGlobalConnectionStateChanged;
+            ((App)Application.Current).ConnectingAnimationFrame += OnConnectingFrame;
+
+            // Применяем текущее состояние сразу при входе
+            ApplyConnectionState();
             NotificationService.Instance.UnreadChanged += OnUnreadChanged;
         }
+
+
 
         private void UnsubscribeFromEvents()
         {
@@ -178,9 +211,56 @@ namespace kicquwp
             }
 
             try { NotificationService.Instance.UnreadChanged -= OnUnreadChanged; } catch { }
+            ((App)Application.Current).ConnectionStateChanged -= OnGlobalConnectionStateChanged;
+            ((App)Application.Current).ConnectingAnimationFrame -= OnConnectingFrame;
+        }
+        private void OnConnectingFrame(string framePath)
+        {
+            try
+            {
+                string cleanPath = framePath.TrimStart('/');
+
+                // Если картинка запрашивается впервые — создаем её и кладем в кэш
+                if (!_connectingFramesCache.ContainsKey(cleanPath))
+                {
+                    _connectingFramesCache[cleanPath] = new Windows.UI.Xaml.Media.Imaging.BitmapImage(
+                        new Uri("ms-appx:///" + cleanPath));
+                }
+
+                // Мгновенно применяем готовую картинку из оперативной памяти
+                OwnStatusIcon.Source = _connectingFramesCache[cleanPath];
+            }
+            catch { }
         }
 
 
+
+        private void OnGlobalConnectionStateChanged()
+        {
+            var ignored = Dispatcher.RunAsync(
+                Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                ApplyConnectionState());
+        }
+
+        private void ApplyConnectionState()
+        {
+            bool connected = ((App)Application.Current).IsConnected;
+            if (!connected)
+            {
+                UinTextBlock.Text = "Соединение...";
+                foreach (var contact in Contacts)
+                {
+                    contact.StatusIcon = "/Assets/statuses/offline.png";
+                    contact.IsNewOnline = false;
+                }
+                // OwnStatusIcon обновляется через ConnectingAnimationFrame
+            }
+            else
+            {
+                UinTextBlock.Text = _oscarProtocol?.UIN ?? "";
+                UpdateOwnStatusIcon(_currentStatus);
+            }
+        }
 
         // ─────────────────────────────────────────────────────────────────────
         // КОНТЕКСТНОЕ МЕНЮ (удержание)
@@ -562,7 +642,12 @@ namespace kicquwp
             _ = Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 foreach (var contact in Contacts)
+                {
                     contact.UnreadCount = NotificationService.Instance.GetUnread(contact.Uin);
+                }
+
+                // Заставляем список перестроиться и показать/скрыть индикаторы
+                RefreshView();
             });
         }
 
@@ -715,13 +800,23 @@ namespace kicquwp
 
         private async Task ApplyBackgroundAsync(string path, double opacityPercent)
         {
+            // Если фон удалили
             if (string.IsNullOrEmpty(path))
             {
-                ContactsListView.Background =
-                    new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Transparent);
+                ContactsListView.Background = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Transparent);
+                _cachedMainBackground = null;
+                _lastMainBackgroundPath = null;
                 return;
             }
 
+            // Если путь к файлу и прозрачность не изменились — МОМЕНТАЛЬНО применяем кэш
+            if (path == _lastMainBackgroundPath && opacityPercent == _lastMainOpacity && _cachedMainBackground != null)
+            {
+                ContactsListView.Background = _cachedMainBackground;
+                return;
+            }
+
+            // Иначе читаем файл с диска (выполнится только один раз)
             try
             {
                 var file = await StorageFile.GetFileFromPathAsync(path);
@@ -730,14 +825,20 @@ namespace kicquwp
                     var bitmap = new Windows.UI.Xaml.Media.Imaging.BitmapImage();
                     await bitmap.SetSourceAsync(stream);
 
-                    ContactsListView.Background = new Windows.UI.Xaml.Media.ImageBrush
+                    _cachedMainBackground = new Windows.UI.Xaml.Media.ImageBrush
                     {
                         ImageSource = bitmap,
                         Stretch = Windows.UI.Xaml.Media.Stretch.UniformToFill,
                         Opacity = opacityPercent / 100.0
                     };
+
+                    // Сохраняем параметры в кэш
+                    _lastMainBackgroundPath = path;
+                    _lastMainOpacity = opacityPercent;
+
+                    ContactsListView.Background = _cachedMainBackground;
                 }
-                Debug.WriteLine("[MainPage] Background applied");
+                Debug.WriteLine("[MainPage] Background loaded and cached");
             }
             catch (Exception ex)
             {

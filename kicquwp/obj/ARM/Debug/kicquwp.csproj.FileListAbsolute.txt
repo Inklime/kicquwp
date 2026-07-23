@@ -129,7 +129,6 @@ C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\System.Xml.XDocument.dll
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\System.Xml.XmlDocument.dll
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\System.Xml.XmlSerializer.dll
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\Background.BackgroundTask.winmd
-C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\Microsoft.UI.Xaml.Markup.winmd
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\Background.BackgroundTask.pdb
 C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Debug\Background.BackgroundTask.pri
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\kicquwp.csprojAssemblyReference.cache
@@ -259,3 +258,6 @@ C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\ProjectArchitectures.txt
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Background.BackgroundTask.winmd_639198989203008117.json
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_638773395680000000.json
 C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Background.BackgroundTask.winmd_639198995279719863.json
+C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Background.BackgroundTask.winmd_639202759697366192.json
+C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Background.BackgroundTask.winmd_639203666730296511.json
+C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Debug\.winmd_cache\$Background.BackgroundTask.winmd_639203668510114423.json

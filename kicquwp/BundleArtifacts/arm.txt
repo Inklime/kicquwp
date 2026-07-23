@@ -1,0 +1,8 @@
+MainPackage=C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\kicquwp_1.0.3.0_ARM.appx
+SymbolPackage=C:\Users\123\source\repos\kicquwp\kicquwp\AppPackages\kicquwp_1.0.3.0_Test\kicquwp_1.0.3.0_ARM.appxsym
+ResourcePack=C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\kicquwp_1.0.3.0_scale-100.appx
+ResourcePack=C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\kicquwp_1.0.3.0_scale-125.appx
+ResourcePack=C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\kicquwp_1.0.3.0_scale-140.appx
+ResourcePack=C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\kicquwp_1.0.3.0_scale-150.appx
+ResourcePack=C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\kicquwp_1.0.3.0_scale-240.appx
+ResourcePack=C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\kicquwp_1.0.3.0_scale-400.appx

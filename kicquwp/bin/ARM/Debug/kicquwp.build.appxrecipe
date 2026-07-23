@@ -370,9 +370,6 @@
     <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\bin\ARM\Debug\Background.BackgroundTask.winmd">
       <PackagePath>Background.BackgroundTask.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
-      <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\desc.txt">
       <PackagePath>Assets\desc.txt</PackagePath>
     </AppxPackagedFile>
@@ -602,6 +599,30 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\busy.png">
       <PackagePath>Assets\statuses\busy.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\connecting_1.png">
+      <PackagePath>Assets\statuses\connecting_1.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\connecting_2.png">
+      <PackagePath>Assets\statuses\connecting_2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\connecting_3.png">
+      <PackagePath>Assets\statuses\connecting_3.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\connecting_4.png">
+      <PackagePath>Assets\statuses\connecting_4.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\connecting_5.png">
+      <PackagePath>Assets\statuses\connecting_5.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\connecting_6.png">
+      <PackagePath>Assets\statuses\connecting_6.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\connecting_7.png">
+      <PackagePath>Assets\statuses\connecting_7.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\connecting_8.png">
+      <PackagePath>Assets\statuses\connecting_8.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\Assets\statuses\depressed.png">
       <PackagePath>Assets\statuses\depressed.png</PackagePath>

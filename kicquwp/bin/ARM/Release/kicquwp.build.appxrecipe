@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-2OUBI78</Machine>
+    <WindowsUser>123</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Release|ARM</SolutionConfiguration>
+    <PackageArchitecture>arm</PackageArchitecture>
+    <PackageIdentityName>e7727368-8c12-4939-a4c7-bc016f1df00b</PackageIdentityName>
+    <PackageIdentityPublisher>CN=123</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\</IntermediateOutputPath>
+    <RemoteDeploymentType></RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\AppX</LayoutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\desc.txt">
+      <PackagePath>Assets\desc.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\aa.gif">
+      <PackagePath>Assets\emoji\aa.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ab.gif">
+      <PackagePath>Assets\emoji\ab.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ac.gif">
+      <PackagePath>Assets\emoji\ac.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ad.gif">
+      <PackagePath>Assets\emoji\ad.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ae.gif">
+      <PackagePath>Assets\emoji\ae.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\af.gif">
+      <PackagePath>Assets\emoji\af.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ag.gif">
+      <PackagePath>Assets\emoji\ag.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ah.gif">
+      <PackagePath>Assets\emoji\ah.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ai.gif">
+      <PackagePath>Assets\emoji\ai.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\aj.gif">
+      <PackagePath>Assets\emoji\aj.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ak.gif">
+      <PackagePath>Assets\emoji\ak.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\al.gif">
+      <PackagePath>Assets\emoji\al.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\am.gif">
+      <PackagePath>Assets\emoji\am.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\an.gif">
+      <PackagePath>Assets\emoji\an.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ao.gif">
+      <PackagePath>Assets\emoji\ao.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ap.gif">
+      <PackagePath>Assets\emoji\ap.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\aq.gif">
+      <PackagePath>Assets\emoji\aq.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ar.gif">
+      <PackagePath>Assets\emoji\ar.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\as.gif">
+      <PackagePath>Assets\emoji\as.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\at.gif">
+      <PackagePath>Assets\emoji\at.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\au.gif">
+      <PackagePath>Assets\emoji\au.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\av.gif">
+      <PackagePath>Assets\emoji\av.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\aw.gif">
+      <PackagePath>Assets\emoji\aw.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ax.gif">
+      <PackagePath>Assets\emoji\ax.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ay.gif">
+      <PackagePath>Assets\emoji\ay.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\az.gif">
+      <PackagePath>Assets\emoji\az.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\ba.gif">
+      <PackagePath>Assets\emoji\ba.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bb.gif">
+      <PackagePath>Assets\emoji\bb.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bc.gif">
+      <PackagePath>Assets\emoji\bc.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bd.gif">
+      <PackagePath>Assets\emoji\bd.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\be.gif">
+      <PackagePath>Assets\emoji\be.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bf.gif">
+      <PackagePath>Assets\emoji\bf.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bg.gif">
+      <PackagePath>Assets\emoji\bg.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bh.gif">
+      <PackagePath>Assets\emoji\bh.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bi.gif">
+      <PackagePath>Assets\emoji\bi.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bj.gif">
+      <PackagePath>Assets\emoji\bj.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bk.gif">
+      <PackagePath>Assets\emoji\bk.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bl.gif">
+      <PackagePath>Assets\emoji\bl.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bm.gif">
+      <PackagePath>Assets\emoji\bm.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bn.gif">
+      <PackagePath>Assets\emoji\bn.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bo.gif">
+      <PackagePath>Assets\emoji\bo.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bp.gif">
+      <PackagePath>Assets\emoji\bp.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bq.gif">
+      <PackagePath>Assets\emoji\bq.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\br.gif">
+      <PackagePath>Assets\emoji\br.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bs.gif">
+      <PackagePath>Assets\emoji\bs.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bt.gif">
+      <PackagePath>Assets\emoji\bt.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bu.gif">
+      <PackagePath>Assets\emoji\bu.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bv.gif">
+      <PackagePath>Assets\emoji\bv.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\emoji\bw.gif">
+      <PackagePath>Assets\emoji\bw.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\icons\added.png">
+      <PackagePath>Assets\icons\added.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\icons\newmsg.png">
+      <PackagePath>Assets\icons\newmsg.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Logo.scale-140.png">
+      <PackagePath>Assets\Logo.scale-140.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Logo.scale-240.png">
+      <PackagePath>Assets\Logo.scale-240.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Logo_ICQ.png">
+      <PackagePath>Assets\Logo_ICQ.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\MedLogo--.png">
+      <PackagePath>Assets\MedLogo--.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\MedLogo-.png">
+      <PackagePath>Assets\MedLogo-.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\MedLogo.png">
+      <PackagePath>Assets\MedLogo.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\SmallLogo.scale-240.png">
+      <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Sounds\auth.wav">
+      <PackagePath>Assets\Sounds\auth.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Sounds\error.wav">
+      <PackagePath>Assets\Sounds\error.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Sounds\message.wav">
+      <PackagePath>Assets\Sounds\message.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Sounds\notification.wav">
+      <PackagePath>Assets\Sounds\notification.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Sounds\online.wav">
+      <PackagePath>Assets\Sounds\online.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Sounds\sndMsgSent.wav">
+      <PackagePath>Assets\Sounds\sndMsgSent.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Sounds\sndRemSelf.wav">
+      <PackagePath>Assets\Sounds\sndRemSelf.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Sounds\sndSystem.wav">
+      <PackagePath>Assets\Sounds\sndSystem.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\SplashScreen.scale-240.png">
+      <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square71x71Logo.scale-100.png">
+      <PackagePath>Assets\Square71x71Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square71x71Logo.scale-125.png">
+      <PackagePath>Assets\Square71x71Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square71x71Logo.scale-150.png">
+      <PackagePath>Assets\Square71x71Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square71x71Logo.scale-200.png">
+      <PackagePath>Assets\Square71x71Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square71x71Logo.scale-240.png">
+      <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Square71x71Logo.scale-400.png">
+      <PackagePath>Assets\Square71x71Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\away.png">
+      <PackagePath>Assets\statuses\away.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\busy.png">
+      <PackagePath>Assets\statuses\busy.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\depressed.png">
+      <PackagePath>Assets\statuses\depressed.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\dnd.png">
+      <PackagePath>Assets\statuses\dnd.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\eating.png">
+      <PackagePath>Assets\statuses\eating.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\evil.png">
+      <PackagePath>Assets\statuses\evil.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\f4c.png">
+      <PackagePath>Assets\statuses\f4c.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\home.png">
+      <PackagePath>Assets\statuses\home.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\ifa.png">
+      <PackagePath>Assets\statuses\ifa.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\inv.png">
+      <PackagePath>Assets\statuses\inv.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\na.png">
+      <PackagePath>Assets\statuses\na.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\nicl.png">
+      <PackagePath>Assets\statuses\nicl.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\offline.png">
+      <PackagePath>Assets\statuses\offline.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\online.png">
+      <PackagePath>Assets\statuses\online.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\unknown.png">
+      <PackagePath>Assets\statuses\unknown.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\statuses\work.png">
+      <PackagePath>Assets\statuses\work.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\StoreLogo.scale-240.png">
+      <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\WideLogo-.png">
+      <PackagePath>Assets\WideLogo-.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\WideLogo.scale-100.png">
+      <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\WideLogo.scale-240.png">
+      <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\WideTile.scale-100.png">
+      <PackagePath>Assets\WideTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\WideTile.scale-125.png">
+      <PackagePath>Assets\WideTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\WideTile.scale-150.png">
+      <PackagePath>Assets\WideTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\WideTile.scale-200.png">
+      <PackagePath>Assets\WideTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\WideTile.scale-400.png">
+      <PackagePath>Assets\WideTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\angry.png">
+      <PackagePath>Assets\xtraz\angry.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\bath.png">
+      <PackagePath>Assets\xtraz\bath.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\beer.png">
+      <PackagePath>Assets\xtraz\beer.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\business.png">
+      <PackagePath>Assets\xtraz\business.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\camera.png">
+      <PackagePath>Assets\xtraz\camera.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\coffee.png">
+      <PackagePath>Assets\xtraz\coffee.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\cpc.png">
+      <PackagePath>Assets\xtraz\cpc.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\eating.png">
+      <PackagePath>Assets\xtraz\eating.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\friends.png">
+      <PackagePath>Assets\xtraz\friends.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\funny.png">
+      <PackagePath>Assets\xtraz\funny.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\game.png">
+      <PackagePath>Assets\xtraz\game.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\heart.png">
+      <PackagePath>Assets\xtraz\heart.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\internet.png">
+      <PackagePath>Assets\xtraz\internet.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\mobph.png">
+      <PackagePath>Assets\xtraz\mobph.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\music.png">
+      <PackagePath>Assets\xtraz\music.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\paper.png">
+      <PackagePath>Assets\xtraz\paper.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\party.png">
+      <PackagePath>Assets\xtraz\party.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\phone.png">
+      <PackagePath>Assets\xtraz\phone.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\qm.png">
+      <PackagePath>Assets\xtraz\qm.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\redthing.png">
+      <PackagePath>Assets\xtraz\redthing.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\search.png">
+      <PackagePath>Assets\xtraz\search.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\shashlik.png">
+      <PackagePath>Assets\xtraz\shashlik.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\shopping.png">
+      <PackagePath>Assets\xtraz\shopping.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\sleep.png">
+      <PackagePath>Assets\xtraz\sleep.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\sleepy.png">
+      <PackagePath>Assets\xtraz\sleepy.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\study.png">
+      <PackagePath>Assets\xtraz\study.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\surf.png">
+      <PackagePath>Assets\xtraz\surf.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\temp.png">
+      <PackagePath>Assets\xtraz\temp.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\think.png">
+      <PackagePath>Assets\xtraz\think.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\tired.png">
+      <PackagePath>Assets\xtraz\tired.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\tv.png">
+      <PackagePath>Assets\xtraz\tv.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\type.png">
+      <PackagePath>Assets\xtraz\type.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\work.png">
+      <PackagePath>Assets\xtraz\work.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Assets\xtraz\write.png">
+      <PackagePath>Assets\xtraz\write.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\Background.BackgroundTask.winmd">
+      <PackagePath>Background.BackgroundTask.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\clrcompression.dll">
+      <PackagePath>clrcompression.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\kicquwp.dll">
+      <PackagePath>kicquwp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\kicquwp.exe">
+      <PackagePath>kicquwp.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\kicquwp.pdb">
+      <PackagePath>kicquwp.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\source\repos\kicquwp\kicquwp\bin\ARM\Release\ilc\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.sharedlibrary-x86\1.7.3\build\..\tools\SharedLibrary\ret\Native\Microsoft.NET.Native.Framework.1.7.appx">
+      <Name>Microsoft.NET.Native.Framework.1.7</Name>
+      <Version>1.7.27413.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Framework.1.7, MinVersion = 1.7.27413.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.sharedlibrary-x86\1.7.3\build\..\tools\SharedLibrary\ret\Native\Microsoft.NET.Native.Framework.1.7.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.sharedlibrary-x64\1.7.3\build\..\tools\SharedLibrary\ret\Native\Microsoft.NET.Native.Framework.1.7.appx">
+      <Name>Microsoft.NET.Native.Framework.1.7</Name>
+      <Version>1.7.27413.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Framework.1.7, MinVersion = 1.7.27413.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.sharedlibrary-x64\1.7.3\build\..\tools\SharedLibrary\ret\Native\Microsoft.NET.Native.Framework.1.7.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.sharedlibrary-arm\1.7.3\build\..\tools\SharedLibrary\ret\Native\Microsoft.NET.Native.Framework.1.7.appx">
+      <Name>Microsoft.NET.Native.Framework.1.7</Name>
+      <Version>1.7.27413.0</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Framework.1.7, MinVersion = 1.7.27413.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.sharedlibrary-arm\1.7.3\build\..\tools\SharedLibrary\ret\Native\Microsoft.NET.Native.Framework.1.7.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\build\..\tools\Runtime\x86\Microsoft.NET.Native.Runtime.1.7.appx">
+      <Name>Microsoft.NET.Native.Runtime.1.7</Name>
+      <Version>1.7.25531.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Runtime.1.7, MinVersion = 1.7.25531.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\build\..\tools\Runtime\x86\Microsoft.NET.Native.Runtime.1.7.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\build\..\tools\Runtime\x64\Microsoft.NET.Native.Runtime.1.7.appx">
+      <Name>Microsoft.NET.Native.Runtime.1.7</Name>
+      <Version>1.7.25531.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Runtime.1.7, MinVersion = 1.7.25531.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\build\..\tools\Runtime\x64\Microsoft.NET.Native.Runtime.1.7.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\build\..\tools\Runtime\arm\Microsoft.NET.Native.Runtime.1.7.appx">
+      <Name>Microsoft.NET.Native.Runtime.1.7</Name>
+      <Version>1.7.25531.0</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.Native.Runtime.1.7, MinVersion = 1.7.25531.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.net.native.compiler\1.7.6\build\..\tools\Runtime\arm\Microsoft.NET.Native.Runtime.1.7.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00</Name>
+      <Version>14.0.26706.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00, MinVersion = 14.0.26706.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Retail\ARM\Microsoft.VCLibs.ARM.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00</Name>
+      <Version>14.0.26706.0</Version>
+      <Architecture>ARM64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00, MinVersion = 14.0.26706.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Retail\ARM64\Microsoft.VCLibs.ARM64.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00</Name>
+      <Version>14.0.26706.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00, MinVersion = 14.0.26706.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Retail\x64\Microsoft.VCLibs.x64.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00</Name>
+      <Version>14.0.26706.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00, MinVersion = 14.0.26706.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Retail\x86\Microsoft.VCLibs.x86.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

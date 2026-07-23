@@ -1,0 +1,12 @@
+﻿[ResourceMetadata]
+"ResourceId"			"filemap.scale-100"
+"ResourceDimensions"		"scale-100"
+
+[Files]
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\filemap.scale-100.pri"			"resources.pri"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\PackageLayout\Assets\WideTile.scale-100.png"			"Assets\WideTile.scale-100.png"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\PackageLayout\Assets\WideLogo.scale-100.png"			"Assets\WideLogo.scale-100.png"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\PackageLayout\Assets\StoreLogo.scale-100.png"			"Assets\StoreLogo.scale-100.png"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\PackageLayout\Assets\Square71x71Logo.scale-100.png"			"Assets\Square71x71Logo.scale-100.png"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\PackageLayout\Assets\Square150x150Logo.scale-100.png"			"Assets\Square150x150Logo.scale-100.png"
+"C:\Users\123\source\repos\kicquwp\kicquwp\obj\ARM\Release\PackageLayout\Assets\Logo.scale-100.png"			"Assets\Logo.scale-100.png"

@@ -54,24 +54,27 @@ public class Contact : INotifyPropertyChanged
         }
     }
 
-    private int _unreadCount;
-
     [DataMember]
+    private int _unreadCount;
     public int UnreadCount
     {
-        get { return _unreadCount; }
+        get => _unreadCount;
         set
         {
-            _unreadCount = value;
-            OnPropertyChanged("UnreadCount");
-            OnPropertyChanged("HasUnread");
+            if (_unreadCount != value)
+            {
+                _unreadCount = value;
+                OnPropertyChanged(nameof(UnreadCount));
+
+                // Если вы скрываете кружочек при 0 через конвертер видимости, 
+                // полезно дернуть и это свойство (если оно у вас есть):
+                OnPropertyChanged(nameof(HasUnread));
+            }
         }
     }
 
-    public bool HasUnread
-    {
-        get { return _unreadCount > 0; }
-    }
+    // Удобное свойство, если нужно прятать бейдж, когда сообщений нет (UnreadCount == 0)
+    public bool HasUnread => UnreadCount > 0;
 
     public void NotifyBackgroundChanged()
     {

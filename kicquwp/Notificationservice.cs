@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
 using Windows.Media.Playback;
-using Windows.Media.Core;
 using Windows.Storage;
 using Windows.UI.Core;
 
@@ -52,6 +51,7 @@ namespace kicquwp
             settings.Values["UnreadCount"] = TotalUnread;
             settings.Values["LastMessageSender"] = senderName;
             settings.Values["LastMessageText"] = text;
+            settings.Values["ShowPendingToast"] = true;
 
             if (dispatcher != null)
                 await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
@@ -59,7 +59,9 @@ namespace kicquwp
                     if (UnreadChanged != null) UnreadChanged();
                 });
 
-            ShowToast(senderName, text);
+            // Передаем senderUin внутрь тоста
+            ShowToast(senderName, text, senderUin);
+            settings.Values["ShowPendingToast"] = false;
         }
 
         /// <summary>Получить количество непрочитанных от конкретного UIN</summary>
@@ -96,21 +98,23 @@ namespace kicquwp
             }
         }
 
-        private void ShowToast(string senderName, string text)
+        private void ShowToast(string senderName, string text, string senderUin)
         {
             try
             {
                 string preview = text.Length > 60 ? text.Substring(0, 60) + "..." : text;
+                string launchArgs = "uin=" + senderUin;
 
-                string xml = string.Format(
-                    "<toast>" +
-                    "<visual><binding template=\"ToastText02\">" +
-                    "<text id=\"1\">{0}</text>" +
-                    "<text id=\"2\">{1}</text>" +
-                    "</binding></visual>" +
-                    "</toast>",
-                    EscapeXml(senderName),
-                    EscapeXml(preview));
+                // Явно указываем ОС, что нужно активировать приложение и передать launch-параметры
+                string xml = $@"
+        <toast launch=""{launchArgs}"" activationType=""foreground"">
+            <visual>
+                <binding template=""ToastText02"">
+                    <text id=""1"">{EscapeXml(senderName)}</text>
+                    <text id=""2"">{EscapeXml(preview)}</text>
+                </binding>
+            </visual>
+        </toast>";
 
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(xml);
@@ -149,7 +153,6 @@ namespace kicquwp
                         catch
                         {
                             // Если файла нет — используем системный звук через MediaElement
-                            // (создаём временный элемент)
                         }
                     });
                 }

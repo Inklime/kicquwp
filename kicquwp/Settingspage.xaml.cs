@@ -7,55 +7,87 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-using Background.BackgroundTask;
 using System.Threading.Tasks;
 
 namespace kicquwp
 {
     public sealed partial class SettingsPage : Page
     {
-        // [ИСПРАВЛЕНИЕ 1]: Добавляем переменную для хранения активного соединения
         private OscarProtocol _oscar;
+        private bool _isLoaded = false;
 
-        private void PickBackground_Click(object sender, RoutedEventArgs e)
+        // ===== ФОН СПИСКА =====
+        private async void PickBackground_Click(object sender, RoutedEventArgs e)
         {
-            var picker = new Windows.Storage.Pickers.FileOpenPicker();
-            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
-            picker.SuggestedStartLocation =
-                Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
-            picker.FileTypeFilter.Add(".jpg");
-            picker.FileTypeFilter.Add(".jpeg");
-            picker.FileTypeFilter.Add(".png");
-            Windows.Storage.ApplicationData.Current.LocalSettings
-                .Values["PickerTarget"] = "background";
-            picker.PickSingleFileAsync();
+            try
+            {
+                var picker = new Windows.Storage.Pickers.FileOpenPicker();
+                picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+                picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+                picker.FileTypeFilter.Add(".jpg");
+                picker.FileTypeFilter.Add(".jpeg");
+                picker.FileTypeFilter.Add(".png");
+
+                StorageFile file = await picker.PickSingleFileAsync();
+                if (file != null)
+                {
+                    StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+                    StorageFile copiedFile = await file.CopyAsync(localFolder, "background.jpg", NameCollisionOption.ReplaceExisting);
+
+                    var settings = ApplicationData.Current.LocalSettings;
+                    settings.Values["BackgroundPath"] = copiedFile.Path;
+                    UpdatePreview(copiedFile.Path);
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Debug.WriteLine("[PickBackground] Access denied: " + ex.Message);
+                await new ContentDialog { Title = "Ошибка доступа", Content = "Нет доступа к файлу: " + ex.Message, CloseButtonText = "ОК" }.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[PickBackground] " + ex);
+            }
         }
 
-        private void PickChatBackground_Click(object sender, RoutedEventArgs e)
+        private async void PickChatBackground_Click(object sender, RoutedEventArgs e)
         {
-            var picker = new Windows.Storage.Pickers.FileOpenPicker();
-            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
-            picker.SuggestedStartLocation =
-                Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
-            picker.FileTypeFilter.Add(".jpg");
-            picker.FileTypeFilter.Add(".jpeg");
-            picker.FileTypeFilter.Add(".png");
-            Windows.Storage.ApplicationData.Current.LocalSettings
-                .Values["PickerTarget"] = "chat_background";
-            picker.PickSingleFileAsync();
+            try
+            {
+                var picker = new Windows.Storage.Pickers.FileOpenPicker();
+                picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+                picker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary;
+                picker.FileTypeFilter.Add(".jpg");
+                picker.FileTypeFilter.Add(".jpeg");
+                picker.FileTypeFilter.Add(".png");
+
+                StorageFile file = await picker.PickSingleFileAsync();
+                if (file != null)
+                {
+                    StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+                    StorageFile copiedFile = await file.CopyAsync(localFolder, "chat_background.jpg", NameCollisionOption.ReplaceExisting);
+                    var settings = ApplicationData.Current.LocalSettings;
+                    settings.Values["ChatBackgroundPath"] = copiedFile.Path;
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Debug.WriteLine("[PickChatBackground] Access denied: " + ex.Message);
+                await new ContentDialog { Title = "Ошибка доступа", Content = "Нет доступа к файлу: " + ex.Message, CloseButtonText = "ОК" }.ShowAsync();
+            }
+            catch (Exception ex) { Debug.WriteLine("[PickChatBackground] " + ex); }
         }
 
         public SettingsPage()
         {
             this.InitializeComponent();
-            //HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            _isLoaded = false;
             base.OnNavigatedTo(e);
 
-            // [ИСПРАВЛЕНИЕ 2]: Подхватываем переданный рабочий протокол
             if (e.Parameter is OscarProtocol activeProtocol)
             {
                 _oscar = activeProtocol;
@@ -63,7 +95,6 @@ namespace kicquwp
             }
             else
             {
-                // Запасной вариант (fallback), если параметр забыли передать
                 _oscar = OscarProtocol.Instance;
                 Debug.WriteLine("[Settings] Внимание: протокол не передан. Используем Instance.");
             }
@@ -74,11 +105,15 @@ namespace kicquwp
             string bgPath = settings.Values["BackgroundPath"] as string;
             if (!string.IsNullOrEmpty(bgPath))
                 UpdatePreview(bgPath);
+
+            // Обновления — показываем текущую версию
+            UpdateCurrentVersionDisplay();
+
+            _isLoaded = true;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            //HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
             base.OnNavigatedFrom(e);
         }
 
@@ -86,7 +121,6 @@ namespace kicquwp
         {
             var settings = ApplicationData.Current.LocalSettings;
 
-            // Загружаем показ групп
             object showGroups = settings.Values["ShowGroups"];
             ShowGroupsToggle.IsOn = showGroups != null && (bool)showGroups;
 
@@ -94,32 +128,46 @@ namespace kicquwp
             HideOfflineToggle.IsOn = hideOffline != null && (bool)hideOffline;
 
             object typingEnabled = settings.Values["TypingNotifications"];
-            // По умолчанию включено
             TypingNotificationsToggle.IsOn = typingEnabled == null || (bool)typingEnabled;
 
             var isW10 = IsW10M();
-
             if (!isW10)
                 BackgroundModeBorder.Visibility = Visibility.Collapsed;
 
-            // работа в фоне
             object bgMode = settings.Values["BackgroundMode"];
             BackgroundModeToggle.IsOn = bgMode == null || (bool)bgMode;
 
-            // Загружаем прозрачность
             object opacity = settings.Values["BackgroundOpacity"];
             double opacityVal = opacity != null ? (double)opacity : 100.0;
             BackgroundOpacitySlider.Value = opacityVal;
             OpacityValueText.Text = ((int)opacityVal) + "%";
 
-            // Показываем превью фона
             string bgPath = settings.Values["BackgroundPath"] as string;
             UpdatePreview(bgPath);
-            object contactOpacity = settings.Values["ContactOpacity"];
 
+            object contactOpacity = settings.Values["ContactOpacity"];
             double contactOpacityVal = contactOpacity != null ? (double)contactOpacity : 100.0;
             ContactOpacitySlider.Value = contactOpacityVal;
             ContactOpacityText.Text = ((int)contactOpacityVal) + "%";
+
+            // Обновления
+            object autoCheck = settings.Values["AutoCheckUpdate"];
+            AutoCheckUpdateToggle.IsOn = autoCheck == null || (bool)autoCheck;
+
+            object lastCheck = settings.Values["LastUpdateCheck"];
+            if (lastCheck != null)
+            {
+                try
+                {
+                    var dt = DateTimeOffset.Parse(lastCheck.ToString());
+                    LastCheckText.Text = "Проверено: " + dt.ToString("dd.MM.yyyy HH:mm");
+                }
+                catch { LastCheckText.Text = "Проверено: " + lastCheck.ToString(); }
+            }
+            else
+            {
+                LastCheckText.Text = "Еще не проверялось";
+            }
         }
 
         public static bool IsW10M()
@@ -129,51 +177,38 @@ namespace kicquwp
                 var type = Type.GetType("Windows.System.Profile.AnalyticsInfo, Windows, ContentType=WindowsRuntime");
                 return type != null;
             }
-            catch
-            {
-                return false;
-            }
+            catch { return false; }
         }
 
-        private async void UpdatePreview(string path)
+        private void UpdatePreview(string path)
         {
             if (string.IsNullOrEmpty(path))
             {
-                BackgroundPreview.Background = new SolidColorBrush(
-                    Windows.UI.Color.FromArgb(255, 13, 17, 23));
+                BackgroundPreview.Background = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 13, 17, 23));
                 BackgroundPreviewText.Visibility = Visibility.Visible;
                 BackgroundPreviewText.Text = "Фон не выбран";
                 return;
             }
-
             try
             {
-                var file = await StorageFile.GetFileFromPathAsync(path);
-                using (var stream = await file.OpenReadAsync())
-                {
-                    var bitmap = new BitmapImage();
-                    await bitmap.SetSourceAsync(stream);
-                    BackgroundPreview.Background = new ImageBrush
-                    {
-                        ImageSource = bitmap,
-                        Stretch = Stretch.UniformToFill
-                    };
-                    BackgroundPreviewText.Visibility = Visibility.Collapsed;
-                }
+                var bitmap = new BitmapImage();
+                BackgroundPreview.Opacity = 0;
+                bitmap.ImageOpened += (s, e) => { BackgroundPreview.Opacity = 1; };
+                bitmap.UriSource = new Uri("ms-appdata:///local/background.jpg");
+                BackgroundPreview.Background = new ImageBrush { ImageSource = bitmap, Stretch = Stretch.UniformToFill };
+                BackgroundPreviewText.Visibility = Visibility.Collapsed;
             }
             catch
             {
-                BackgroundPreview.Background = new SolidColorBrush(
-                    Windows.UI.Color.FromArgb(255, 13, 17, 23));
+                BackgroundPreview.Background = new SolidColorBrush(Windows.UI.Color.FromArgb(255, 13, 17, 23));
                 BackgroundPreviewText.Visibility = Visibility.Visible;
                 BackgroundPreviewText.Text = "Фото недоступно";
             }
         }
 
-        private void ContactOpacitySlider_ValueChanged(object sender,
-    Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void ContactOpacitySlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
-            if (ContactOpacityText == null) return;
+            if (!_isLoaded || ContactOpacityText == null) return;
             int val = (int)e.NewValue;
             ContactOpacityText.Text = val + "%";
             var settings = ApplicationData.Current.LocalSettings;
@@ -186,8 +221,7 @@ namespace kicquwp
             settings.Values["ChatBackgroundPath"] = null;
             try
             {
-                var file = await ApplicationData.Current.LocalFolder
-                                     .GetFileAsync("chat_background.jpg");
+                var file = await ApplicationData.Current.LocalFolder.GetFileAsync("chat_background.jpg");
                 await file.DeleteAsync();
             }
             catch { }
@@ -195,38 +229,32 @@ namespace kicquwp
 
         private void TypingNotificationsToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            if (!_isLoaded) return;
             var settings = ApplicationData.Current.LocalSettings;
             settings.Values["TypingNotifications"] = TypingNotificationsToggle.IsOn;
-            Debug.WriteLine("[Settings] TypingNotifications=" + TypingNotificationsToggle.IsOn);
         }
 
-        // ── Показ групп ─────────────────────────────────────────────
         private void ShowGroupsToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            if (!_isLoaded) return;
             var settings = ApplicationData.Current.LocalSettings;
             settings.Values["ShowGroups"] = ShowGroupsToggle.IsOn;
-            Debug.WriteLine("[Settings] ShowGroups=" + ShowGroupsToggle.IsOn);
         }
 
         private void BackgroundModeToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            if (!_isLoaded) return;
             var settings = Windows.Storage.ApplicationData.Current.LocalSettings;
             settings.Values["BackgroundMode"] = BackgroundModeToggle.IsOn;
-
             if (!BackgroundModeToggle.IsOn)
                 ControlChannelService.Instance.Cleanup();
-
-            Debug.WriteLine("[Settings] BackgroundMode=" + BackgroundModeToggle.IsOn);
         }
 
-        // ── Очистка фона ────────────────────────────────────────────
         private async void ClearBackground_Click(object sender, RoutedEventArgs e)
         {
             var settings = ApplicationData.Current.LocalSettings;
             settings.Values["BackgroundPath"] = null;
             UpdatePreview(null);
-
-            // Удаляем файл
             try
             {
                 StorageFolder localFolder = ApplicationData.Current.LocalFolder;
@@ -234,22 +262,136 @@ namespace kicquwp
                 await file.DeleteAsync();
             }
             catch { }
-
-            Debug.WriteLine("[Settings] Background cleared");
         }
 
-        // ── Прозрачность ────────────────────────────────────────────
-        private void OpacitySlider_ValueChanged(object sender,
-            Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        private void OpacitySlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
-            if (OpacityValueText == null) return;
-
+            if (!_isLoaded || OpacityValueText == null) return;
             int val = (int)e.NewValue;
             OpacityValueText.Text = val + "%";
-
             var settings = ApplicationData.Current.LocalSettings;
             settings.Values["BackgroundOpacity"] = (double)val;
         }
+
+        // ============================================================
+        // ОБНОВЛЕНИЯ
+        // ============================================================
+
+        private void UpdateCurrentVersionDisplay()
+        {
+            try
+            {
+                CurrentVersionText.Text = GitHubUpdateService.GetCurrentVersionString();
+            }
+            catch { CurrentVersionText.Text = "?.?.?.?"; }
+        }
+
+        private async void CheckUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            await CheckForUpdatesAsync(silent: false);
+        }
+
+        private async void OpenReleases_Click(object sender, RoutedEventArgs e)
+        {
+            var service = new GitHubUpdateService();
+            await service.OpenReleasePageAsync();
+        }
+
+        private void AutoCheckUpdateToggle_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (!_isLoaded) return;
+            var settings = ApplicationData.Current.LocalSettings;
+            settings.Values["AutoCheckUpdate"] = AutoCheckUpdateToggle.IsOn;
+        }
+
+        public async Task CheckForUpdatesAsync(bool silent = false)
+        {
+            if (CheckUpdateButton == null) return;
+
+            try
+            {
+                CheckUpdateButton.IsEnabled = false;
+                UpdateProgressRing.IsActive = true;
+                UpdateStatusText.Text = "Проверка...";
+                ReleaseNotesBorder.Visibility = Visibility.Collapsed;
+                OpenReleasesButton.Visibility = Visibility.Collapsed;
+
+                var service = new GitHubUpdateService();
+                var result = await service.CheckForUpdatesAsync(includePrerelease: false);
+
+                if (!string.IsNullOrEmpty(result.Error))
+                {
+                    UpdateStatusText.Text = "Ошибка";
+                    LastCheckText.Text = result.Error;
+                    if (!silent)
+                    {
+                        await new ContentDialog
+                        {
+                            Title = "Ошибка проверки",
+                            Content = result.Error + "\n\nПопробуйте позже. Репозиторий: github.com/Inklime/kicquwp",
+                            CloseButtonText = "ОК"
+                        }.ShowAsync();
+                    }
+                    return;
+                }
+
+                LastCheckText.Text = $"Проверено: {DateTime.Now:dd.MM.yyyy HH:mm} • Последняя: {result.LatestTag}";
+
+                if (result.IsUpdateAvailable)
+                {
+                    UpdateStatusText.Text = "Есть обновление!";
+                    LatestVersionText.Text = $"{result.ReleaseName} ({result.LatestTag}) доступно!";
+                    ReleaseNotesText.Text = string.IsNullOrWhiteSpace(result.ReleaseNotes) ? "Без описания" : result.ReleaseNotes.Length > 500 ? result.ReleaseNotes.Substring(0, 500) + "..." : result.ReleaseNotes;
+                    ReleaseNotesBorder.Visibility = Visibility.Visible;
+                    OpenReleasesButton.Visibility = Visibility.Visible;
+
+                    if (!silent)
+                    {
+                        var dlg = new ContentDialog
+                        {
+                            Title = "Доступно обновление",
+                            Content = $"Текущая: {result.CurrentVersion}\nНовая: {result.LatestVersion} ({result.LatestTag})\n\n{result.ReleaseName}\n\nОткрыть страницу релиза?",
+                            PrimaryButtonText = "Открыть GitHub",
+                            CloseButtonText = "Позже"
+                        };
+                        var r = await dlg.ShowAsync();
+                        if (r == ContentDialogResult.Primary)
+                        {
+                            await service.OpenReleasePageAsync(result.ReleaseUrl);
+                        }
+                    }
+                }
+                else
+                {
+                    UpdateStatusText.Text = "У вас последняя версия";
+                    if (!silent)
+                    {
+                        await new ContentDialog
+                        {
+                            Title = "Обновлений нет",
+                            Content = $"У вас последняя версия: {result.CurrentVersion}\nПоследний релиз на GitHub: {result.LatestTag}",
+                            CloseButtonText = "ОК"
+                        }.ShowAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("[Update UI] " + ex);
+                UpdateStatusText.Text = "Ошибка";
+                if (!silent)
+                    await new ContentDialog { Title = "Ошибка", Content = ex.Message, CloseButtonText = "ОК" }.ShowAsync();
+            }
+            finally
+            {
+                CheckUpdateButton.IsEnabled = true;
+                UpdateProgressRing.IsActive = false;
+            }
+        }
+
+        // ============================================================
+        // УДАЛЕНИЕ АККАУНТА — V3 FINAL без AV на PasswordBox
+        // ============================================================
 
         private bool _isDeleteInProgress = false;
 
@@ -257,7 +399,6 @@ namespace kicquwp
         {
             if (_isDeleteInProgress) return;
 
-            // [ИСПРАВЛЕНИЕ 3]: Используем рабочую переменную _oscar, а не статичный Instance
             if (_oscar == null || !_oscar.IsConnected)
             {
                 await new ContentDialog { Title = "Ошибка", Content = "Нет подключения к серверу. Переподключитесь.", CloseButtonText = "ОК" }.ShowAsync();
@@ -278,7 +419,8 @@ namespace kicquwp
             var panel = new StackPanel();
             panel.Children.Add(new TextBlock { Text = "Введите пароль:", TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 0, 0, 12) });
             panel.Children.Add(pwdBox);
-            panel.Children.Add(new TextBlock { Name = "ErrorText", Foreground = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Red), Margin = new Thickness(0, 8, 0, 0), Visibility = Windows.UI.Xaml.Visibility.Collapsed });
+            var errText = new TextBlock { Foreground = new SolidColorBrush(Windows.UI.Colors.Red), Margin = new Thickness(0, 8, 0, 0), Visibility = Visibility.Collapsed };
+            panel.Children.Add(errText);
 
             string capturedPwd = null;
 
@@ -299,8 +441,8 @@ namespace kicquwp
                     if (string.IsNullOrWhiteSpace(capturedPwd))
                     {
                         args.Cancel = true;
-                        var err = (panel.Children[2] as TextBlock);
-                        if (err != null) { err.Text = "Пароль не может быть пустым."; err.Visibility = Windows.UI.Xaml.Visibility.Visible; }
+                        errText.Text = "Пароль не может быть пустым.";
+                        errText.Visibility = Visibility.Visible;
                     }
                 }
                 catch (Exception ex)
@@ -336,12 +478,10 @@ namespace kicquwp
             Debug.WriteLine("[UI] Calling DeleteAccountAsync...");
             try
             {
-                // [ИСПРАВЛЕНИЕ 4]: Вызываем удаление у живого протокола
                 var protocol = _oscar;
                 if (protocol == null) throw new Exception("Протокол равен null. Перелогиньтесь.");
 
                 bool success = await protocol.DeleteAccountAsync(pwd);
-
                 await Task.Delay(250);
 
                 if (success)
@@ -361,7 +501,6 @@ namespace kicquwp
                     }
                     catch { }
 
-                    // Сбрасываем статику тоже
                     OscarProtocol.Instance = null;
 
                     await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -392,10 +531,9 @@ namespace kicquwp
 
         private void HideOfflineToggle_Toggled(object sender, RoutedEventArgs e)
         {
+            if (!_isLoaded) return;
             var settings = ApplicationData.Current.LocalSettings;
             settings.Values["HideOffline"] = HideOfflineToggle.IsOn;
-
-            Debug.WriteLine("[Settings] HideOffline=" + HideOfflineToggle.IsOn);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

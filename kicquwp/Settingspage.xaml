@@ -310,6 +310,57 @@
                         </StackPanel>
                     </Button>
                 </Border>
+                <!-- ОБНОВЛЕНИЯ -->
+                <Border Background="{ThemeResource SystemControlHighlightAccentBrush}" Padding="16,10,16,10" Margin="0,16,0,1">
+                    <TextBlock Text="ОБНОВЛЕНИЯ" FontFamily="Segoe WP" CharacterSpacing="150" FontSize="13" FontWeight="SemiBold" Foreground="White"/>
+                </Border>
+                <Border Background="#FF161B22" Padding="16,12" Margin="0,0,0,1">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="Текущая версия" FontSize="14" Foreground="#88FFFFFF"/>
+                                <TextBlock x:Name="CurrentVersionText" Text="1.0.0.0" FontSize="17" Foreground="White"/>
+                                <TextBlock x:Name="LastCheckText" Text="Не проверялось" FontSize="12" Foreground="#66FFFFFF" Margin="0,4,0,0"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                                <TextBlock x:Name="UpdateStatusText" FontSize="13" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"/>
+                                <ProgressRing x:Name="UpdateProgressRing" IsActive="False" Width="20" Height="20" Margin="0,6,0,0" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                        </Grid>
+                        <Button x:Name="CheckUpdateButton" Click="CheckUpdate_Click" Margin="0,12,0,0" HorizontalAlignment="Stretch" Background="{ThemeResource SystemControlHighlightAccentBrush}" Foreground="White">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <FontIcon Glyph="&#xE72C;" Margin="0,0,8,0"/>
+                                <TextBlock Text="Проверить обновления"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="OpenReleasesButton" Click="OpenReleases_Click" Visibility="Collapsed" Margin="0,8,0,0" HorizontalAlignment="Stretch" Background="#FF21262D">
+                            <TextBlock Text="Открыть GitHub Releases"/>
+                        </Button>
+                        <Border x:Name="ReleaseNotesBorder" Visibility="Collapsed" Background="#FF0D1117" Padding="10" Margin="0,10,0,0" CornerRadius="4">
+                            <StackPanel>
+                                <TextBlock x:Name="LatestVersionText" FontWeight="SemiBold" Foreground="White" TextWrapping="Wrap"/>
+                                <TextBlock x:Name="ReleaseNotesText" Foreground="#88FFFFFF" TextWrapping="Wrap" Margin="0,6,0,0" MaxHeight="120"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
+                <Border Background="#FF161B22" Padding="16,0" Margin="0,0,0,1">
+                    <Grid MinHeight="56">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Проверять при запуске"/>
+                            <TextBlock Text="Уведомлять о новых версиях" FontSize="13" Foreground="#66FFFFFF"/>
+                        </StackPanel>
+                        <ToggleSwitch x:Name="AutoCheckUpdateToggle" Grid.Column="1" Toggled="AutoCheckUpdateToggle_Toggled"/>
+                    </Grid>
+                </Border>
                 <!-- Секция: Опасные действия -->
                 <Border Background="{ThemeResource SystemControlHighlightAccentBrush}" Padding="16,10,16,10" Margin="0,16,0,1">
                     <TextBlock Text="ОПАСНЫЕ ДЕЙСТВИЯ" FontSize="13" FontFamily="Segoe WP"
