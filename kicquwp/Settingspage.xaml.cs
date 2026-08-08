@@ -41,12 +41,12 @@ namespace kicquwp
             }
             catch (UnauthorizedAccessException ex)
             {
-                Debug.WriteLine("[PickBackground] Access denied: " + ex.Message);
+                DebugLogService.Log("[PickBackground] Access denied: " + ex.Message);
                 await new ContentDialog { Title = "Ошибка доступа", Content = "Нет доступа к файлу: " + ex.Message, CloseButtonText = "ОК" }.ShowAsync();
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[PickBackground] " + ex);
+                DebugLogService.Log("[PickBackground] " + ex);
             }
         }
 
@@ -72,10 +72,10 @@ namespace kicquwp
             }
             catch (UnauthorizedAccessException ex)
             {
-                Debug.WriteLine("[PickChatBackground] Access denied: " + ex.Message);
+                DebugLogService.Log("[PickChatBackground] Access denied: " + ex.Message);
                 await new ContentDialog { Title = "Ошибка доступа", Content = "Нет доступа к файлу: " + ex.Message, CloseButtonText = "ОК" }.ShowAsync();
             }
-            catch (Exception ex) { Debug.WriteLine("[PickChatBackground] " + ex); }
+            catch (Exception ex) { DebugLogService.Log("[PickChatBackground] " + ex); }
         }
 
         public SettingsPage()
@@ -91,12 +91,12 @@ namespace kicquwp
             if (e.Parameter is OscarProtocol activeProtocol)
             {
                 _oscar = activeProtocol;
-                Debug.WriteLine("[Settings] Активный протокол успешно получен из параметров.");
+                DebugLogService.Log("[Settings] Активный протокол успешно получен из параметров.");
             }
             else
             {
                 _oscar = OscarProtocol.Instance;
-                Debug.WriteLine("[Settings] Внимание: протокол не передан. Используем Instance.");
+                DebugLogService.Log("[Settings] Внимание: протокол не передан. Используем Instance.");
             }
 
             LoadSettings();
@@ -377,7 +377,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Update UI] " + ex);
+                DebugLogService.Log("[Update UI] " + ex);
                 UpdateStatusText.Text = "Ошибка";
                 if (!silent)
                     await new ContentDialog { Title = "Ошибка", Content = ex.Message, CloseButtonText = "ОК" }.ShowAsync();
@@ -447,7 +447,7 @@ namespace kicquwp
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("Password read failed: " + ex.Message);
+                    DebugLogService.Log("Password read failed: " + ex.Message);
                     capturedPwd = null;
                     args.Cancel = true;
                 }
@@ -475,7 +475,7 @@ namespace kicquwp
             }
             catch { }
 
-            Debug.WriteLine("[UI] Calling DeleteAccountAsync...");
+            DebugLogService.Log("[UI] Calling DeleteAccountAsync...");
             try
             {
                 var protocol = _oscar;
@@ -506,7 +506,7 @@ namespace kicquwp
                     await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
                         try { Frame.Navigate(typeof(LoginPage)); }
-                        catch (Exception ex) { Debug.WriteLine("Navigate failed: " + ex.Message); }
+                        catch (Exception ex) { DebugLogService.Log("Navigate failed: " + ex.Message); }
                     });
                 }
                 else
@@ -518,7 +518,7 @@ namespace kicquwp
             catch (Exception ex)
             {
                 await Task.Delay(250);
-                Debug.WriteLine("[UI Delete ERROR] " + ex);
+                DebugLogService.Log("[UI Delete ERROR] " + ex);
                 try { await new ContentDialog { Title = "Ошибка", Content = "Ошибка удаления: " + ex.Message, CloseButtonText = "ОК" }.ShowAsync(); } catch { }
             }
             finally

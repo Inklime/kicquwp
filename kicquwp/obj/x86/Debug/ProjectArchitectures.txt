@@ -1,1 +1,2 @@
-c:\Users\123\source\repos\kicquwp\kicquwp\kicquwp.csproj;x86
+C:\Users\123\Documents\GitHub\kicquwp\Background.BackgroundTask\kicquwp.Background.csproj;x86
+C:\Users\123\Documents\GitHub\kicquwp\kicquwp\kicquwp.csproj;x86

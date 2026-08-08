@@ -132,7 +132,7 @@ namespace kicquwp.kicquwp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[25];
+            _typeNameTable = new string[27];
             _typeNameTable[0] = "kicquwp.AccountInfoPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -142,24 +142,26 @@ namespace kicquwp.kicquwp_XamlTypeInfo
             _typeNameTable[6] = "String";
             _typeNameTable[7] = "Windows.UI.Xaml.DependencyObject";
             _typeNameTable[8] = "kicquwp.ChatPage";
-            _typeNameTable[9] = "kicquwp.FeatureItem";
-            _typeNameTable[10] = "kicquwp.InfoPage";
-            _typeNameTable[11] = "kicquwp.LoginPage";
-            _typeNameTable[12] = "kicquwp.ByteToOpacityConverter";
-            _typeNameTable[13] = "kicquwp.MainPage";
-            _typeNameTable[14] = "System.Collections.ObjectModel.ObservableCollection`1<Contact>";
-            _typeNameTable[15] = "System.Collections.ObjectModel.Collection`1<Contact>";
-            _typeNameTable[16] = "Contact";
-            _typeNameTable[17] = "Boolean";
-            _typeNameTable[18] = "ContactInfo";
-            _typeNameTable[19] = "UInt16";
-            _typeNameTable[20] = "System.ValueType";
-            _typeNameTable[21] = "Int32";
-            _typeNameTable[22] = "Byte";
-            _typeNameTable[23] = "kicquwp.SearchPage";
-            _typeNameTable[24] = "kicquwp.SettingsPage";
+            _typeNameTable[9] = "kicquwp.DebugLogPage";
+            _typeNameTable[10] = "kicquwp.DebugMenuPage";
+            _typeNameTable[11] = "kicquwp.FeatureItem";
+            _typeNameTable[12] = "kicquwp.InfoPage";
+            _typeNameTable[13] = "kicquwp.LoginPage";
+            _typeNameTable[14] = "kicquwp.ByteToOpacityConverter";
+            _typeNameTable[15] = "kicquwp.MainPage";
+            _typeNameTable[16] = "System.Collections.ObjectModel.ObservableCollection`1<Contact>";
+            _typeNameTable[17] = "System.Collections.ObjectModel.Collection`1<Contact>";
+            _typeNameTable[18] = "Contact";
+            _typeNameTable[19] = "Boolean";
+            _typeNameTable[20] = "kicquwp.ContactInfo";
+            _typeNameTable[21] = "UInt16";
+            _typeNameTable[22] = "System.ValueType";
+            _typeNameTable[23] = "Int32";
+            _typeNameTable[24] = "Byte";
+            _typeNameTable[25] = "kicquwp.SearchPage";
+            _typeNameTable[26] = "kicquwp.SettingsPage";
 
-            _typeTable = new global::System.Type[25];
+            _typeTable = new global::System.Type[27];
             _typeTable[0] = typeof(global::kicquwp.AccountInfoPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -169,22 +171,24 @@ namespace kicquwp.kicquwp_XamlTypeInfo
             _typeTable[6] = typeof(global::System.String);
             _typeTable[7] = typeof(global::Windows.UI.Xaml.DependencyObject);
             _typeTable[8] = typeof(global::kicquwp.ChatPage);
-            _typeTable[9] = typeof(global::kicquwp.FeatureItem);
-            _typeTable[10] = typeof(global::kicquwp.InfoPage);
-            _typeTable[11] = typeof(global::kicquwp.LoginPage);
-            _typeTable[12] = typeof(global::kicquwp.ByteToOpacityConverter);
-            _typeTable[13] = typeof(global::kicquwp.MainPage);
-            _typeTable[14] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Contact>);
-            _typeTable[15] = typeof(global::System.Collections.ObjectModel.Collection<global::Contact>);
-            _typeTable[16] = typeof(global::Contact);
-            _typeTable[17] = typeof(global::System.Boolean);
-            _typeTable[18] = typeof(global::ContactInfo);
-            _typeTable[19] = typeof(global::System.UInt16);
-            _typeTable[20] = typeof(global::System.ValueType);
-            _typeTable[21] = typeof(global::System.Int32);
-            _typeTable[22] = typeof(global::System.Byte);
-            _typeTable[23] = typeof(global::kicquwp.SearchPage);
-            _typeTable[24] = typeof(global::kicquwp.SettingsPage);
+            _typeTable[9] = typeof(global::kicquwp.DebugLogPage);
+            _typeTable[10] = typeof(global::kicquwp.DebugMenuPage);
+            _typeTable[11] = typeof(global::kicquwp.FeatureItem);
+            _typeTable[12] = typeof(global::kicquwp.InfoPage);
+            _typeTable[13] = typeof(global::kicquwp.LoginPage);
+            _typeTable[14] = typeof(global::kicquwp.ByteToOpacityConverter);
+            _typeTable[15] = typeof(global::kicquwp.MainPage);
+            _typeTable[16] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::Contact>);
+            _typeTable[17] = typeof(global::System.Collections.ObjectModel.Collection<global::Contact>);
+            _typeTable[18] = typeof(global::Contact);
+            _typeTable[19] = typeof(global::System.Boolean);
+            _typeTable[20] = typeof(global::kicquwp.ContactInfo);
+            _typeTable[21] = typeof(global::System.UInt16);
+            _typeTable[22] = typeof(global::System.ValueType);
+            _typeTable[23] = typeof(global::System.Int32);
+            _typeTable[24] = typeof(global::System.Byte);
+            _typeTable[25] = typeof(global::kicquwp.SearchPage);
+            _typeTable[26] = typeof(global::kicquwp.SettingsPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -222,24 +226,26 @@ namespace kicquwp.kicquwp_XamlTypeInfo
         private object Activate_0_AccountInfoPage() { return new global::kicquwp.AccountInfoPage(); }
         private object Activate_3_BoolToVisibilityConverter() { return new global::kicquwp.BoolToVisibilityConverter(); }
         private object Activate_8_ChatPage() { return new global::kicquwp.ChatPage(); }
-        private object Activate_9_FeatureItem() { return new global::kicquwp.FeatureItem(); }
-        private object Activate_10_InfoPage() { return new global::kicquwp.InfoPage(); }
-        private object Activate_11_LoginPage() { return new global::kicquwp.LoginPage(); }
-        private object Activate_12_ByteToOpacityConverter() { return new global::kicquwp.ByteToOpacityConverter(); }
-        private object Activate_13_MainPage() { return new global::kicquwp.MainPage(); }
-        private object Activate_14_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Contact>(); }
-        private object Activate_15_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Contact>(); }
-        private object Activate_16_Contact() { return new global::Contact(); }
-        private object Activate_18_ContactInfo() { return new global::ContactInfo(); }
-        private object Activate_23_SearchPage() { return new global::kicquwp.SearchPage(); }
-        private object Activate_24_SettingsPage() { return new global::kicquwp.SettingsPage(); }
-        private void VectorAdd_14_ObservableCollection(object instance, object item)
+        private object Activate_9_DebugLogPage() { return new global::kicquwp.DebugLogPage(); }
+        private object Activate_10_DebugMenuPage() { return new global::kicquwp.DebugMenuPage(); }
+        private object Activate_11_FeatureItem() { return new global::kicquwp.FeatureItem(); }
+        private object Activate_12_InfoPage() { return new global::kicquwp.InfoPage(); }
+        private object Activate_13_LoginPage() { return new global::kicquwp.LoginPage(); }
+        private object Activate_14_ByteToOpacityConverter() { return new global::kicquwp.ByteToOpacityConverter(); }
+        private object Activate_15_MainPage() { return new global::kicquwp.MainPage(); }
+        private object Activate_16_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::Contact>(); }
+        private object Activate_17_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Contact>(); }
+        private object Activate_18_Contact() { return new global::Contact(); }
+        private object Activate_20_ContactInfo() { return new global::kicquwp.ContactInfo(); }
+        private object Activate_25_SearchPage() { return new global::kicquwp.SearchPage(); }
+        private object Activate_26_SettingsPage() { return new global::kicquwp.SettingsPage(); }
+        private void VectorAdd_16_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Contact>)instance;
             var newItem = (global::Contact)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_15_Collection(object instance, object item)
+        private void VectorAdd_17_Collection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Contact>)instance;
             var newItem = (global::Contact)item;
@@ -304,61 +310,75 @@ namespace kicquwp.kicquwp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 9:   //  kicquwp.FeatureItem
+            case 9:   //  kicquwp.DebugLogPage
+                userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_DebugLogPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 10:   //  kicquwp.DebugMenuPage
+                userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_10_DebugMenuPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  kicquwp.FeatureItem
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_9_FeatureItem;
+                userType.Activator = Activate_11_FeatureItem;
                 userType.AddMemberName("Icon");
                 userType.AddMemberName("Text");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  kicquwp.InfoPage
+            case 12:   //  kicquwp.InfoPage
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_InfoPage;
+                userType.Activator = Activate_12_InfoPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  kicquwp.LoginPage
+            case 13:   //  kicquwp.LoginPage
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_LoginPage;
+                userType.Activator = Activate_13_LoginPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  kicquwp.ByteToOpacityConverter
+            case 14:   //  kicquwp.ByteToOpacityConverter
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_12_ByteToOpacityConverter;
+                userType.Activator = Activate_14_ByteToOpacityConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  kicquwp.MainPage
+            case 15:   //  kicquwp.MainPage
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_13_MainPage;
+                userType.Activator = Activate_15_MainPage;
                 userType.AddMemberName("Contacts");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 14:   //  System.Collections.ObjectModel.ObservableCollection`1<Contact>
+            case 16:   //  System.Collections.ObjectModel.ObservableCollection`1<Contact>
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Contact>"));
-                userType.CollectionAdd = VectorAdd_14_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_16_ObservableCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 15:   //  System.Collections.ObjectModel.Collection`1<Contact>
+            case 17:   //  System.Collections.ObjectModel.Collection`1<Contact>
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_15_Collection;
-                userType.CollectionAdd = VectorAdd_15_Collection;
+                userType.Activator = Activate_17_Collection;
+                userType.CollectionAdd = VectorAdd_17_Collection;
                 xamlType = userType;
                 break;
 
-            case 16:   //  Contact
+            case 18:   //  Contact
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_16_Contact;
+                userType.Activator = Activate_18_Contact;
                 userType.AddMemberName("Uin");
                 userType.AddMemberName("Name");
                 userType.AddMemberName("Group");
@@ -376,48 +396,48 @@ namespace kicquwp.kicquwp_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 17:   //  Boolean
+            case 19:   //  Boolean
                 xamlType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 18:   //  ContactInfo
+            case 20:   //  kicquwp.ContactInfo
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  UInt16
+            case 21:   //  UInt16
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 20:   //  System.ValueType
+            case 22:   //  System.ValueType
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 21:   //  Int32
+            case 23:   //  Int32
                 xamlType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 22:   //  Byte
+            case 24:   //  Byte
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 23:   //  kicquwp.SearchPage
+            case 25:   //  kicquwp.SearchPage
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_23_SearchPage;
+                userType.Activator = Activate_25_SearchPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 24:   //  kicquwp.SettingsPage
+            case 26:   //  kicquwp.SettingsPage
                 userType = new global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_24_SettingsPage;
+                userType.Activator = Activate_26_SettingsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -522,7 +542,7 @@ namespace kicquwp.kicquwp_XamlTypeInfo
         private void set_9_Contact_Info(object instance, object Value)
         {
             var that = (global::Contact)instance;
-            that.Info = (global::ContactInfo)Value;
+            that.Info = (global::kicquwp.ContactInfo)Value;
         }
         private object get_10_Contact_ItemId(object instance)
         {
@@ -652,7 +672,7 @@ namespace kicquwp.kicquwp_XamlTypeInfo
                 break;
             case "Contact.Info":
                 userType = (global::kicquwp.kicquwp_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Contact");
-                xamlMember = new global::kicquwp.kicquwp_XamlTypeInfo.XamlMember(this, "Info", "ContactInfo");
+                xamlMember = new global::kicquwp.kicquwp_XamlTypeInfo.XamlMember(this, "Info", "kicquwp.ContactInfo");
                 xamlMember.Getter = get_9_Contact_Info;
                 xamlMember.Setter = set_9_Contact_Info;
                 break;

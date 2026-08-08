@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:kicquwp"
-    xmlns:gif="using:XamlAnimatedGif"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -44,10 +43,12 @@
                     <ColumnDefinition Width="Auto"/>
                     <!-- Под имя контакта (всё оставшееся место) -->
                     <ColumnDefinition Width="*"/>
+                    <!-- Под кнопку меню действий -->
+                    <ColumnDefinition Width="52"/>
                 </Grid.ColumnDefinitions>
 
                 <!-- ИСПРАВЛЕННАЯ КНОПКА НАЗАД -->
-                <Button x:ConnectionId='14' Grid.Column="0"
+                <Button x:ConnectionId='13' Grid.Column="0"
                                                 
                         Background="Transparent"
                         BorderThickness="0"
@@ -59,29 +60,50 @@
                     <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72B;" Foreground="White" FontSize="20"/>
                 </Button>
 
-                <Image x:ConnectionId='15' Grid.Column="1"
+                <Image x:ConnectionId='14' Grid.Column="1"
                        x:Name="ContactStatusIcon"
                        Width="26" Height="26"
                        VerticalAlignment="Center"
                        Margin="0,0,8,0"/>
 
                 <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="0,0,8,0">
-                    <TextBlock x:ConnectionId='16' x:Name="ContactNameTextBlock"
+                    <TextBlock x:ConnectionId='20' x:Name="ContactNameTextBlock"
                                Text="Контакт"
                                FontSize="20"
                                FontFamily="Segoe WP"
                                Foreground="White"
                                TextTrimming="CharacterEllipsis"/>
-                    <TextBlock x:ConnectionId='17' x:Name="ContactUinTextBlock"
+                    <TextBlock x:ConnectionId='21' x:Name="ContactUinTextBlock"
                                Text=""
                                FontSize="12"
                                FontFamily="Segoe WP"
                                Foreground="#CCFFFFFF"/>
                 </StackPanel>
+
+                <!-- Кнопка доп. действий с контактом (правый верхний угол) -->
+                <Button Grid.Column="3"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="52" Height="56"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                    <Button.Flyout>
+                        <MenuFlyout Placement="Bottom">
+                            <MenuFlyoutItem x:ConnectionId='15' Text="Информация"                          />
+                            <MenuFlyoutItem x:ConnectionId='16' Text="Скопировать UIN"                      />
+                            <MenuFlyoutSeparator/>
+                            <MenuFlyoutItem x:ConnectionId='17' Text="Переименовать"                            />
+                            <MenuFlyoutItem x:ConnectionId='18' Text="Удалить контакт"                            />
+                            <MenuFlyoutSeparator/>
+                            <MenuFlyoutItem x:ConnectionId='19' Text="Очистить чат"                        />
+                        </MenuFlyout>
+                    </Button.Flyout>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE712;" Foreground="White" FontSize="18"/>
+                </Button>
             </Grid>
         </Border>
         <!-- Список сообщений -->
-        <ListView x:ConnectionId='2' x:Name="MessagesList"
+        <ListView x:ConnectionId='1' x:Name="MessagesList"
                   Grid.Row="1"
                   Background="#FF0D0D0D"
                   SelectionMode="None"
@@ -98,7 +120,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid MinHeight="10">
-                        <Border x:ConnectionId='12' HorizontalAlignment="Left"
+                        <Border x:ConnectionId='11' HorizontalAlignment="Left"
                 MaxWidth="280"
                 Background="#FF1E293B"
                 Padding="10,7,10,7"
@@ -127,7 +149,7 @@
                             </StackPanel>
                         </Border>
 
-                        <Border x:ConnectionId='13' HorizontalAlignment="Right"
+                        <Border x:ConnectionId='12' HorizontalAlignment="Right"
                 MaxWidth="280"
                 Background="{ThemeResource SystemControlHighlightAccentBrush}"
                 Padding="10,7,10,7"
@@ -157,12 +179,12 @@
 
 
         <!-- Панель эмодзи -->
-        <Border x:ConnectionId='3' x:Name="EmojiPanel"
+        <Border x:ConnectionId='2' x:Name="EmojiPanel"
         Grid.Row="2"
         Background="#FF1A1A1A"
         Padding="4"
         Visibility="Collapsed">
-            <GridView x:ConnectionId='9' x:Name="EmojiItemsControl"
+            <GridView x:ConnectionId='10' x:Name="EmojiItemsControl"
               Height="200"
               Background="#222222"
               SelectionMode="None"
@@ -195,7 +217,7 @@
         </Border>
 
         <!-- Панель "Ответить на сообщение" -->
-        <Border x:ConnectionId='4' x:Name="ReplyPreviewPanel"
+        <Border x:ConnectionId='3' x:Name="ReplyPreviewPanel"
                 Grid.Row="3"
                 Background="#FF232323"
                 BorderBrush="{ThemeResource SystemControlHighlightAccentBrush}"
@@ -207,7 +229,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:ConnectionId='7' x:Name="ReplyPreviewText"
+                <TextBlock x:ConnectionId='8' x:Name="ReplyPreviewText"
                            Grid.Column="0"
                            Foreground="#CCFFFFFF"
                            FontSize="14"
@@ -215,7 +237,7 @@
                            TextTrimming="CharacterEllipsis"
                            MaxLines="1"
                            VerticalAlignment="Center"/>
-                <Button x:ConnectionId='8' Grid.Column="1"
+                <Button x:ConnectionId='9' Grid.Column="1"
                         Content="✕"
                                                  
                         Background="Transparent"
@@ -226,8 +248,10 @@
             </Grid>
         </Border>
 
-        <!-- Панель ввода -->
-        <Border Grid.Row="4" Background="#FF1A1A1A" Padding="6,6,6,6">
+
+        <!-- Панель ввода: системный стиль, никаких скруглений -->
+        <Border Grid.Row="4" Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+                Padding="4,4,4,4">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -235,35 +259,44 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
+                <Button x:ConnectionId='5' Grid.Column="0"
+                                                 
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Width="44" Height="44"
+                        VerticalAlignment="Bottom">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE76E;" FontSize="20"/>
+                </Button>
+
                 <TextBox x:ConnectionId='6' x:Name="MessageTextBox"
-                         Style="{StaticResource ChatInputStyle}"
+                         Grid.Column="1"
                          PlaceholderText="Сообщение..."
-                         Margin="4,0,10.333,0"
-                         VerticalAlignment="Bottom"
+                         FontSize="15"
+                         MaxHeight="96"
+                         TextWrapping="Wrap"
+                         AcceptsReturn="False"
+                         Margin="4,0,4,0"
+                         VerticalAlignment="Center"
                                                                  
-                                                         
-                         Grid.ColumnSpan="2"/>
+                                                         />
+
+                <Button x:ConnectionId='7' Grid.Column="2"
+                                                 
+                        Width="44" Height="33"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE724;" FontSize="18"/>
+                </Button>
             </Grid>
         </Border>
 
         <!-- Полноэкранный оверлей для попапов (переименование и т.п.) -->
         <!-- Grid.RowSpan="5" — растягиваем на всю страницу, чтобы не зависеть -->
         <!-- от Popup и его смещений на разных DPI -->
-        <Grid x:ConnectionId='5' x:Name="RootOverlayGrid"
+        <Grid x:ConnectionId='4' x:Name="RootOverlayGrid"
               Grid.RowSpan="5"
               Background="#99000000"
               Visibility="Collapsed">
         </Grid>
     </Grid>
-
-    <Page.BottomAppBar>
-        <CommandBar Background="{ThemeResource SystemControlHighlightAccentBrush}">
-            <AppBarButton x:ConnectionId='18' Icon="Send" Label="Отправить"                           Foreground="White"/>
-            <AppBarButton x:ConnectionId='19' Icon="Emoji2" Label="Смайлики"                           Foreground="White"/>
-
-            <CommandBar.SecondaryCommands>
-            </CommandBar.SecondaryCommands>
-        </CommandBar>
-    </Page.BottomAppBar>
 </Page>
 

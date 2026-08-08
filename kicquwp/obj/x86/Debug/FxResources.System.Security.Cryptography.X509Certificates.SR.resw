@@ -141,6 +141,9 @@
   <data name="Cryptography_X509_ExportFailed" xml:space="preserve">
     <value>The certificate export operation failed.</value>
   </data>
+  <data name="Cryptography_Der_Invalid_Encoding" xml:space="preserve">
+    <value>ASN1 corrupted data.</value>
+  </data>
   <data name="Cryptography_X509_StoreReadOnly" xml:space="preserve">
     <value>The X509 certificate store is read-only.</value>
   </data>

@@ -3,15 +3,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
     <UseEmulator>false</UseEmulator>
+    <UseSimulator>false</UseSimulator>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
     <UseEmulator>true</UseEmulator>
-    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
-    <DebugEngines>
-    </DebugEngines>
-    <BackgroundTaskDebugEngines>
-    </BackgroundTaskDebugEngines>
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+    <DebugEngines>{3B476D35-A401-11D2-AAD4-00C04F990171}</DebugEngines>
+    <BackgroundTaskDebugEngines>{3B476D35-A401-11D2-AAD4-00C04F990171}</BackgroundTaskDebugEngines>
   </PropertyGroup>
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
@@ -25,6 +24,10 @@
     <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
+    <UseEmulator>true</UseEmulator>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
     <DeviceId>30F105C9-681E-420b-A277-7C086EAD8A4E</DeviceId>
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>

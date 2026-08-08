@@ -125,7 +125,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Toast ERROR] " + ex.Message);
+                DebugLogService.Log("[Toast ERROR] " + ex.Message);
             }
         }
 
@@ -159,7 +159,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Sound ERROR] " + ex.Message);
+                DebugLogService.Log("[Sound ERROR] " + ex.Message);
             }
         }
     }

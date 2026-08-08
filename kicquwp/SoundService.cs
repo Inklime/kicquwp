@@ -20,11 +20,11 @@ namespace kicquwp
                 _player = new MediaPlayer();
                 _player.AutoPlay = false;
                 _player.Volume = 1.0;
-                Debug.WriteLine("[Sound] MediaPlayer initialized");
+                DebugLogService.Log("[Sound] MediaPlayer initialized");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Sound] Init error: " + ex.Message);
+                DebugLogService.Log("[Sound] Init error: " + ex.Message);
             }
         }
 
@@ -46,7 +46,7 @@ namespace kicquwp
             {
                 if (_player == null)
                 {
-                    Debug.WriteLine("[Sound] Player not initialized");
+                    DebugLogService.Log("[Sound] Player not initialized");
                     if (_dispatcher != null)
                         await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                             Init(_dispatcher));
@@ -56,11 +56,11 @@ namespace kicquwp
                 // MediaPlayer в UWP не требует UI потока
                 _player.Source = MediaSource.CreateFromUri(new Uri(uri));
                 _player.Play();
-                Debug.WriteLine("[Sound] Playing: " + uri);
+                DebugLogService.Log("[Sound] Playing: " + uri);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Sound] Error: " + ex.Message);
+                DebugLogService.Log("[Sound] Error: " + ex.Message);
             }
         }
     }

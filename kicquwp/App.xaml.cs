@@ -29,17 +29,17 @@ namespace kicquwp
             this.Resuming += OnResuming;
             this.UnhandledException += (s, e) =>
             {
-                Debug.WriteLine("[CRASH] " + e.Message);
-                Debug.WriteLine("[CRASH] " + e.Exception?.GetType().FullName);
-                Debug.WriteLine("[CRASH] " + e.Exception?.StackTrace);
+                DebugLogService.Log("[CRASH] " + e.Message);
+                DebugLogService.Log("[CRASH] " + e.Exception?.GetType().FullName);
+                DebugLogService.Log("[CRASH] " + e.Exception?.StackTrace);
                 if (e.Exception?.InnerException != null)
-                    Debug.WriteLine("[CRASH INNER] " + e.Exception.InnerException.Message);
+                    DebugLogService.Log("[CRASH INNER] " + e.Exception.InnerException.Message);
                 e.Handled = true;
             };
             TaskScheduler.UnobservedTaskException += (s, e) =>
             {
-                Debug.WriteLine("[TASK CRASH] " + e.Exception?.Message);
-                Debug.WriteLine("[TASK CRASH] " + e.Exception?.StackTrace);
+                DebugLogService.Log("[TASK CRASH] " + e.Exception?.Message);
+                DebugLogService.Log("[TASK CRASH] " + e.Exception?.StackTrace);
                 e.SetObserved();
             };
         }
@@ -118,7 +118,7 @@ namespace kicquwp
                     {
                         if ((DateTimeOffset.Now - last).TotalHours < 12)
                         {
-                            Debug.WriteLine("[Update] Пропускаем, проверяли недавно");
+                            DebugLogService.Log("[Update] Пропускаем, проверяли недавно");
                             return;
                         }
                     }
@@ -136,13 +136,13 @@ namespace kicquwp
 
                         if (!string.IsNullOrEmpty(result.Error))
                         {
-                            Debug.WriteLine("[Update Startup] " + result.Error);
+                            DebugLogService.Log("[Update Startup] " + result.Error);
                             return;
                         }
 
                         if (result.IsUpdateAvailable)
                         {
-                            Debug.WriteLine($"[Update Startup] Найдено {result.LatestTag} > {result.CurrentVersion}");
+                            DebugLogService.Log($"[Update Startup] Найдено {result.LatestTag} > {result.CurrentVersion}");
                             await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher
                                 .RunAsync(CoreDispatcherPriority.Normal, async () =>
                                 {
@@ -165,24 +165,24 @@ namespace kicquwp
                                     }
                                     catch (Exception ex)
                                     {
-                                        Debug.WriteLine("[Update Dialog] " + ex.Message);
+                                        DebugLogService.Log("[Update Dialog] " + ex.Message);
                                     }
                                 });
                         }
                         else
                         {
-                            Debug.WriteLine("[Update Startup] Обновлений нет");
+                            DebugLogService.Log("[Update Startup] Обновлений нет");
                         }
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine("[Update Startup] Exception: " + ex.Message);
+                        DebugLogService.Log("[Update Startup] Exception: " + ex.Message);
                     }
                 });
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Update Startup Init] " + ex.Message);
+                DebugLogService.Log("[Update Startup Init] " + ex.Message);
             }
         }
 
@@ -191,14 +191,14 @@ namespace kicquwp
             base.OnBackgroundActivated(args);
             var taskInstance = args.TaskInstance;
             var deferral = taskInstance.GetDeferral();
-            Debug.WriteLine("[BGTask] OnBackgroundActivated, trigger=" + taskInstance.Task?.Name);
+            DebugLogService.Log("[BGTask] OnBackgroundActivated, trigger=" + taskInstance.Task?.Name);
             try
             {
                 ControlChannelService.Instance.NotifyDataReceived();
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[BGTask] NotifyDataReceived error: " + ex.Message);
+                DebugLogService.Log("[BGTask] NotifyDataReceived error: " + ex.Message);
             }
             Task.Delay(3000).ContinueWith(_ => deferral.Complete());
         }
@@ -334,11 +334,11 @@ namespace kicquwp
 
         private async void OnResuming(object sender, object e)
         {
-            Debug.WriteLine("[App] Вернулись из фона. Проверяем сокет...");
+            DebugLogService.Log("[App] Вернулись из фона. Проверяем сокет...");
             var oscar = Oscar;
             if (oscar == null || !oscar.IsConnected)
             {
-                Debug.WriteLine("[App] Соединение потеряно. Перезапуск...");
+                DebugLogService.Log("[App] Соединение потеряно. Перезапуск...");
                 ControlChannelService.Instance.Cleanup();
                 await ReconnectService.ForceReconnectAsync();
             }

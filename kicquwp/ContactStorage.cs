@@ -27,11 +27,11 @@ namespace kicquwp
                     serializer.WriteObject(stream, contacts);
                 }
 
-                Debug.WriteLine($"[SaveContactsToFile] Saved contacts for UIN {uin}");
+                DebugLogService.Log($"[SaveContactsToFile] Saved contacts for UIN {uin}");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[SaveContactsToFile ERROR] " + ex.Message);
+                DebugLogService.Log("[SaveContactsToFile ERROR] " + ex.Message);
             }
 
         }
@@ -51,12 +51,12 @@ namespace kicquwp
             }
             catch (FileNotFoundException)
             {
-                Debug.WriteLine($"[LoadContactsFromFile] No saved contacts for UIN {uin}");
+                DebugLogService.Log($"[LoadContactsFromFile] No saved contacts for UIN {uin}");
                 return new List<Contact>();
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[LoadContactsFromFile ERROR] " + ex.Message);
+                DebugLogService.Log("[LoadContactsFromFile ERROR] " + ex.Message);
                 return new List<Contact>();
             }
         }

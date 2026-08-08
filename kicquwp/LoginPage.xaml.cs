@@ -17,14 +17,14 @@ namespace kicquwp
         public LoginPage()
         {
             this.InitializeComponent();
-            Debug.WriteLine("LoginPage initialized");
+            DebugLogService.Log("LoginPage initialized");
 
             // Загружаем сохраненные логин, пароль и никнейм
             string savedLogin = SettingsManager.LoadSetting("Login");
             string savedPassword = SettingsManager.LoadSetting("Password");
             string savedNickname = SettingsManager.LoadSetting("Nickname");
 
-            Debug.WriteLine($"Loaded saved data - Login: {savedLogin}, Nickname: {savedNickname}");
+            DebugLogService.Log($"Loaded saved data - Login: {savedLogin}, Nickname: {savedNickname}");
 
             LoginTextBox.Text = savedLogin;
             PasswordBox.Password = savedPassword;
@@ -44,7 +44,7 @@ namespace kicquwp
             if (btn != null) btn.IsEnabled = false;
             LoadingOverlay.Visibility = Visibility.Visible;
 
-            Debug.WriteLine("LoginButton clicked: Login=" + login);
+            DebugLogService.Log("LoginButton clicked: Login=" + login);
 
             if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
             {
@@ -69,7 +69,7 @@ namespace kicquwp
                     return;
                 }
 
-                Debug.WriteLine("Authentication succeeded");
+                DebugLogService.Log("Authentication succeeded");
 
                 await _oscarProtocol.InitializeOscarSessionAsync(statusCode);
                 ((App)Application.Current).Oscar = _oscarProtocol;
@@ -205,11 +205,11 @@ namespace kicquwp
                 settings.Values["SavedPassword"] = password;
 
                 await ShowErrorDialog("UIN создан! Ваш UIN: " + newUin);
-                Debug.WriteLine($"[UI] Рожден новый UIN: {newUin}");
+                DebugLogService.Log($"[UI] Рожден новый UIN: {newUin}");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[UI] Ошибка регистрации: " + ex.Message);
+                DebugLogService.Log("[UI] Ошибка регистрации: " + ex.Message);
                 StatusTextBlock.Text = "Ошибка: " + ex.Message;
             }
             finally
@@ -248,12 +248,12 @@ namespace kicquwp
         private void CommandBar_Opened(object sender, object e)
         {
             // Например, логирование
-            System.Diagnostics.Debug.WriteLine("AppBar открыт.");
+            DebugLogService.Log("AppBar открыт.");
         }
 
         private async Task ShowMessageDialog(string message)
         {
-            Debug.WriteLine($"[Dialog] Подготовка к показу: {message}");
+            DebugLogService.Log($"[Dialog] Подготовка к показу: {message}");
 
             // Получаем глобальный диспетчер главного окна
             var dispatcher = Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher;
@@ -262,7 +262,7 @@ namespace kicquwp
             {
                 try
                 {
-                    Debug.WriteLine("[Dialog] Поток UI успешно захвачен. Создаем ContentDialog...");
+                    DebugLogService.Log("[Dialog] Поток UI успешно захвачен. Создаем ContentDialog...");
 
                     var dialog = new Windows.UI.Xaml.Controls.ContentDialog
                     {
@@ -273,12 +273,12 @@ namespace kicquwp
 
                     await dialog.ShowAsync();
 
-                    Debug.WriteLine("[Dialog] Окно успешно отображено.");
+                    DebugLogService.Log("[Dialog] Окно успешно отображено.");
                 }
                 catch (Exception ex)
                 {
                     // ЕСЛИ ОКНО НЕ ПОЯВИТСЯ, ЭТА ОШИБКА БУДЕТ В ЛОГАХ
-                    Debug.WriteLine($"[Dialog CRITICAL ERROR] Ошибка при показе окна: {ex}");
+                    DebugLogService.Log($"[Dialog CRITICAL ERROR] Ошибка при показе окна: {ex}");
                 }
             });
         }

@@ -42,38 +42,38 @@ namespace kicquwp
             try
             {
                 status = await BackgroundExecutionManager.RequestAccessAsync();
-                Debug.WriteLine("[CCT] Step 1 OK, status=" + status);
+                DebugLogService.Log("[CCT] Step 1 OK, status=" + status);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[CCT] STEP 1 (RequestAccessAsync) FAILED: " + ex.GetType().Name + " — " + ex.Message);
+                DebugLogService.Log("[CCT] STEP 1 (RequestAccessAsync) FAILED: " + ex.GetType().Name + " — " + ex.Message);
                 return null;
             }
 
             if (status == BackgroundAccessStatus.Denied)
             {
-                Debug.WriteLine("[CCT] Background access denied (status=Denied)");
+                DebugLogService.Log("[CCT] Background access denied (status=Denied)");
                 return null;
             }
 
             try
             {
                 UnregisterTask();
-                Debug.WriteLine("[CCT] Step 2 OK (UnregisterTask)");
+                DebugLogService.Log("[CCT] Step 2 OK (UnregisterTask)");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[CCT] STEP 2 (UnregisterTask) FAILED: " + ex.GetType().Name + " — " + ex.Message);
+                DebugLogService.Log("[CCT] STEP 2 (UnregisterTask) FAILED: " + ex.GetType().Name + " — " + ex.Message);
             }
 
             try
             {
                 _trigger = new ControlChannelTrigger(TriggerId, 15, ControlChannelTriggerResourceType.RequestHardwareSlot);
-                Debug.WriteLine("[CCT] Step 3 OK (ControlChannelTrigger created)");
+                DebugLogService.Log("[CCT] Step 3 OK (ControlChannelTrigger created)");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[CCT] STEP 3 (new ControlChannelTrigger) FAILED: " + ex.GetType().Name + " — " + ex.Message);
+                DebugLogService.Log("[CCT] STEP 3 (new ControlChannelTrigger) FAILED: " + ex.GetType().Name + " — " + ex.Message);
                 return null;
             }
 
@@ -84,12 +84,12 @@ namespace kicquwp
                 builder.TaskEntryPoint = TaskEntry;
                 builder.SetTrigger(_trigger.PushNotificationTrigger);
                 _taskReg = builder.Register();
-                Debug.WriteLine("[CCT] Step 4 OK (Background task registered): " + TaskName);
+                DebugLogService.Log("[CCT] Step 4 OK (Background task registered): " + TaskName);
                 return _trigger;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[CCT] STEP 4 (builder.Register) FAILED: " + ex.GetType().Name + " — " + ex.Message);
+                DebugLogService.Log("[CCT] STEP 4 (builder.Register) FAILED: " + ex.GetType().Name + " — " + ex.Message);
                 return null;
             }
         }
@@ -100,19 +100,19 @@ namespace kicquwp
             try
             {
                 var status = _trigger.WaitForPushEnabled();
-                Debug.WriteLine("[CCT] WaitForPushEnabled completed with status: " + status);
+                DebugLogService.Log("[CCT] WaitForPushEnabled completed with status: " + status);
 
                 if (status != ControlChannelTriggerStatus.HardwareSlotAllocated &&
                     status != ControlChannelTriggerStatus.SoftwareSlotAllocated)
                 {
-                    Debug.WriteLine("[CCT] Ни аппаратный, ни программный слот не выделены — канал не активирован");
+                    DebugLogService.Log("[CCT] Ни аппаратный, ни программный слот не выделены — канал не активирован");
                     return false;
                 }
                 return true;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[CCT] WaitForPushEnabled FAILED: " + ex.Message);
+                DebugLogService.Log("[CCT] WaitForPushEnabled FAILED: " + ex.Message);
                 return false;
             }
         }
@@ -126,12 +126,12 @@ namespace kicquwp
             try
             {
                 _trigger.UsingTransport(socket);
-                Debug.WriteLine("[CCT] Socket assigned to trigger");
+                DebugLogService.Log("[CCT] Socket assigned to trigger");
                 return true;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[CCT] AssignSocket error: " + ex.Message);
+                DebugLogService.Log("[CCT] AssignSocket error: " + ex.Message);
                 return false;
             }
         }
@@ -150,7 +150,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[CCT] NotifyDataReceived error: " + ex.Message);
+                DebugLogService.Log("[CCT] NotifyDataReceived error: " + ex.Message);
             }
         }
 
@@ -168,7 +168,7 @@ namespace kicquwp
                 if (task.Value.Name == TaskName)
                 {
                     task.Value.Unregister(true);
-                    Debug.WriteLine("[CCT] Unregistered old task");
+                    DebugLogService.Log("[CCT] Unregistered old task");
                 }
             }
         }

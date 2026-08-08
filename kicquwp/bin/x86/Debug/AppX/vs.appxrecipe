@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>e7727368-8c12-4939-a4c7-bc016f1df00b</PackageIdentityName>
     <PackageIdentityPublisher>CN=123</PackageIdentityPublisher>
-    <IntermediateOutputPath>c:\Users\123\source\repos\kicquwp\kicquwp\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\123\Documents\GitHub\kicquwp\kicquwp\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,25 +18,25 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>4D6D6CCB4457971B134CA34CFDFEE034110C2DB19758BFBEF3F79567BEB3B24D</RegisteredManifestChecksum>
-    <RegisteredPackageMoniker>e7727368-8c12-4939-a4c7-bc016f1df00b_1.0.0.0_x86__evfdpxzgpmys2</RegisteredPackageMoniker>
+    <LayoutDir>C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>30A1533AD551E7D8F201B3FAB7561292BE252CFA3A9A9B0D49881341F791800D</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>e7727368-8c12-4939-a4c7-bc016f1df00b_1.0.3.0_x86__evfdpxzgpmys2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>e7727368-8c12-4939-a4c7-bc016f1df00b_evfdpxzgpmys2!App</RegisteredUserModeAppID>
     <RegisteredPackageID>e7727368-8c12-4939-a4c7-bc016f1df00b</RegisteredPackageID>
     <RegisteredPackagePublisher>CN=123</RegisteredPackagePublisher>
-    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <RegisteredVersion>1.0.3.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-07-15T07:54:30.408</Modified>
+      <Modified>2026-08-05T23:21:06.110</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\kicquwp.exe">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\kicquwp.exe">
       <PackagePath>entrypoint\kicquwp.exe</PackagePath>
-      <Modified>2026-07-15T07:54:28.079</Modified>
+      <Modified>2026-08-05T23:21:04.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -422,9 +422,9 @@
       <PackagePath>System.Security.Cryptography.Primitives.dll</PackagePath>
       <Modified>2016-06-11T21:14:42.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.security.cryptography.x509certificates\4.1.0\runtimes\win\lib\netcore50\System.Security.Cryptography.X509Certificates.dll">
+    <AppxPackagedFile Include="C:\Users\123\.nuget\packages\system.security.cryptography.x509certificates\4.1.2\runtimes\win\lib\netcore50\System.Security.Cryptography.X509Certificates.dll">
       <PackagePath>System.Security.Cryptography.X509Certificates.dll</PackagePath>
-      <Modified>2016-06-11T21:14:48.000</Modified>
+      <Modified>2017-10-14T14:09:48.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\system.security.principal\4.0.1\lib\netcore50\System.Security.Principal.dll">
       <PackagePath>System.Security.Principal.dll</PackagePath>
@@ -494,213 +494,727 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2016-06-11T21:15:04.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
-      <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
-      <Modified>2025-03-12T01:26:08.000</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\Background.BackgroundTask\bin\x86\Debug\Background.BackgroundTask.winmd">
+      <PackagePath>Background.BackgroundTask.winmd</PackagePath>
+      <Modified>2026-08-05T23:02:22.576</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\away.png">
-      <PackagePath>Assets\away.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.943</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\desc.txt">
+      <PackagePath>Assets\desc.txt</PackagePath>
+      <Modified>2026-07-23T23:40:56.228</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\busy.png">
-      <PackagePath>Assets\busy.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.948</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\aa.gif">
+      <PackagePath>Assets\emoji\aa.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.228</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\depressed.png">
-      <PackagePath>Assets\depressed.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.952</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ab.gif">
+      <PackagePath>Assets\emoji\ab.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.228</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\dnd.png">
-      <PackagePath>Assets\dnd.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.958</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ac.gif">
+      <PackagePath>Assets\emoji\ac.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.228</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\eating.png">
-      <PackagePath>Assets\eating.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.963</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ad.gif">
+      <PackagePath>Assets\emoji\ad.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.228</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\evil.png">
-      <PackagePath>Assets\evil.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.967</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ae.gif">
+      <PackagePath>Assets\emoji\ae.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\f4c.png">
-      <PackagePath>Assets\f4c.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.973</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\af.gif">
+      <PackagePath>Assets\emoji\af.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\home.png">
-      <PackagePath>Assets\home.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.983</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ag.gif">
+      <PackagePath>Assets\emoji\ag.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\ifa.png">
-      <PackagePath>Assets\ifa.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.987</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ah.gif">
+      <PackagePath>Assets\emoji\ah.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\inv.png">
-      <PackagePath>Assets\inv.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.992</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ai.gif">
+      <PackagePath>Assets\emoji\ai.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\aj.gif">
+      <PackagePath>Assets\emoji\aj.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ak.gif">
+      <PackagePath>Assets\emoji\ak.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\al.gif">
+      <PackagePath>Assets\emoji\al.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\am.gif">
+      <PackagePath>Assets\emoji\am.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\an.gif">
+      <PackagePath>Assets\emoji\an.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.245</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ao.gif">
+      <PackagePath>Assets\emoji\ao.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.245</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ap.gif">
+      <PackagePath>Assets\emoji\ap.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.247</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\aq.gif">
+      <PackagePath>Assets\emoji\aq.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.249</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ar.gif">
+      <PackagePath>Assets\emoji\ar.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.249</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\as.gif">
+      <PackagePath>Assets\emoji\as.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\at.gif">
+      <PackagePath>Assets\emoji\at.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\au.gif">
+      <PackagePath>Assets\emoji\au.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\av.gif">
+      <PackagePath>Assets\emoji\av.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\aw.gif">
+      <PackagePath>Assets\emoji\aw.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ax.gif">
+      <PackagePath>Assets\emoji\ax.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ay.gif">
+      <PackagePath>Assets\emoji\ay.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\az.gif">
+      <PackagePath>Assets\emoji\az.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\ba.gif">
+      <PackagePath>Assets\emoji\ba.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.251</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bb.gif">
+      <PackagePath>Assets\emoji\bb.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.261</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bc.gif">
+      <PackagePath>Assets\emoji\bc.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.261</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bd.gif">
+      <PackagePath>Assets\emoji\bd.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.261</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\be.gif">
+      <PackagePath>Assets\emoji\be.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.261</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bf.gif">
+      <PackagePath>Assets\emoji\bf.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.264</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bg.gif">
+      <PackagePath>Assets\emoji\bg.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.264</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bh.gif">
+      <PackagePath>Assets\emoji\bh.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.264</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bi.gif">
+      <PackagePath>Assets\emoji\bi.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.264</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bj.gif">
+      <PackagePath>Assets\emoji\bj.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bk.gif">
+      <PackagePath>Assets\emoji\bk.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bl.gif">
+      <PackagePath>Assets\emoji\bl.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bm.gif">
+      <PackagePath>Assets\emoji\bm.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bn.gif">
+      <PackagePath>Assets\emoji\bn.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bo.gif">
+      <PackagePath>Assets\emoji\bo.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bp.gif">
+      <PackagePath>Assets\emoji\bp.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bq.gif">
+      <PackagePath>Assets\emoji\bq.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.268</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\br.gif">
+      <PackagePath>Assets\emoji\br.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.277</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bs.gif">
+      <PackagePath>Assets\emoji\bs.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.278</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bt.gif">
+      <PackagePath>Assets\emoji\bt.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.278</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bu.gif">
+      <PackagePath>Assets\emoji\bu.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.280</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bv.gif">
+      <PackagePath>Assets\emoji\bv.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.280</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\emoji\bw.gif">
+      <PackagePath>Assets\emoji\bw.gif</PackagePath>
+      <Modified>2026-07-23T23:40:56.280</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\icons\added.png">
+      <PackagePath>Assets\icons\added.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.280</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\icons\newmsg.png">
+      <PackagePath>Assets\icons\newmsg.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.283</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
-      <Modified>2026-06-29T09:50:08.109</Modified>
+      <Modified>2026-07-23T23:40:56.168</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Logo.scale-140.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Logo.scale-140.png">
       <PackagePath>Assets\Logo.scale-140.png</PackagePath>
-      <Modified>2026-06-29T09:49:22.048</Modified>
+      <Modified>2026-07-23T23:40:56.169</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Logo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Logo.scale-240.png">
       <PackagePath>Assets\Logo.scale-240.png</PackagePath>
-      <Modified>2026-06-29T09:37:29.511</Modified>
+      <Modified>2026-07-23T23:40:56.170</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Logo_ICQ.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Logo_ICQ.png">
       <PackagePath>Assets\Logo_ICQ.png</PackagePath>
-      <Modified>2025-07-14T12:13:04.000</Modified>
+      <Modified>2026-07-23T23:40:56.170</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\MedLogo--.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\MedLogo--.png">
       <PackagePath>Assets\MedLogo--.png</PackagePath>
-      <Modified>2026-06-29T09:50:08.109</Modified>
+      <Modified>2026-07-23T23:40:56.174</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\MedLogo-.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\MedLogo-.png">
       <PackagePath>Assets\MedLogo-.png</PackagePath>
-      <Modified>2026-06-29T09:49:22.048</Modified>
+      <Modified>2026-07-23T23:40:56.174</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\MedLogo.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\MedLogo.png">
       <PackagePath>Assets\MedLogo.png</PackagePath>
-      <Modified>2026-06-29T09:46:35.156</Modified>
+      <Modified>2026-07-23T23:40:56.174</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\na.png">
-      <PackagePath>Assets\na.png</PackagePath>
-      <Modified>2026-07-15T07:50:50.996</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\nicl.png">
-      <PackagePath>Assets\nicl.png</PackagePath>
-      <Modified>2026-07-15T07:50:51.001</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\offline.png">
-      <PackagePath>Assets\offline.png</PackagePath>
-      <Modified>2026-07-15T07:50:51.006</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\online.png">
-      <PackagePath>Assets\online.png</PackagePath>
-      <Modified>2025-07-14T12:13:04.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\SmallLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\SmallLogo.scale-240.png">
       <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
-      <Modified>2026-06-29T09:42:15.095</Modified>
+      <Modified>2026-07-23T23:40:56.174</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\SplashScreen.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\SplashScreen.scale-240.png">
       <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-07-14T12:13:04.000</Modified>
+      <Modified>2026-07-23T23:40:56.190</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Square71x71Logo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.190</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.190</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.190</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.201</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square71x71Logo.scale-100.png">
+      <PackagePath>Assets\Square71x71Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.206</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square71x71Logo.scale-125.png">
+      <PackagePath>Assets\Square71x71Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.206</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square71x71Logo.scale-150.png">
+      <PackagePath>Assets\Square71x71Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.206</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square71x71Logo.scale-200.png">
+      <PackagePath>Assets\Square71x71Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.206</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square71x71Logo.scale-240.png">
       <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
-      <Modified>2026-06-29T09:57:35.007</Modified>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.206</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\StoreLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square71x71Logo.scale-400.png">
+      <PackagePath>Assets\Square71x71Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\away.png">
+      <PackagePath>Assets\statuses\away.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.285</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\busy.png">
+      <PackagePath>Assets\statuses\busy.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.285</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\connecting_1.png">
+      <PackagePath>Assets\statuses\connecting_1.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.285</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\connecting_2.png">
+      <PackagePath>Assets\statuses\connecting_2.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.288</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\connecting_3.png">
+      <PackagePath>Assets\statuses\connecting_3.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.288</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\connecting_4.png">
+      <PackagePath>Assets\statuses\connecting_4.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.288</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\connecting_5.png">
+      <PackagePath>Assets\statuses\connecting_5.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.288</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\connecting_6.png">
+      <PackagePath>Assets\statuses\connecting_6.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.291</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\connecting_7.png">
+      <PackagePath>Assets\statuses\connecting_7.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.291</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\connecting_8.png">
+      <PackagePath>Assets\statuses\connecting_8.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.293</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\depressed.png">
+      <PackagePath>Assets\statuses\depressed.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.294</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\dnd.png">
+      <PackagePath>Assets\statuses\dnd.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.294</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\eating.png">
+      <PackagePath>Assets\statuses\eating.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.294</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\evil.png">
+      <PackagePath>Assets\statuses\evil.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.297</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\f4c.png">
+      <PackagePath>Assets\statuses\f4c.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.297</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\home.png">
+      <PackagePath>Assets\statuses\home.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.299</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\ifa.png">
+      <PackagePath>Assets\statuses\ifa.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.299</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\inv.png">
+      <PackagePath>Assets\statuses\inv.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.299</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\na.png">
+      <PackagePath>Assets\statuses\na.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.299</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\nicl.png">
+      <PackagePath>Assets\statuses\nicl.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.302</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\offline.png">
+      <PackagePath>Assets\statuses\offline.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.302</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\online.png">
+      <PackagePath>Assets\statuses\online.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.302</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\unknown.png">
+      <PackagePath>Assets\statuses\unknown.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.302</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\statuses\work.png">
+      <PackagePath>Assets\statuses\work.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.302</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\StoreLogo.scale-240.png">
       <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-06-29T09:53:34.445</Modified>
+      <Modified>2026-07-23T23:40:56.211</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\WideLogo-.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.211</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\WideLogo-.png">
       <PackagePath>Assets\WideLogo-.png</PackagePath>
-      <Modified>2026-06-29T09:52:41.035</Modified>
+      <Modified>2026-07-23T23:40:56.219</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\WideLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\WideLogo.scale-100.png">
       <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
-      <Modified>2026-06-29T09:52:41.035</Modified>
+      <Modified>2026-07-23T23:40:56.222</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\WideLogo.scale-240.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\WideLogo.scale-240.png">
       <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
-      <Modified>2026-06-29T09:51:49.281</Modified>
+      <Modified>2026-07-23T23:40:56.222</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\WideTile.scale-100.png">
+      <PackagePath>Assets\WideTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.222</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\WideTile.scale-125.png">
+      <PackagePath>Assets\WideTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.222</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\WideTile.scale-150.png">
+      <PackagePath>Assets\WideTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.228</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\WideTile.scale-200.png">
+      <PackagePath>Assets\WideTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.228</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\WideTile.scale-400.png">
+      <PackagePath>Assets\WideTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-07-23T23:40:56.228</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\angry.png">
+      <PackagePath>Assets\xtraz\angry.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.350</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\bath.png">
+      <PackagePath>Assets\xtraz\bath.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.350</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\beer.png">
+      <PackagePath>Assets\xtraz\beer.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.350</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\business.png">
+      <PackagePath>Assets\xtraz\business.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.350</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\camera.png">
+      <PackagePath>Assets\xtraz\camera.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.350</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\coffee.png">
+      <PackagePath>Assets\xtraz\coffee.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.350</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\cpc.png">
+      <PackagePath>Assets\xtraz\cpc.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.355</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\eating.png">
+      <PackagePath>Assets\xtraz\eating.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.355</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\friends.png">
+      <PackagePath>Assets\xtraz\friends.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.355</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\funny.png">
+      <PackagePath>Assets\xtraz\funny.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.355</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\game.png">
+      <PackagePath>Assets\xtraz\game.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.358</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\heart.png">
+      <PackagePath>Assets\xtraz\heart.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.358</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\internet.png">
+      <PackagePath>Assets\xtraz\internet.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.358</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\mobph.png">
+      <PackagePath>Assets\xtraz\mobph.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.358</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\music.png">
+      <PackagePath>Assets\xtraz\music.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.361</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\paper.png">
+      <PackagePath>Assets\xtraz\paper.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.361</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\party.png">
+      <PackagePath>Assets\xtraz\party.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.361</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\phone.png">
+      <PackagePath>Assets\xtraz\phone.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.361</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\qm.png">
+      <PackagePath>Assets\xtraz\qm.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.364</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\redthing.png">
+      <PackagePath>Assets\xtraz\redthing.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.364</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\search.png">
+      <PackagePath>Assets\xtraz\search.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.364</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\shashlik.png">
+      <PackagePath>Assets\xtraz\shashlik.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.366</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\shopping.png">
+      <PackagePath>Assets\xtraz\shopping.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.366</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\sleep.png">
+      <PackagePath>Assets\xtraz\sleep.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.366</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\sleepy.png">
+      <PackagePath>Assets\xtraz\sleepy.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.366</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\study.png">
+      <PackagePath>Assets\xtraz\study.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.366</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\surf.png">
+      <PackagePath>Assets\xtraz\surf.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.366</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\temp.png">
+      <PackagePath>Assets\xtraz\temp.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.370</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\think.png">
+      <PackagePath>Assets\xtraz\think.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.370</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\tired.png">
+      <PackagePath>Assets\xtraz\tired.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.370</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\tv.png">
+      <PackagePath>Assets\xtraz\tv.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.372</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\type.png">
+      <PackagePath>Assets\xtraz\type.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.373</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\work.png">
+      <PackagePath>Assets\xtraz\work.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.373</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\xtraz\write.png">
+      <PackagePath>Assets\xtraz\write.png</PackagePath>
+      <Modified>2026-07-23T23:40:56.373</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2026-07-15T05:12:54.486</Modified>
+      <Modified>2026-07-23T23:40:56.167</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-07-15T05:12:54.489</Modified>
+      <Modified>2026-07-23T23:40:56.174</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-07-15T05:12:54.489</Modified>
+      <Modified>2026-07-23T23:40:56.190</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-07-15T05:12:54.489</Modified>
+      <Modified>2026-07-23T23:40:56.204</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-07-15T05:12:54.489</Modified>
+      <Modified>2026-07-23T23:40:56.204</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-07-15T05:12:54.489</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-07-15T05:12:54.489</Modified>
+      <Modified>2026-07-23T23:40:56.219</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Assets\desc.txt">
-      <PackagePath>Assets\desc.txt</PackagePath>
-      <Modified>2025-07-14T12:13:04.000</Modified>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Sounds\auth.wav">
+      <PackagePath>Assets\Sounds\auth.wav</PackagePath>
+      <Modified>2026-07-23T23:40:56.174</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Sounds\error.wav">
+      <PackagePath>Assets\Sounds\error.wav</PackagePath>
+      <Modified>2026-07-23T23:40:56.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Sounds\message.wav">
+      <PackagePath>Assets\Sounds\message.wav</PackagePath>
+      <Modified>2026-07-23T23:40:56.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Sounds\notification.wav">
+      <PackagePath>Assets\Sounds\notification.wav</PackagePath>
+      <Modified>2026-07-23T23:40:56.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Sounds\online.wav">
+      <PackagePath>Assets\Sounds\online.wav</PackagePath>
+      <Modified>2026-07-23T23:40:56.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Sounds\sndMsgSent.wav">
+      <PackagePath>Assets\Sounds\sndMsgSent.wav</PackagePath>
+      <Modified>2026-07-23T23:40:56.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Sounds\sndRemSelf.wav">
+      <PackagePath>Assets\Sounds\sndRemSelf.wav</PackagePath>
+      <Modified>2026-07-23T23:40:56.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Assets\Sounds\sndSystem.wav">
+      <PackagePath>Assets\Sounds\sndSystem.wav</PackagePath>
+      <Modified>2026-07-23T23:40:56.174</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2026-07-15T05:23:50.486</Modified>
+      <Modified>2026-07-23T23:40:56.399</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\kicquwp.xr.xml">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\kicquwp.xr.xml">
       <PackagePath>kicquwp.xr.xml</PackagePath>
-      <Modified>2026-07-15T06:28:32.512</Modified>
+      <Modified>2026-08-05T23:02:26.326</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2026-07-15T07:54:27.447</Modified>
+      <Modified>2026-08-01T23:50:05.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\AccountInfoPage.xbf">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\AccountInfoPage.xbf">
       <PackagePath>AccountInfoPage.xbf</PackagePath>
-      <Modified>2026-07-15T07:54:27.396</Modified>
+      <Modified>2026-08-01T23:50:05.512</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\ChatPage.xbf">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\ChatPage.xbf">
       <PackagePath>ChatPage.xbf</PackagePath>
-      <Modified>2026-07-15T07:54:27.409</Modified>
+      <Modified>2026-08-05T23:02:26.382</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\InfoPage.xbf">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\DebugLogPage.xbf">
+      <PackagePath>DebugLogPage.xbf</PackagePath>
+      <Modified>2026-08-05T23:02:26.396</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\DebugMenuPage.xbf">
+      <PackagePath>DebugMenuPage.xbf</PackagePath>
+      <Modified>2026-08-05T23:02:26.397</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\FeatureItem.xbf">
+      <PackagePath>FeatureItem.xbf</PackagePath>
+      <Modified>2026-08-01T23:50:05.564</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\InfoPage.xbf">
       <PackagePath>InfoPage.xbf</PackagePath>
-      <Modified>2026-07-15T07:54:27.448</Modified>
+      <Modified>2026-08-01T23:50:05.532</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\LoginPage.xbf">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\LoginPage.xbf">
       <PackagePath>LoginPage.xbf</PackagePath>
-      <Modified>2026-07-15T07:54:27.448</Modified>
+      <Modified>2026-08-01T23:50:05.532</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2026-07-15T07:54:27.429</Modified>
+      <Modified>2026-08-05T23:02:26.396</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\SearchPage.xbf">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\SearchPage.xbf">
       <PackagePath>SearchPage.xbf</PackagePath>
-      <Modified>2026-07-15T07:54:27.435</Modified>
+      <Modified>2026-08-01T23:50:05.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\Settingspage.xbf">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\Settingspage.xbf">
       <PackagePath>Settingspage.xbf</PackagePath>
-      <Modified>2026-07-15T07:54:27.447</Modified>
+      <Modified>2026-08-01T23:50:05.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2025-03-12T01:26:08.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-07-15T07:54:29.449</Modified>
+      <Modified>2026-08-05T23:02:29.072</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="c:\Users\123\source\repos\kicquwp\kicquwp\bin\x86\Debug\Core\kicquwp.exe">
+    <AppxPackagedFile Include="C:\Users\123\Documents\GitHub\kicquwp\kicquwp\bin\x86\Debug\Core\kicquwp.exe">
       <PackagePath>kicquwp.exe</PackagePath>
-      <Modified>2026-07-15T07:54:30.399</Modified>
+      <Modified>2026-08-05T23:21:06.100</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

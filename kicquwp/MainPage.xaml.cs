@@ -61,7 +61,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[InitAsync ERROR] " + ex.Message);
+                DebugLogService.Log("[InitAsync ERROR] " + ex.Message);
             }
         }
 
@@ -418,7 +418,7 @@ namespace kicquwp
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine("[Rename ERROR] " + ex.Message);
+                        DebugLogService.Log("[Rename ERROR] " + ex.Message);
                         await ShowErrorDialogAsync("Ошибка переименования: " + ex.Message);
                     }
                 }
@@ -536,7 +536,7 @@ namespace kicquwp
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("[Move ERROR] " + ex.Message);
+                    DebugLogService.Log("[Move ERROR] " + ex.Message);
                     await ShowErrorDialogAsync("Ошибка перемещения: " + ex.Message);
                 }
             }
@@ -661,6 +661,11 @@ namespace kicquwp
                 ? Visibility.Visible : Visibility.Collapsed;
         }
 
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InfoPage));
+        }
+
         private void StatusPanelClose_Click(object sender, RoutedEventArgs e)
         {
             StatusPanel.Visibility = Visibility.Collapsed;
@@ -685,7 +690,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Status ERROR] " + ex.Message);
+                DebugLogService.Log("[Status ERROR] " + ex.Message);
             }
 
             StatusPanel.Visibility = Visibility.Collapsed;
@@ -718,7 +723,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[UpdateOwnStatusIcon ERROR] " + ex.Message);
+                DebugLogService.Log("[UpdateOwnStatusIcon ERROR] " + ex.Message);
             }
         }
 
@@ -761,7 +766,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[MainPage] Error loading contacts: " + ex.Message);
+                DebugLogService.Log("[MainPage] Error loading contacts: " + ex.Message);
             }
         }
 
@@ -838,11 +843,11 @@ namespace kicquwp
 
                     ContactsListView.Background = _cachedMainBackground;
                 }
-                Debug.WriteLine("[MainPage] Background loaded and cached");
+                DebugLogService.Log("[MainPage] Background loaded and cached");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[MainPage] ApplyBackground error: " + ex.Message);
+                DebugLogService.Log("[MainPage] ApplyBackground error: " + ex.Message);
             }
         }
 
@@ -923,7 +928,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Logout ERROR] " + ex.Message);
+                DebugLogService.Log("[Logout ERROR] " + ex.Message);
                 Frame.Navigate(typeof(LoginPage));
             }
         }
@@ -951,10 +956,6 @@ namespace kicquwp
             Frame.Navigate(typeof(SearchPage), _oscarProtocol);
         }
 
-        private void HelpButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(InfoPage));
-        }
 
         private void ContactsListView_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -1009,7 +1010,7 @@ namespace kicquwp
         // ─────────────────────────────────────────────────────────────────────
         private void CommandBar_Opened(object sender, object e)
         {
-            Debug.WriteLine("AppBar открыт.");
+            DebugLogService.Log("AppBar открыт.");
         }
     }
 }

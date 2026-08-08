@@ -22,12 +22,14 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Button x:ConnectionId='14' Grid.Column="0"                         
-                        Background="Transparent" BorderThickness="0"
-                        Width="212" Height="56" Padding="0" Grid.ColumnSpan="2" Margin="-103,-1,0,-1">
-                    <TextBlock Text="         " FontFamily="Segoe UI Symbol"
-                               FontSize="22" Foreground="White"
-                               VerticalAlignment="Center" HorizontalAlignment="Center" Width="79"/>
+                <Button x:ConnectionId='14' Grid.Column="0" 
+                                                
+                        Background="Transparent" 
+                        BorderThickness="0"
+                        Width="56" Height="56"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72B;" Foreground="White" FontSize="20"/>
                 </Button>
                 <TextBlock Grid.Column="1" Text="Мой профиль"
                            FontSize="20" FontFamily="Segoe WP"

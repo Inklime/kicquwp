@@ -32,6 +32,7 @@
             <CommandBar.SecondaryCommands>
                 <AppBarButton Icon="Setting" Label="Настройки" Click="SettingsButton_Click"/>
                 <AppBarButton Icon="Contact"    Label="Профиль" Click="AcInfButton_Click" Foreground="White"/>
+                <AppBarButton Icon="Help" Label="Справка" Click="HelpButton_Click"/>
                 <AppBarButton Icon="Cancel"  Label="Выход"     Click="ExitButton_Click"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>

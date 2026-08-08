@@ -39,18 +39,20 @@
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Content" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Content" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontSize" />
-      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="Flyout" />
       <RootProperty Name="Tag" />
       <RootProperty Name="Style" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontFamily" />
-      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="FontWeight" />
       <RootProperty Name="HorizontalContentAlignment" />
+      <RootProperty Name="Visibility" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
@@ -81,8 +83,9 @@
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Padding" />
       <RootProperty Name="InputScope" />
-      <RootProperty Name="Style" />
       <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="MaxHeight" />
+      <RootProperty Name="AcceptsReturn" />
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="BorderBrush" />
@@ -108,15 +111,13 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="MinHeight" />
-      <RootProperty Name="ChildrenTransitions" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Padding" />
       <RootEvent Name="Holding" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
-      <RootMethod Name="GetColumnSpan" />
-      <RootMethod Name="SetColumnSpan" />
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
     </RootType>
@@ -137,12 +138,13 @@
       <RootProperty Name="MaxWidth" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="MinWidth" />
+      <RootProperty Name="CornerRadius" />
       <RootEvent Name="Holding" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
       <RootProperty Name="VerticalScrollBarVisibility" />
       <RootProperty Name="Content" />
-      <RootProperty Name="Margin" />
+      <RootProperty Name="Padding" />
       <RootProperty Name="MaxHeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
@@ -151,6 +153,7 @@
       <RootProperty Name="Children" />
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
       <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
@@ -159,6 +162,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
@@ -169,15 +173,25 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="CharacterSpacing" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Width" />
       <RootProperty Name="TextTrimming" />
       <RootProperty Name="MaxLines" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="TextWrapping" />
-      <RootProperty Name="Style" />
+      <RootProperty Name="IsTextSelectionEnabled" />
+      <RootProperty Name="LineHeight" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="MaxHeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.FontIcon">
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="Glyph" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="kicquwp.AccountInfoPage" />
     <RootType FullName="kicquwp.BoolToVisibilityConverter" />
@@ -238,11 +252,31 @@
       <RootMethod Name="GetFormattedText" />
       <RootMethod Name="SetFormattedText" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyout">
+      <RootProperty Name="Placement" />
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutItem">
+      <RootProperty Name="Text" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MenuFlyoutSeparator" />
+    <RootType FullName="kicquwp.ChatPage" />
+    <RootType FullName="kicquwp.DebugLogPage" />
+    <RootType FullName="kicquwp.DebugMenuPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="kicquwp.FeatureItem">
+      <RootProperty Name="Icon" />
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="kicquwp.InfoPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
+      <RootProperty Name="IsSticky" />
       <RootProperty Name="Background" />
       <RootProperty Name="PrimaryCommands" />
       <RootProperty Name="SecondaryCommands" />
-      <RootProperty Name="IsSticky" />
       <RootEvent Name="Opened" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
@@ -251,20 +285,25 @@
       <RootProperty Name="Foreground" />
       <RootEvent Name="Click" />
     </RootType>
-    <RootType FullName="kicquwp.ChatPage" />
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.EntranceThemeTransition" />
-    <RootType FullName="kicquwp.InfoPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
+      <RootProperty Name="Title" />
+      <RootProperty Name="PrimaryButtonText" />
+      <RootProperty Name="SecondaryButtonText" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Content" />
+      <RootEvent Name="PrimaryButtonClick" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Padding" />
-      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="SelectedIndex" />
@@ -302,17 +341,17 @@
     </RootType>
     <RootType FullName="kicquwp.MainPage" />
     <RootType FullName="kicquwp.SearchPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootEvent Name="Toggled" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Slider">
       <RootProperty Name="Minimum" />
       <RootProperty Name="Maximum" />
       <RootProperty Name="Value" />
       <RootProperty Name="Foreground" />
       <RootEvent Name="ValueChanged" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootEvent Name="Toggled" />
     </RootType>
     <RootType FullName="kicquwp.SettingsPage" />
   </Roots.RootTypes>

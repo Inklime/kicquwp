@@ -95,103 +95,118 @@ namespace kicquwp
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            string forwardText = null;
-
-            var paramWithForward = e.Parameter as Tuple<Contact, OscarProtocol, string>;
-            if (paramWithForward != null)
-            {
-                _contact = paramWithForward.Item1;
-                _oscar = paramWithForward.Item2;
-                forwardText = paramWithForward.Item3;
-            }
-            else
-            {
-                var param = e.Parameter as Tuple<Contact, OscarProtocol>;
-                if (param == null) return;
-                _contact = param.Item1;
-                _oscar = param.Item2;
-            }
-
-            // Таймер печатания
-            _typingTimer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(5)
-            };
-            _typingTimer.Tick += OnTypingTimerTick;
-
-            _oscar.TypingNotificationReceived += OnTypingNotification;
-            var reconnect = ((App)Application.Current).ReconnectService;
-            if (reconnect != null)
-            {
-                reconnect.Reconnected += OnReconnectedInChat;
-                reconnect.OnDisconnected += OnChatConnectionLost;
-            }
-
-            var settings = ApplicationData.Current.LocalSettings;
-            object typingEnabled = settings.Values["TypingNotifications"];
-            _typingNotificationsEnabled = typingEnabled == null || (bool)typingEnabled;
-
-            ContactNameTextBlock.Text = _contact.Name;
-            ContactUinTextBlock.Text = _contact.Uin;
-
-            ((App)Application.Current).ConnectionStateChanged += OnGlobalConnectionStateChanged;
-            ApplyConnectionState();
-
-            UpdateAppBar();
-
-            _reconnect = ((App)Application.Current).ReconnectService;
-            if (_reconnect != null)
-            {
-                _reconnect.OnDisconnected += OnConnectionLost;
-                _reconnect.Reconnected += OnReconnectedInChat;
-            }
-
             try
             {
-                string iconPath = _contact.StatusIcon?.TrimStart('/') ?? "";
-                if (!string.IsNullOrEmpty(iconPath))
-                    ContactStatusIcon.Source =
-                        new Windows.UI.Xaml.Media.Imaging.BitmapImage(
-                            new Uri("ms-appx:///" + iconPath));
-            }
-            catch { }
-
-            NotificationService.Instance.ActiveChatUin = _contact.Uin;
-            NotificationService.Instance.ClearUnread(_contact.Uin);
-
-            _messages.Clear();
-            _loadedMessageKeys.Clear();
-
-            await LoadHistoryAsync();
-            await ApplyChatBackgroundAsync();
-
-            // Сообщения, пришедшие пока чат был закрыт
-            var pending = _oscar.GetAndClearPending(_contact.Uin);
-            foreach (var msgParts in pending)
-            {
-                var chatMsg = new ChatMessage
+                string forwardText = null;
+                var paramWithForward = e.Parameter as Tuple<Contact, OscarProtocol, string>;
+                if (paramWithForward != null)
                 {
-                    Text = msgParts[0],
-                    SenderName = _contact.Name,
-                    Time = msgParts[1],
-                    IsIncoming = true,
-                    IsOutgoing = false
-                };
-                _messages.Add(chatMsg);
-                await SaveMessageAsync(chatMsg);
+                    _contact = paramWithForward.Item1;
+                    _oscar = paramWithForward.Item2;
+                    forwardText = paramWithForward.Item3;
+                }
+                else
+                {
+                    var param = e.Parameter as Tuple<Contact, OscarProtocol>;
+                    if (param == null) return;
+                    _contact = param.Item1;
+                    _oscar = param.Item2;
+                }
+
+                DebugLogService.Log("[ChatPage] Step 1: params OK");
+
+                _typingTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(5) };
+                _typingTimer.Tick += OnTypingTimerTick;
+                _oscar.TypingNotificationReceived += OnTypingNotification;
+                DebugLogService.Log("[ChatPage] Step 2: timer OK");
+
+                var reconnect = ((App)Application.Current).ReconnectService;
+                if (reconnect != null)
+                {
+                    reconnect.Reconnected += OnReconnectedInChat;
+                    reconnect.OnDisconnected += OnChatConnectionLost;
+                }
+                DebugLogService.Log("[ChatPage] Step 3: reconnect OK");
+
+                var settings = ApplicationData.Current.LocalSettings;
+                object typingEnabled = settings.Values["TypingNotifications"];
+                _typingNotificationsEnabled = typingEnabled == null || (bool)typingEnabled;
+
+                ContactNameTextBlock.Text = _contact.Name;
+                ContactUinTextBlock.Text = _contact.Uin;
+                DebugLogService.Log("[ChatPage] Step 4: UI text OK");
+
+                ((App)Application.Current).ConnectionStateChanged += OnGlobalConnectionStateChanged;
+                ApplyConnectionState();
+                DebugLogService.Log("[ChatPage] Step 5: connection state OK");
+
+                UpdateAppBar();
+                DebugLogService.Log("[ChatPage] Step 6: appbar OK");
+
+                _reconnect = ((App)Application.Current).ReconnectService;
+                if (_reconnect != null)
+                {
+                    _reconnect.OnDisconnected += OnConnectionLost;
+                    _reconnect.Reconnected += OnReconnectedInChat;
+                }
+
+                try
+                {
+                    string iconPath = _contact.StatusIcon?.TrimStart('/') ?? "";
+                    if (!string.IsNullOrEmpty(iconPath))
+                        ContactStatusIcon.Source = new Windows.UI.Xaml.Media.Imaging.BitmapImage(
+                            new Uri("ms-appx:///" + iconPath));
+                }
+                catch { }
+                DebugLogService.Log("[ChatPage] Step 7: icon OK");
+
+                NotificationService.Instance.ActiveChatUin = _contact.Uin;
+                NotificationService.Instance.ClearUnread(_contact.Uin);
+                DebugLogService.Log("[ChatPage] Step 8: notifications OK");
+
+                _messages.Clear();
+                _loadedMessageKeys.Clear();
+                await LoadHistoryAsync();
+                DebugLogService.Log("[ChatPage] Step 9: history OK");
+
+                await ApplyChatBackgroundAsync();
+                DebugLogService.Log("[ChatPage] Step 10: background OK");
+
+                var pending = _oscar.GetAndClearPending(_contact.Uin);
+                foreach (var msgParts in pending)
+                {
+                    var chatMsg = new ChatMessage
+                    {
+                        Text = msgParts[0],
+                        SenderName = _contact.Name,
+                        Time = msgParts[1],
+                        IsIncoming = true,
+                        IsOutgoing = false
+                    };
+                    _messages.Add(chatMsg);
+                    await SaveMessageAsync(chatMsg);
+                }
+                DebugLogService.Log("[ChatPage] Step 11: pending OK");
+
+                ScrollToBottom();
+                _oscar.IncomingMessage += OnIncomingMessage;
+
+                if (!string.IsNullOrEmpty(forwardText))
+                {
+                    MessageTextBox.Text = forwardText;
+                    MessageTextBox.SelectionStart = forwardText.Length;
+                    MessageTextBox.Focus(FocusState.Programmatic);
+                }
+
+                Window.Current.CoreWindow.VisibilityChanged += OnWindowVisibilityChanged;
+                DebugLogService.Log("[ChatPage] Step 12: DONE");
             }
-
-            ScrollToBottom();
-            _oscar.IncomingMessage += OnIncomingMessage;
-
-            if (!string.IsNullOrEmpty(forwardText))
+            catch (Exception ex)
             {
-                MessageTextBox.Text = forwardText;
-                MessageTextBox.SelectionStart = forwardText.Length;
-                MessageTextBox.Focus(FocusState.Programmatic);
+                DebugLogService.Log("[ChatPage] CRASH: " + ex.GetType().Name + ": " + ex.Message);
+                DebugLogService.Log("[ChatPage] StackTrace: " + ex.StackTrace);
+                System.Diagnostics.Debug.WriteLine("[ChatPage] CRASH: " + ex);
             }
-            Window.Current.CoreWindow.VisibilityChanged += OnWindowVisibilityChanged;
         }
 
         private async void OnChatConnectionLost()
@@ -361,7 +376,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[ContactInfo] " + ex.Message);
+                DebugLogService.Log("[ContactInfo] " + ex.Message);
             }
 
             if (fullInfo != null)
@@ -470,7 +485,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[ClearChat] " + ex.Message);
+                DebugLogService.Log("[ClearChat] " + ex.Message);
             }
         }
 
@@ -604,7 +619,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[ChatPage] Send error: " + ex.Message);
+                DebugLogService.Log("[ChatPage] Send error: " + ex.Message);
                 await ShowErrorDialogAsync("Ошибка отправки: " + ex.Message);
             }
         }
@@ -886,7 +901,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[ChatPage] ApplyChatBackground error: " + ex.Message);
+                DebugLogService.Log("[ChatPage] ApplyChatBackground error: " + ex.Message);
             }
         }
 
@@ -917,7 +932,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[History] Save error: " + ex.Message);
+                DebugLogService.Log("[History] Save error: " + ex.Message);
             }
         }
 

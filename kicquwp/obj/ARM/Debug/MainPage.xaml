@@ -25,13 +25,14 @@
     </Page.Resources>
 
     <Page.BottomAppBar>
-        <CommandBar x:ConnectionId='2' IsSticky="True"                            Background="{ThemeResource SystemControlHighlightAccentBrush}">
-            <AppBarButton x:ConnectionId='3' Icon="Account" Label="Статус"                            Foreground="White"/>
-            <AppBarButton x:ConnectionId='4' Icon="AddFriend"    Label="Добавить"                            Foreground="White"/>
-            <AppBarButton x:ConnectionId='5' Icon="Cancel"     Label="Выйти"                            Foreground="White"/>
+        <CommandBar x:ConnectionId='1' IsSticky="True"                            Background="{ThemeResource SystemControlHighlightAccentBrush}">
+            <AppBarButton x:ConnectionId='2' Icon="Account" Label="Статус"                            Foreground="White"/>
+            <AppBarButton x:ConnectionId='3' Icon="AddFriend"    Label="Добавить"                            Foreground="White"/>
+            <AppBarButton x:ConnectionId='4' Icon="Cancel"     Label="Выйти"                            Foreground="White"/>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:ConnectionId='6' Icon="Setting" Label="Настройки"                             />
-                <AppBarButton x:ConnectionId='7' Icon="Contact"    Label="Профиль"                           Foreground="White"/>
+                <AppBarButton x:ConnectionId='5' Icon="Setting" Label="Настройки"                             />
+                <AppBarButton x:ConnectionId='6' Icon="Contact"    Label="Профиль"                           Foreground="White"/>
+                <AppBarButton x:ConnectionId='7' Icon="Help" Label="Справка"                         />
                 <AppBarButton x:ConnectionId='8' Icon="Cancel"  Label="Выход"                             />
             </CommandBar.SecondaryCommands>
         </CommandBar>
@@ -51,14 +52,14 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Image x:ConnectionId='25' x:Name="OwnStatusIcon"
+                <Image x:ConnectionId='24' x:Name="OwnStatusIcon"
                        Grid.Column="0"
                        Source="/Assets/statuses/online.png"
                        Width="26" Height="26"
                        Margin="6,0,10,0"
                        VerticalAlignment="Center"/>
 
-                <TextBlock x:ConnectionId='26' x:Name="UinTextBlock"
+                <TextBlock x:ConnectionId='25' x:Name="UinTextBlock"
                            Grid.Column="1"
                            FontSize="22"
                            FontWeight="SemiBold"
@@ -105,7 +106,7 @@
             </ListView.GroupStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid x:ConnectionId='24' MinHeight="68"
+                    <Grid x:ConnectionId='23' MinHeight="68"
                                    
       >
                         <Grid.Background>

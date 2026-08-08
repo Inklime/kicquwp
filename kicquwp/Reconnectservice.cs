@@ -64,7 +64,7 @@ namespace kicquwp
 
         private void OnConnectionLostEvent()
         {
-            Debug.WriteLine("[Reconnect] ConnectionLost event received");
+            DebugLogService.Log("[Reconnect] ConnectionLost event received");
             // MonitorLoopAsync сам обнаружит обрыв через исключение в ReceiveServerSnacsAsync
             // Ничего не делаем — цикл уже разбужен через отмену токена
         }
@@ -97,12 +97,12 @@ namespace kicquwp
             var level = profile.GetNetworkConnectivityLevel();
             if (level == Windows.Networking.Connectivity.NetworkConnectivityLevel.InternetAccess)
             {
-                Debug.WriteLine("[Reconnect] Network restored — forcing reconnect");
+                DebugLogService.Log("[Reconnect] Network restored — forcing reconnect");
 
                 // ЗАЩИТА ОТ ДВОЙНОГО ЗАПУСКА
                 if (_isReconnectingNow)
                 {
-                    Debug.WriteLine("[Reconnect] Reconnect already in progress, skipping...");
+                    DebugLogService.Log("[Reconnect] Reconnect already in progress, skipping...");
                     return;
                 }
                 _isReconnectingNow = true;
@@ -140,7 +140,7 @@ namespace kicquwp
 
         private async Task MonitorLoopAsync(CancellationToken token)
         {
-            Debug.WriteLine("[Reconnect] Monitor started");
+            DebugLogService.Log("[Reconnect] Monitor started");
 
             while (_running && !token.IsCancellationRequested)
             {
@@ -155,7 +155,7 @@ namespace kicquwp
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("[Reconnect] Disconnected: " + ex.Message);
+                    DebugLogService.Log("[Reconnect] Disconnected: " + ex.Message);
                 }
 
                 if (!_running || token.IsCancellationRequested) break;
@@ -165,7 +165,7 @@ namespace kicquwp
                     .GetInternetConnectionProfile();
                 if (profile == null)
                 {
-                    Debug.WriteLine("[Reconnect] No internet, waiting...");
+                    DebugLogService.Log("[Reconnect] No internet, waiting...");
                     await Task.Delay(5000, token);
                     continue;
                 }
@@ -186,7 +186,7 @@ namespace kicquwp
                 {
                     attempt++;
                     int delay = Math.Min(30000, attempt * 5000);
-                    Debug.WriteLine("[Reconnect] Retry in " + delay + "ms");
+                    DebugLogService.Log("[Reconnect] Retry in " + delay + "ms");
                     await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
                         // Показываем offline пока ждём
@@ -212,7 +212,7 @@ namespace kicquwp
                     break;
                 }
             }
-            Debug.WriteLine("[Reconnect] Monitor stopped");
+            DebugLogService.Log("[Reconnect] Monitor stopped");
         }
 
         public async Task ForceReconnectAsync()
@@ -263,25 +263,25 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Reconnect] Failed: " + ex.Message);
+                DebugLogService.Log("[Reconnect] Failed: " + ex.Message);
                 return false;
             }
         }
 
         private void OnOscarConnectionLost()
         {
-            Debug.WriteLine("[Reconnect] Oscar reported connection lost");
+            DebugLogService.Log("[Reconnect] Oscar reported connection lost");
             // MonitorLoopAsync сам запустит реконнект через исключение в ReceiveServerSnacsAsync
         }
 
         public void ForceReconnect()
         {
-            Debug.WriteLine("[Reconnect] ForceReconnect called");
+            DebugLogService.Log("[Reconnect] ForceReconnect called");
 
             // Проверяем соединение прежде чем дисконнектиться
             if (_oscar != null && _oscar.IsConnected)
             {
-                Debug.WriteLine("[Reconnect] Already connected, skipping");
+                DebugLogService.Log("[Reconnect] Already connected, skipping");
                 return;
             }
 

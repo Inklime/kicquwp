@@ -134,6 +134,13 @@
     <Compile Include="ContactInfo.cs" />
     <Compile Include="ContactStorage.cs" />
     <Compile Include="Controlchannelservice.cs" />
+    <Compile Include="DebugLogPage.xaml.cs">
+      <DependentUpon>DebugLogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DebugLogService.cs" />
+    <Compile Include="DebugMenuPage.xaml.cs">
+      <DependentUpon>DebugMenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EmojiManager.cs" />
     <Compile Include="FeatureItem.xaml.cs">
       <DependentUpon>FeatureItem.xaml</DependentUpon>
@@ -148,11 +155,13 @@
     <Compile Include="Notificationservice.cs" />
     <Compile Include="OscarProtocol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QipStatusCodes.cs" />
     <Compile Include="Reconnectservice.cs" />
     <Compile Include="SearchPage.xaml.cs" />
     <Compile Include="SettingsManager.cs" />
     <Compile Include="Settingspage.xaml.cs" />
     <Compile Include="SoundService.cs" />
+    <Compile Include="XStatusCodes.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -341,6 +350,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DebugLogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DebugMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FeatureItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -368,7 +385,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.2.8</Version>
+      <Version>6.2.14</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

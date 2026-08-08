@@ -1,2 +1,0 @@
-C:\Users\123\source\repos\kicquwp\Background.BackgroundTask\kicquwp.Background.csproj;x64
-C:\Users\123\source\repos\kicquwp\kicquwp\kicquwp.csproj;x64

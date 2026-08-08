@@ -145,7 +145,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[Search ERROR] " + ex.Message);
+                DebugLogService.Log("[Search ERROR] " + ex.Message);
                 StatusText.Text = "Ошибка поиска: " + ex.Message;
             }
             finally
@@ -178,11 +178,11 @@ namespace kicquwp
                 await _oscar.AddContactAsync(uin, displayName);
 
                 StatusText.Text = displayName + " добавлен в контакты";
-                Debug.WriteLine("[Search] Added contact: " + uin);
+                DebugLogService.Log("[Search] Added contact: " + uin);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[AddContact ERROR] " + ex.Message);
+                DebugLogService.Log("[AddContact ERROR] " + ex.Message);
                 StatusText.Text = "Ошибка добавления: " + ex.Message;
                 btn.IsEnabled = true;
                 btn.Content = "+";

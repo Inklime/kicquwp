@@ -63,7 +63,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[AccountInfo] Load error: " + ex.Message);
+                DebugLogService.Log("[AccountInfo] Load error: " + ex.Message);
                 SetStatus(false, "Ошибка загрузки");
             }
         }
@@ -93,7 +93,7 @@ namespace kicquwp
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("[AccountInfo] Save error: " + ex.Message);
+                DebugLogService.Log("[AccountInfo] Save error: " + ex.Message);
                 SetStatus(false, "Ошибка: " + ex.Message);
             }
             finally

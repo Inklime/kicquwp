@@ -1,0 +1,79 @@
+﻿<Page
+    x:Class="kicquwp.DebugMenuPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#FF0D1117">
+
+    <Page.Resources>
+        <Style x:Key="DebugNavButtonStyle" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Background" Value="#FF161B22"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="16,14,16,14"/>
+            <Setter Property="Margin" Value="0,0,0,1"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{ThemeResource SystemControlHighlightAccentBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="56"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Click="BackButton_Click"
+                        Background="Transparent" BorderThickness="0"
+                        Width="56" Height="56">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE72B;"
+                              Foreground="White" FontSize="20"/>
+                </Button>
+                <TextBlock Grid.Column="1" Text="Debug: Навигация"
+                           FontSize="18" Foreground="White"
+                           VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="0,8,0,20">
+
+                <TextBlock Text="СТРАНИЦЫ БЕЗ ПОДКЛЮЧЕНИЯ"
+                           FontSize="12" Foreground="#66FFFFFF"
+                           Margin="16,12,16,4"/>
+
+                <Button Content="LoginPage" Click="NavButton_Click" Tag="LoginPage"
+                        Style="{StaticResource DebugNavButtonStyle}"/>
+                <Button Content="InfoPage" Click="NavButton_Click" Tag="InfoPage"
+                        Style="{StaticResource DebugNavButtonStyle}"/>
+                <Button Content="DebugLogPage" Click="NavButton_Click" Tag="DebugLogPage"
+                        Style="{StaticResource DebugNavButtonStyle}"/>
+                <Button Content="SettingsPage" Click="NavButton_Click" Tag="SettingsPage"
+                        Style="{StaticResource DebugNavButtonStyle}"/>
+
+                <TextBlock Text="СТРАНИЦЫ С ФЕЙКОВЫМИ ДАННЫМИ"
+                           FontSize="12" Foreground="#66FFFFFF"
+                           Margin="16,20,16,4"/>
+
+                <Button Content="MainPage (fake contacts)" Click="NavButton_Click" Tag="MainPage"
+                        Style="{StaticResource DebugNavButtonStyle}"/>
+                <Button Content="ChatPage (fake contact)" Click="NavButton_Click" Tag="ChatPage"
+                        Style="{StaticResource DebugNavButtonStyle}"/>
+                <Button Content="AccountInfoPage (fake data)" Click="NavButton_Click" Tag="AccountInfoPage"
+                        Style="{StaticResource DebugNavButtonStyle}"/>
+                <Button Content="SearchPage" Click="NavButton_Click" Tag="SearchPage"
+                        Style="{StaticResource DebugNavButtonStyle}"/>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -53,7 +53,7 @@
                            FontFamily="Segoe WP"
                            Foreground="#AAFFFFFF"
                            Margin="0,0,0,4"/>
-                <TextBox x:ConnectionId='9' x:Name="LoginTextBox"
+                <TextBox x:ConnectionId='13' x:Name="LoginTextBox"
                          PlaceholderText="Введите UIN"
                          Background="White"
                          Foreground="Black"
@@ -71,7 +71,7 @@
                            FontFamily="Segoe WP"
                            Foreground="#AAFFFFFF"
                            Margin="0,0,0,4"/>
-                <PasswordBox x:ConnectionId='10' x:Name="PasswordBox"
+                <PasswordBox x:ConnectionId='14' x:Name="PasswordBox"
                              PlaceholderText="Введите пароль"
                              Background="White"
                              Foreground="Black"
@@ -88,7 +88,7 @@
                            FontFamily="Segoe WP"
                            Foreground="#AAFFFFFF"
                            Margin="0,0,0,4"/>
-                <ComboBox x:ConnectionId='11' x:Name="StatusComboBox"
+                <ComboBox x:ConnectionId='15' x:Name="StatusComboBox"
                           SelectedIndex="0"
                           Background="#FF1A1A2E"
                           Foreground="White"
@@ -123,7 +123,7 @@
                 Visibility="Collapsed">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <ProgressRing IsActive="True" Width="48" Height="48" Foreground="{ThemeResource SystemControlHighlightAccentBrush}"/>
-                <TextBlock x:ConnectionId='8' x:Name="StatusTextBlock"
+                <TextBlock x:ConnectionId='12' x:Name="StatusTextBlock"
                            Text="Подключение..."
                            Foreground="White"
                            FontSize="16"
@@ -132,6 +132,44 @@
                            Margin="0,14,0,0"/>
             </StackPanel>
         </Border>
+        <!-- Диалоговое окно регистрации -->
+        <ContentDialog x:ConnectionId='8' x:Name="RegisterDialog"
+                       Title="РЕГИСТРАЦИЯ НОВОГО UIN"
+                       PrimaryButtonText="Создать"
+                       SecondaryButtonText="Отмена"
+                                                                             
+                       Background="#FF1A1A2E"
+                       Foreground="White">
+            <StackPanel Margin="0,10,0,0" Width="300">
+                <TextBlock Text="Желаемый пароль" 
+                           FontSize="14" 
+                           Foreground="#AAFFFFFF" 
+                           Margin="0,0,0,4"/>
+                <PasswordBox x:ConnectionId='9' x:Name="RegPasswordBox" 
+                             PlaceholderText="Введите пароль"
+                             Background="White" 
+                             Foreground="Black"
+                             Margin="0,0,0,16"/>
+
+                <TextBlock Text="Повторите пароль" 
+                           FontSize="14" 
+                           Foreground="#AAFFFFFF" 
+                           Margin="0,0,0,4"/>
+                <PasswordBox x:ConnectionId='10' x:Name="RegPasswordConfirmBox" 
+                             PlaceholderText="Повторите пароль"
+                             Background="White" 
+                             Foreground="Black"
+                             Margin="0,0,0,10"/>
+
+                <!-- Текст ошибки совпадения паролей -->
+                <TextBlock x:ConnectionId='11' x:Name="RegErrorTextBlock" 
+                           Text="Пароли не совпадают!" 
+                           Foreground="#FFFF4545" 
+                           FontSize="14" 
+                           Visibility="Collapsed" 
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+        </ContentDialog>
     </Grid>
 </Page>
 
